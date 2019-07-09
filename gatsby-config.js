@@ -53,8 +53,9 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-trailing-slashes`,
-    // `gatsby-plugin-preact`,
+    `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-catch-links`
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-react-svg`
   ]
 };

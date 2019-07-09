@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import className from "classnames";
-import { isExternal, isFile, isDefined } from "utility";
+import classNames from "classnames";
+import { isExternal, isFile, isNil, isDefined, isEmptyOrNil } from "utility";
 import { Link as RouterLink, graphql } from "gatsby";
+import Icon from "components/Icon";
 
 // Link that automatically resolves to either a standard HTML <a> tag or a
 // @reach/router Link component for external/internal links
 function Link({ href, disabled, newTab, icon, text, download, ...props }) {
-  const className = props.className || props.class || "";
+  const className = classNames(props.className, props.class);
   const external = isExternal(href);
   const onClick = props.onClick || resolveAction(props.action);
   const useAnchor = external || isFile(href) || isDefined(onClick) || newTab;
@@ -15,11 +16,9 @@ function Link({ href, disabled, newTab, icon, text, download, ...props }) {
 
   const derivedProps = {
     // determine children prop
-    ...(customChildren ? (
-      { children: props.children }
-    ) : (
-      <LinkContent text={text} icon={icon} />
-    )),
+    ...(customChildren
+      ? { children: props.children }
+      : { children: <LinkContent text={text} icon={icon} /> }),
     // anchor props
     ...(useAnchor
       ? {
@@ -104,3 +103,16 @@ export const fragment = graphql`
     download
   }
 `;
+
+// ? ================
+// ? Helper component
+// ? ================
+
+function LinkContent({ text, icon }) {
+  return (
+    <>
+      {isEmptyOrNil(text) ? null : <span>{text}</span>}
+      {isEmptyOrNil(icon) ? null : <Icon name={icon} />}
+    </>
+  );
+}

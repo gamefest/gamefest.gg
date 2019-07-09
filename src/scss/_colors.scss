@@ -12,16 +12,15 @@ $gray-900: #212529 !default;
 $black: #000 !default;
 
 // Theme colors
-// TODO change
-$porcelain: #f6f8f9 !default;
-$linh-blue: #6496c4 !default;
-$olivine: #cba15b !default;
-$tundora: #453e3e !default;
-$mine-shaft: #222020 !default;
-$neptune: #73a3ba !default;
-$equator: #e3c75b !default;
-$aqua-forest: #5da161 !default;
-$burnt-sienna: #e6584d !default;
+$desert-storm: #eeeeee !default;
+$battleship-gray: #8ca375 !default;
+$gamefest-green: #699433 !default;
+$cannon-pink: #7c467a !default;
+$bastille: #222222 !default;
+$apple: #55a747 !default;
+$chambray: #39528e !default;
+$pizza: #d2970f !default;
+$pomegranate: #f44336 !default;
 
 // Default bootstrap colors
 $blue: #03a9f4 !default;
@@ -37,15 +36,15 @@ $cyan: #00bcd4 !default;
 
 // Custom color scheme
 $theme-colors: (
-    primary: $linh-blue,
-    secondary: $olivine,
-    tertiary: $tundora,
-    success: $aqua-forest,
-    info: $neptune,
-    warning: $equator,
-    danger: $burnt-sienna,
-    light: $porcelain,
-    dark: $mine-shaft
+    primary: $gamefest-green,
+    secondary: $cannon-pink,
+    tertiary: $battleship-gray,
+    success: $apple,
+    info: $chambray,
+    warning: $pizza,
+    danger: $pomegranate,
+    light: $desert-storm,
+    dark: $bastille
 ) !default;
 
 // Color aliases:

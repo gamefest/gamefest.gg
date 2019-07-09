@@ -40,6 +40,12 @@ hr {
     border-top: 1px solid rgba($-dark, 0.25);
 }
 
+html,
+body {
+    background-color: $-dark;
+    color: $-light;
+}
+
 button,
 [type="button"],
 [type="reset"],

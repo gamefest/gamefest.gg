@@ -1,44 +1,84 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { useStaticQuery, graphql } from "gatsby";
+import { isEmptyOrNil, useScrollThreshold } from "utility";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import Link from "components/Link";
+import LogoSvg from "assets/logoText_dark.svg";
+import "./style.scss";
 
-function Header() {
+function Header({ transparentTop }) {
+  const { links } = useStaticQuery(graphql`
+    query HeaderContent {
+      file(
+        extension: { regex: "/md/" }
+        sourceInstanceName: { eq: "data" }
+        name: { eq: "nav" }
+      ) {
+        childMarkdownRemark {
+          frontmatter {
+            links {
+              ...Links
+            }
+          }
+        }
+      }
+    }
+  `).file.childMarkdownRemark.frontmatter;
+
+  // Split links into main and social links
+  const firstIconLink = links.findIndex(l => isEmptyOrNil(l.text));
+  const mainLinks = links.slice(0, firstIconLink);
+  const iconLinks = links.slice(firstIconLink);
+  const isTop = useScrollThreshold(50);
+
   return (
-    <header
-      style={{
-        background: `rebeccapurple`,
-        marginBottom: `1.45rem`
-      }}
+    <Navbar
+      bg="primary"
+      sticky="top"
+      expand="lg"
+      variant="dark"
+      className={classNames("navbar-primary", {
+        "navbar-primary__top": transparentTop && isTop
+      })}
     >
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`
-        }}
-      >
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`
-            }}
-          >
-            gamefest
-          </Link>
-        </h1>
-      </div>
-    </header>
+      <Container>
+        <Navbar.Brand href="/">
+          <LogoSvg />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="primary-nav" />
+        <Navbar.Collapse id="primary-nav">
+          <div className="collapse-inner">
+            <LinkBar className="mr-auto main-nav" links={mainLinks} />
+            <LinkBar className="flex-row icon-nav" links={iconLinks} />
+          </div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
 export default Header;
 
 Header.propTypes = {
-  siteTitle: PropTypes.string
+  transparentTop: PropTypes.bool
 };
 
 Header.defaultProps = {
-  siteTitle: ``
+  transparentTop: false
 };
+
+// ? ================
+// ? Helper component
+// ? ================
+
+function LinkBar({ links, ...rest }) {
+  return (
+    <Nav {...rest}>
+      {links.map(link => (
+        <Nav.Item key={link.href} children={<Link {...link} />} />
+      ))}
+    </Nav>
+  );
+}

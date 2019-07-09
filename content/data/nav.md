@@ -10,8 +10,9 @@ links:
   href: '/directions'
 - text: Register
   href: '/register'
-  class: 'nav-link-outline'
+  class: 'nav-link-outline ml-2'
   disabled: true
+
 - icon: smashgg
   href: 'https://smash.gg/tournament/gamefest-2018/details'
   disabled: true

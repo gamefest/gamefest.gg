@@ -1,0 +1,150 @@
+@import "../../scss/colors";
+@import "../../scss/media";
+
+.navbar-primary {
+    transition-timing-function: ease;
+    transition-duration: 0.4s;
+    transition-property: background-color, padding;
+    padding: {
+        top: 0.65rem !important;
+        bottom: 0.65rem !important;
+    }
+
+    .navbar-brand {
+        margin-left: 0.5rem;
+
+        &:hover {
+            opacity: 0.8;
+        }
+        &:active {
+            opacity: 0.6;
+        }
+    }
+
+    svg {
+        vertical-align: baseline;
+        width: 140px;
+    }
+
+    .nav-item {
+        margin-right: 0.15rem;
+        a {
+            padding: 0.45rem 0.85rem 0.6rem;
+            color: $-light;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: rgba($-light, 0.1);
+            }
+            &:active {
+                background-color: rgba($-light, 0.2);
+            }
+            &.active-link {
+                font-weight: 500;
+            }
+        }
+
+        @include respond-below(md) {
+            margin-top: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+    }
+
+    .collapse-inner {
+        display: flex !important;
+        flex-basis: auto;
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        transition-timing-function: ease;
+        transition-duration: 0.4s;
+        transition-property: background-color;
+    }
+
+    @include respond-below(md) {
+        $padding: 1rem;
+
+        .navbar-collapse {
+            margin-left: -$padding;
+            margin-right: -$padding;
+        }
+
+        .collapse-inner {
+            background-color: color-adjust($-primary, -15%);
+            margin-top: 0.5rem;
+            padding: {
+                top: 0.25rem;
+                bottom: 0.25rem;
+                left: 0.75rem;
+                right: 0.75rem;
+            }
+
+            box-shadow: inset 0 7px 16px -7px rgba(0, 0, 0, 0.2),
+                inset 0 -7px 16px -7px rgba(0, 0, 0, 0.2);
+
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .container {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            max-width: none !important;
+        }
+
+        padding-left: $padding !important;
+        padding-right: $padding !important;
+    }
+
+    .main-nav {
+        @include respond-below(md) {
+            margin-bottom: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        @include respond-above(md) {
+            margin-left: 1.25rem;
+        }
+    }
+
+    .icon-nav {
+        font-size: 1.5rem;
+        @include respond-below(md) {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-item {
+            a {
+                padding: 0.5rem;
+            }
+        }
+    }
+
+    $this: &;
+    &#{$this}__top {
+        background-color: transparent !important;
+
+        @include respond-above(md) {
+            padding: {
+                top: 1rem !important;
+                bottom: 1rem !important;
+            }
+        }
+
+        @include respond-below(md) {
+            .collapse-inner {
+                background-color: rgba($-light, 0.1);
+            }
+        }
+    }
+
+    .nav-link-outline {
+        border: 2px solid $-light;
+
+        @include respond-below(md) {
+            margin-top: 0.1rem;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+    }
+}
