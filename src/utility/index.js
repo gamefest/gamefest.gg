@@ -1,2 +1,2 @@
-export * from "./misc.js";
+export * from "./string.js";
 export * from "./object.js";

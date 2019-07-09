@@ -5,3 +5,11 @@ export function invertMap(map, f = identity) {
     return acc;
   }, {});
 }
+
+export function isNil(object) {
+  return object == null;
+}
+
+export function isDefined(object) {
+  return !isNil(object);
+}
