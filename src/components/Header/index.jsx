@@ -25,7 +25,7 @@ function Header() {
               textDecoration: `none`
             }}
           >
-            {siteTitle}
+            gamefest
           </Link>
         </h1>
       </div>
