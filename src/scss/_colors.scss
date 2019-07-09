@@ -1,0 +1,88 @@
+// B/W color ramp
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// Theme colors
+// TODO change
+$porcelain: #f6f8f9 !default;
+$linh-blue: #6496c4 !default;
+$olivine: #cba15b !default;
+$tundora: #453e3e !default;
+$mine-shaft: #222020 !default;
+$neptune: #73a3ba !default;
+$equator: #e3c75b !default;
+$aqua-forest: #5da161 !default;
+$burnt-sienna: #e6584d !default;
+
+// Default bootstrap colors
+$blue: #03a9f4 !default;
+$indigo: #3f51b5 !default;
+$purple: #673ab7 !default;
+$pink: #e91e63 !default;
+$red: #f44336 !default;
+$orange: #ff5722 !default;
+$yellow: #ffab00 !default;
+$green: #8bc34a !default;
+$teal: #009688 !default;
+$cyan: #00bcd4 !default;
+
+// Custom color scheme
+$theme-colors: (
+    primary: $linh-blue,
+    secondary: $olivine,
+    tertiary: $tundora,
+    success: $aqua-forest,
+    info: $neptune,
+    warning: $equator,
+    danger: $burnt-sienna,
+    light: $porcelain,
+    dark: $mine-shaft
+) !default;
+
+// Color aliases:
+$-primary: map-get($theme-colors, primary);
+$-secondary: map-get($theme-colors, secondary);
+$-tertiary: map-get($theme-colors, tertiary);
+$-success: map-get($theme-colors, success);
+$-info: map-get($theme-colors, info);
+$-warning: map-get($theme-colors, warning);
+$-danger: map-get($theme-colors, danger);
+$-light: map-get($theme-colors, light);
+$-dark: map-get($theme-colors, dark);
+
+@function color-adjust($color, $adjust: 0%) {
+    @if $adjust == 0% {
+        @return $color;
+    } @else {
+        @return scale-color($color, $lightness: $adjust);
+    }
+}
+
+@function blend($color1, $color2, $mu: 0.5) {
+    $c1R: red($color1);
+    $c1G: green($color1);
+    $c1B: blue($color1);
+    $c1A: alpha($color1);
+
+    $c2R: red($color2);
+    $c2G: green($color2);
+    $c2B: blue($color2);
+    $c2A: alpha($color2);
+
+    $muMinus: (1 - $mu);
+    $r: ($c1R * $muMinus) + ($c2R * $mu);
+    $g: ($c1G * $muMinus) + ($c2G * $mu);
+    $b: ($c1B * $muMinus) + ($c2B * $mu);
+    $a: ($c1A * $muMinus) + ($c2A * $mu);
+
+    @return rgba($r, $g, $b, $a);
+}
