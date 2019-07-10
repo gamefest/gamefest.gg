@@ -44,7 +44,7 @@ function Header({ transparentTop }) {
       })}
     >
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/" aria-label="Gamefest">
           <LogoSvg />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="primary-nav" />

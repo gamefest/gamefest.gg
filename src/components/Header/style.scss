@@ -12,6 +12,7 @@
 
     .navbar-brand {
         margin-left: 0.5rem;
+        transition: 0.25s opacity ease;
 
         &:hover {
             opacity: 0.8;
@@ -32,6 +33,7 @@
             padding: 0.45rem 0.85rem 0.6rem;
             color: $-light;
             border-radius: 4px;
+            transition: 0.25s background-color ease;
 
             &:hover {
                 background-color: rgba($-light, 0.1);
@@ -39,8 +41,12 @@
             &:active {
                 background-color: rgba($-light, 0.2);
             }
-            &.active-link {
-                font-weight: 500;
+
+            &.disabled {
+                pointer-events: none;
+                cursor: initial;
+                opacity: 0.6;
+                color: $-light;
             }
         }
 
@@ -103,6 +109,15 @@
         }
         @include respond-above(md) {
             margin-left: 1.25rem;
+        }
+
+        a {
+            &.active-link {
+                font-weight: 500;
+            }
+            &:not(.active-link) {
+                color: rgba($-light, 0.9);
+            }
         }
     }
 

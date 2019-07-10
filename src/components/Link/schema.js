@@ -8,5 +8,6 @@ module.exports = `
     newTab: Boolean
     disabled: Boolean
     download: Boolean
+    ariaLabel: String
   }
 `;

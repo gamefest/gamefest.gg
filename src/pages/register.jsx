@@ -4,15 +4,15 @@ import Layout from "components/Layout";
 import SEO from "components/SEO";
 import { Container } from "react-bootstrap";
 
-function NotFoundPage() {
+function RegisterPage() {
   return (
     <Layout>
-      <SEO title="Not Found" />
+      <SEO title="Register" />
       <Container>
-        <h1>Page Not Found 😕</h1>
+        <h1>Register</h1>
       </Container>
     </Layout>
   );
 }
 
-export default NotFoundPage;
+export default RegisterPage;

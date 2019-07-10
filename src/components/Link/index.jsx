@@ -27,7 +27,9 @@ function Link({ href, disabled, newTab, icon, text, download, ...props }) {
         }
       : {}),
     // merge class names
-    className: classNames(className, { disabled })
+    className: classNames(className, { disabled }),
+    // add in other props
+    "aria-label": props.ariaLabel
   };
 
   const targetNewTab = newTab === true || (external && newTab !== false);
@@ -66,6 +68,7 @@ Link.propTypes = {
   newTab: PropTypes.bool,
   disabled: PropTypes.bool,
   download: PropTypes.bool,
+  ariaLabel: PropTypes.string,
   // Additional props
   className: PropTypes.string,
   onClick: PropTypes.func,
@@ -101,6 +104,7 @@ export const fragment = graphql`
     newTab
     disabled
     download
+    ariaLabel
   }
 `;
 

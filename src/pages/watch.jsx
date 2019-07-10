@@ -4,15 +4,15 @@ import Layout from "components/Layout";
 import SEO from "components/SEO";
 import { Container } from "react-bootstrap";
 
-function NotFoundPage() {
+function WatchPage() {
   return (
     <Layout>
-      <SEO title="Not Found" />
+      <SEO title="Watch" />
       <Container>
-        <h1>Page Not Found 😕</h1>
+        <h1>Watch</h1>
       </Container>
     </Layout>
   );
 }
 
-export default NotFoundPage;
+export default WatchPage;
