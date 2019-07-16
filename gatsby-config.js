@@ -19,6 +19,20 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/pages/`,
+        name: "pages"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/games/`,
+        name: "games"
+      }
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
@@ -48,6 +62,17 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {}
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-smartypants",
+            options: {}
+          }
+        ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-offline`,
@@ -56,6 +81,7 @@ module.exports = {
     `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-react-svg`
+    `gatsby-plugin-react-svg`,
+    `gatsby-transformer-yaml`
   ]
 };

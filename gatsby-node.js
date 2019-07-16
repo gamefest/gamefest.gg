@@ -8,11 +8,9 @@ exports.sourceNodes = ({ actions, reporter }) => {
 
   const { createTypes } = actions;
   const typeDefs = `
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-    }
-    type Frontmatter {
-      links: [Link]
+    type DataYaml implements Node {
+      leftLinks: [Link]
+      rightLinks: [Link]
     }
   `;
   createTypes(linkSchema);

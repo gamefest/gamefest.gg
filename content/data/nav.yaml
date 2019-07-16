@@ -1,5 +1,4 @@
----
-links:
+leftLinks:
 - text: Games
   href: '/games'
 - text: Schedule
@@ -12,7 +11,7 @@ links:
   href: '/register'
   class: 'nav-link-outline ml-2'
   disabled: true
-
+rightLinks:
 - icon: smashgg
   href: 'https://smash.gg/tournament/gamefest-2018/details'
   disabled: true
@@ -30,6 +29,3 @@ links:
 - icon: twitch
   href: '/watch'
   ariaLabel: Watch
----
-
-# Content ignored

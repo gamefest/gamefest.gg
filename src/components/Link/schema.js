@@ -1,4 +1,5 @@
 module.exports = `
+  # Internal or external Link element data
   type Link @dontInfer {
     href: String
     text: String
