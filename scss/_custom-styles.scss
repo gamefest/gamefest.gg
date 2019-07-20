@@ -1,0 +1,7 @@
+.custom-file-input.is-invalid ~ .custom-file-label, .custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-file-input:invalid ~ .custom-file-label, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
+	border-color: $error-color;
+}
+
+.invalid-tooltip {
+	background-color: rgba($error-color, .75);
+}

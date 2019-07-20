@@ -1,0 +1,405 @@
+@charset "utf-8";
+
+
+/* Fixes divs from snapping back once the animations have loaded */
+.wow {
+	visibility: hidden;
+}
+
+
+/* Slightly accelerated CSS animation */
+.fast-anim {
+	-webkit-animation-duration: 0.8s;
+	-moz-animation-duration: 0.8s;
+	-o-animation-duration: 0.8s;
+	animation-duration: 0.8s;
+}
+
+
+/* Fix for erroneously persistent validation popups on forms */
+.custom-select.is-invalid:focus,
+.form-control.is-invalid:focus,
+.was-validated .custom-select:invalid:focus,
+.was-validated .form-control:invalid:focus,
+.custom-select.is-valid:focus,
+.form-control.is-valid:focus,
+.was-validated .custom-select:valid:focus,
+.was-validated .form-control:valid:focus {
+	-webkit-box-shadow: 0 0 0 0 #000;
+	box-shadow: 0 0 0 0 #000;
+}
+.was-validated .form-control:valid ~ .invalid-feedback,
+.was-validated .form-control:valid ~ .invalid-tooltip,
+.form-control.is-valid ~ .invalid-feedback,
+.form-control.is-valid ~ .invalid-tooltip,
+.was-validated .custom-select:valid ~ .invalid-feedback,
+.was-validated .custom-select:valid ~ .invalid-tooltip,
+.custom-select.is-valid ~ .invalid-feedback,
+.custom-select.is-valid ~ .invalid-tooltip {
+	display: none;
+}
+
+
+/* Frosted translucent glass on browsers that support it */
+.glass {
+	background-color: rgba(205, 205, 205, 0.2);
+	border-radius: 10px;
+}
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+	.glass {
+		background-color: rgba(205, 205, 205, 0.15);
+		backdrop-filter: blur(8px);
+		--webkit-backdrop-filter: blur(8px);
+	}
+}
+
+
+/* Center-aligns modals on desktop */
+.modal {
+	text-align: center;
+}
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	}
+}
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+
+/* Validation tooltip style as a popup */
+.invalid-tooltip {
+	margin-left: 39px;
+	margin-top: -1px;
+	padding-top: 10px;
+	min-width: 256px;
+}
+@media (max-width: 576px) {
+	.invalid-tooltip {
+		min-width: 128px;
+	}
+}
+
+
+/* Modal dialogs */
+.modal-header-text {
+	font-weight: 400;
+}
+.modal-body {
+	margin-bottom: -12px;
+}
+.modal-footer {
+	padding: 1rem 1rem 1.25rem 1rem;
+}
+
+
+/* Utility shadow */
+.strong-shadow {
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Special background */
+.hex-background-green {
+    background-size: 80px, cover;
+    background-image:  url("../svg/hex_tile.svg"), linear-gradient(to right, #7bae3d , #61882f);
+    background-repeat: repeat, repeat;
+	-moz-box-shadow:    inset 0 0 20px #00000040;
+	-webkit-box-shadow: inset 0 0 20px #00000040;
+	box-shadow:         inset 0 0 20px #00000040;
+}
+.hex-background-gray {
+    background-size: 40px, cover;
+    background-image:  url("../svg/hex_tile_light.svg"), linear-gradient(to right, #343434 , #2B2B2B);
+    background-repeat: repeat, repeat;
+	-moz-box-shadow:    inset 0 0 32px #00000066;
+	-webkit-box-shadow: inset 0 0 32px #00000066;
+	box-shadow:         inset 0 0 32px #00000066;
+}
+.impact-section-background {
+    padding: 64px 0;
+}
+
+/* Header tweaks */
+.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
+    font-family: 'Titillium Web', 'Roboto', monospace, sans-serif !important;
+    font-weight: 500 !important;
+}
+.h2, h2 {
+    font-size: 40px !important;
+}
+.h3, h3 {
+	font-size: 30px !important;
+}
+
+
+/* Animatable visibility utility class */
+.hidden {
+	opacity: 0!important;
+}
+
+
+/* Additional responsive size to aid in small mobile design */
+@media (min-width:375px) {
+	.d-xs-block {
+		display:block!important
+	}
+}
+
+/* Adjusts tooltip opacity */
+.tooltip.show {
+	opacity: 0.5;
+}
+
+/* Light gray helper class */
+.light-emph {
+	color: #EEE !important;
+}
+
+
+/* Navbar */
+.top-nav-collapse {
+	background-color: #699433 !important;
+}
+.navbar:not(.top-nav-collapse) {
+	background: transparent !important;
+}
+@media (max-width: 992px) {
+	.navbar:not(.top-nav-collapse) {
+		background: #699433	 !important;
+	}
+}
+.nav-brand {
+	padding: 8px 8px!important;
+	margin: 4px 4px!important;
+}
+.nav-link {
+    padding: 8px 20px !important;
+	margin: 6px 4px 4px 4px !important;
+    color: white;
+}
+@media (max-width: 1220px) {
+    .nav-link {
+        padding: 8px 12px !important;
+		margin: 6px 2px 4px 2px !important;
+    }
+}
+@media (max-width: 992px) {
+    .nav-link {
+        padding: 2px 10px !important;
+		margin: 2px 2px !important;
+    }
+}
+.nav-item.active {
+    background-color: #EEE2;
+	color: white !important;
+}
+.nav-link:hover {
+    background-color: #EEE2;
+	color: white !important;
+}
+.nav-link-outline {
+	border: 2px solid white !important;
+	color: white !important;
+	font-weight: 400 !important;
+}
+.social-icon {
+    color: white;
+}
+
+/* Custom navbar collapse logic */
+.navbar-collapse-region {
+	background-color: #5c812c!important;
+	top: 22px;
+	z-index: 1;
+}
+@media (min-width: 992px) {
+    .navbar-collapse-region {
+        visibility: collapse;
+    }
+}
+.navbar-collapse-region.top-nav-collapse {
+	top: 22px;
+}
+.navbar-collapse-region.top-nav-collapse .navbar-bottom {
+    padding-top: 20px;
+}
+.navbar-bottom {
+	padding-top: 32px;
+	padding-bottom: 16px;
+    transition: height .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: height .5s ease-in-out, padding .5s ease-in-out;
+    -ms-transition: height .5s ease-in-out, padding .5s ease-in-out;
+    -o-transition: height .5s ease-in-out, padding .5s ease-in-out;
+    -webkit-transition: height .5s ease-in-out, padding .5s ease-in-out;
+}
+.navbar-toggler-icon {
+    color: white;
+    z-index: 1000000;
+    visibility: visible;
+    margin: 5px 8px 0 0;
+}
+
+/* Custom large font awesome icon size */
+.fa-xl {
+	font-size: 3em;
+	line-height: 1em;
+	vertical-align: -.2em;
+}
+
+/* Email link in the footer */
+.footer-link {
+	font-weight: 400;
+	color: white;
+}
+.footer-link:hover {
+	color: gainsboro;
+}
+
+.light-text {
+	color: #EEE!important;
+}
+
+.light-hrs hr {
+	border-color: #555;
+	background-color: #555;
+}
+
+.hanger-outer {
+	position: relative;
+}
+.hanger {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 80%;
+}
+.hanger img {
+	opacity: 0.07;
+	height: 600px;
+}
+@media(max-width: 1200px) {
+	.hanger img {
+		height: 400px;
+	}
+}
+@media(max-width: 576px) {
+	.hanger img {
+		height: 300px;
+	}
+}
+@media(max-width: 380px) {
+	.hanger img {
+		height: 200px;
+	}
+}
+
+.link-color {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 4px;
+	overflow: hidden;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 1px;
+	cursor: pointer!important;
+}
+
+.link-color:after {
+	content: '';
+	width: 200%;
+	height: 2px;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(90deg, #4e6e26 0%, #7CAF3C 50%);
+	transition: transform .4s ease-in-out;
+}
+
+.light-container {
+	border-radius: .25rem!important;
+	background-color: #333;
+	padding: 16px 16px 16px 16px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.dark-list-group .list-group-item {
+	background-color: transparent!important;
+	border-color:#666;
+}
+
+.anchor-fix a:not(.no-fix):before {
+    display: block;
+    content: " ";
+    margin-top: -90px;
+    height: 90px;
+    visibility: hidden;
+    cursor: default;
+}
+.anchor-fix a:not(.no-fix) {
+    cursor: default;
+}
+
+/* Wrapper for spinner */
+.spinner-wrapper {
+	padding: 1.4% 0 1.3% 0;
+	margin: 0 16px 0 16px;
+	transition:opacity 0.4s;
+	opacity: 1;
+}
+@media(max-width: 374px) {
+	.spinner-wrapper {
+		margin: 0 12px 0 0;
+	}
+}
+
+ul.next-level {
+	margin: 4px 0;
+}
+
+.alert-row-fix {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.alert-dark {
+	background-color: #2c2c2c;
+	border: 1px #3a3a3a solid;
+	color: #dddddd!important;
+}
+.alert-dark strong, .alert-dark p, .alert-dark button, .alert-dark a {
+	color: #dddddd!important;
+}
+
+code {
+	color: #7CAF3C;
+	word-break: break-word;
+}
+
+.btn-outline-heavy {
+	border-width: 4px;
+	color: #FFFFFF!important;
+	font-weight: 600;
+	font-size: 20px!important;
+	letter-spacing: 1px;
+}
+
+.btn-outline-secondary {
+	border-color: #6f48b6!important;
+	background-color: #6f48b633!important;
+	transition:opacity 0.4s!important;
+}
+
+.btn-outline-heavy.btn-outline-secondary:hover {
+	background-color: #6f48b6!important;
+	color: #FFFFFF!important;
+	border-color: #6f48b6!important;
+}

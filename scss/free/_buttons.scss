@@ -1,0 +1,305 @@
+// Buttons
+.btn {
+	box-shadow: $z-depth-1;
+	@include button-size($btn-padding-y-basic, $btn-padding-x-basic, $btn-font-size-basic);
+	transition: $btn-transition;
+	margin: $btn-margin-basic;
+	border: 0;
+	border-radius: $border-radius-base;
+	cursor: pointer;
+	text-transform: uppercase;
+	white-space: normal;
+	word-wrap: break-word;
+	color: $btn-color-basic;
+	&:hover,
+	&:active,
+	&:focus {
+		box-shadow: $z-depth-1-half;
+		outline: 0;
+	}
+	&:not([disabled]):not(.disabled):active,
+	&:not([disabled]):not(.disabled).active {
+		box-shadow: $z-depth-1-half;
+	}
+	.fa {
+		position: relative;
+		font-size: $btn-icon-basic;
+		&.right {
+			margin-left: $btn-icon-margin;
+		}
+		&.left {
+			margin-right: $btn-icon-margin;
+		}
+	}
+	&.btn-lg {
+		@include button-size($btn-padding-y-large, $btn-padding-x-large, $btn-font-size-large);
+		.fa {
+			font-size: $btn-icon-large;
+		}
+	}
+	&.btn-md {
+		@include button-size($btn-padding-y-medium, $btn-padding-x-medium, $btn-font-size-medium);
+		.fa {
+			font-size: $btn-icon-medium;
+		}
+	}
+	&.btn-sm {
+		@include button-size($btn-padding-y-small, $btn-padding-x-small, $btn-font-size-small);
+		.fa {
+			font-size: $btn-icon-small;
+		}
+	}
+	&.btn-tb {
+		padding: $btn-tb-padding-y $btn-tb-padding-x;
+	}
+	&.disabled,
+	&:disabled {
+		&:active,
+		&:focus,
+		&:hover {
+			box-shadow: $z-depth-1;
+		}
+	}
+	&.btn-rounded {
+		border-radius: 10em;
+	}
+	&.btn-block {
+		margin: inherit;
+	}
+	&.btn-link {
+		@extend .black-text;
+		box-shadow: none;
+		background-color: transparent;
+		&:active,
+		&:focus,
+		&:hover {
+			box-shadow: none !important;
+			background-color: transparent;
+		}
+	}
+	&[class*="btn-outline-"] {
+		padding-top: $btn-outline-padding-y-basic;
+		padding-bottom: $btn-outline-padding-y-basic;
+		&.btn-lg {
+			padding-top: $btn-outline-padding-y-large;
+			padding-bottom: $btn-outline-padding-y-large;
+		}
+		&.btn-md {
+			padding-top: $btn-outline-padding-y-medium;
+			padding-bottom: $btn-outline-padding-y-medium;
+		}
+		&.btn-sm {
+			padding-top: $btn-outline-padding-y-small;
+			padding-bottom: $btn-outline-padding-y-small;
+		}
+	}
+}
+
+$floating-size: 47px;
+.btn-floating {
+	position: relative;
+	z-index: 1;
+	vertical-align: middle;
+	display: inline-block;
+	overflow: hidden;
+	width: $floating-size;
+	height: $floating-size;
+	padding: 0;
+	border-radius: 50%;
+	margin: 10px;
+	background-color: $secondary-color;
+	color: $white;
+	cursor: pointer;
+	-webkit-transition: .3s;
+	transition: .3s;
+	box-shadow: $z-depth-1 !important;
+	&:before {
+		border-radius: 0
+	}
+	&:hover {
+		box-shadow: $z-depth-1-half !important;
+	}
+	& i {
+		display: inline-block;
+		width: inherit;
+		color: $white;
+		font-size: 1.4rem;
+		line-height: $floating-size;
+		text-align: center
+	}
+}
+
+$btn-hex-width: 140px;
+$btn-hex-height: 44px;
+
+.btn-hex {
+	position: relative;
+	display:block;
+	@include button-size($btn-padding-y-basic + 0.1rem, $btn-padding-x-basic, $btn-font-size-basic);
+	margin: $btn-margin-basic;
+	border: 0;
+	cursor: pointer;
+	text-decoration:none;
+	text-align:center;
+	text-transform: uppercase;
+	white-space: normal;
+	word-wrap: break-word;
+	width: $btn-hex-width;
+	height: $btn-hex-height;
+	outline-color: transparent!important;
+	transition: $btn-transition;
+	-webkit-transition: $btn-transition;
+}
+
+.btn-floating-hex {
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	transition: $btn-transition;
+	-webkit-transition: $btn-transition;
+	border: 0;
+	padding: 0 0 0 0;
+	margin: 4px 24px 4px 24px;
+	cursor: pointer;
+	text-decoration:none;
+	text-align:center;
+	text-transform: uppercase;
+	white-space: normal;
+	word-wrap: break-word;
+	width: $btn-hex-height;
+	height: $btn-hex-height;
+	outline-color: transparent!important;
+	& i {
+		margin: 2px 0 0 -4.5px;
+		display: inline-block;
+		width: inherit;
+		color: $white;
+		font-size: 1.4rem;
+		line-height: $floating-size;
+		text-align: center
+	}
+}
+
+@mixin hex-button-side($width, $height, $color, $side) {
+	width: $width;
+	left: 0;
+	height: $height / 2;
+	z-index: -3 + $side;
+	background-color: $color;
+	transition: $btn-transition;
+	-webkit-transition: $btn-transition;
+
+	position: absolute;
+	content: '';
+	border-bottom: none;
+	-webkit-transform: perspective(($width / 40) * 3) rotateX(5deg * $side) scaleY($height / $btn-hex-height);
+	-moz-transform: perspective(($width / 40) * 3) rotateX(5deg * $side) scaleY($height / $btn-hex-height);
+	transform: perspective(($width / 40) * 3) rotateX(5deg * $side) scaleY($height / $btn-hex-height);
+}
+
+@mixin hex-button-side-hover($color) {
+	background-color: lighten($color, 5%) !important;
+}
+@mixin hex-button-side-active($color) {
+	background-color: darken($color, 5%) !important;
+}
+
+// Makes hex button
+@mixin make-hex-button($name, $color, $width, $height, $float) {
+	.btn-#{$name} {
+		background-color: transparent;
+		border-style: none;
+		color: set-notification-text-color($color) !important;
+		transition:opacity 0.5s;
+		&:disabled {
+			opacity: 0.6!important;
+		}
+		&:before {
+			top: 0;
+			@include hex-button-side($width, $height, $color, 1);
+		}
+		&:after {
+			top: $float;
+			@include hex-button-side($width, $height, $color, -1);
+			box-shadow: $z-depth-1;
+		}
+		&:hover:before {
+			@include hex-button-side-hover($color);
+		}
+		&:hover:after {
+			@include hex-button-side-hover($color);
+		}
+		&:active:before {
+			@include hex-button-side-active($color);
+		}
+		&:active:after {
+			@include hex-button-side-active($color);
+		}
+		&:hover:after,
+		&:focus:after {
+			box-shadow: $z-depth-1-half;
+		}
+		&:active:after {
+			box-shadow: $z-depth-2;
+		}
+	}
+}
+
+@mixin make-hex-button-ms-fix($float) {
+	.btn-hex-ms-fix {
+		&:after {
+			top: $float - 2px;
+		}
+	}
+}
+
+.btn-group {
+	.btn {
+		margin: 0;
+	}
+}
+
+.flat-social-icon {
+	margin: 8px 4px 8px 4px;
+	padding: 8px 12px 6px 12px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: white;
+}
+.flat-social-icon:focus,
+.flat-social-icon:hover {
+	color: lighten($primary-color, 20%);
+}
+.flat-social-icon:active {
+	color: lighten($primary-color, 5%);
+}
+
+
+// Overwrite default button icon size
+.btn {
+	.fa-lg {
+		font-size: 1.33333333em !important;
+	}
+	.fa-2x {
+		font-size: 2em !important;
+	}
+	.fa-3x {
+		font-size: 3em !important;
+	}
+	.fa-4x {
+		font-size: 4em !important;
+	}
+	.fa-5x {
+		font-size: 5em !important;
+	}
+}
+
+@each $btn_name, $color_value in $mdb-colors {
+	@include make-button($btn_name, $color_value);
+	@include make-outline-button($btn_name, $color_value);
+	@include make-hex-button("hex-" + $btn_name, $color_value, $btn-hex-width, $btn-hex-height + 1px, 25px);
+	@include make-hex-button("floating-hex-" + $btn_name, $color_value, $btn-hex-height - 5px, $btn-hex-height, 30px);
+}
+
+@include make-hex-button-ms-fix(25px);

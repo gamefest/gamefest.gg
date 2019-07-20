@@ -1,0 +1,19 @@
+.navbar:not(.top-nav-collapse) {
+    background: #699433 !important;
+}
+
+.descr {
+    font-size: 20px!important;
+}
+
+.white-text a {
+    color: white;
+    font-weight: 500;
+}
+.white-text a:hover {
+    color: lightgrey;
+}
+
+body {
+    background-color: #222!important;
+}
