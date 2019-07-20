@@ -1,37 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import { addMissingUnit } from "utility";
 
 import Header from "components/Header";
-import "./style.scss";
+import Footer from "components/Footer";
+
 import "scss/main.scss";
 
-function Layout({ children }) {
-  // TODO redo
+function Layout({ children, headerProps, footerProps, navOffset }) {
   return (
     <>
-      <Header siteTitle={"gamefest"} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Header {...headerProps} />
+      <main
+        style={{ marginTop: addMissingUnit(navOffset) }}
+        children={children}
+      />
+      <Footer {...footerProps} />
     </>
   );
 }
 
+export default Layout;
+
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  headerProps: PropTypes.object,
+  footerProps: PropTypes.object,
+  navOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
-export default Layout;
+Layout.defaultProps = {
+  headerProps: {},
+  footerProps: {},
+  navOffset: 60
+};

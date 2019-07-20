@@ -1,4 +1,13 @@
-export { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+export {
+  faInfoCircle,
+  faTrophy,
+  faHeadset,
+  faHandHoldingHeart,
+  faCalendarDay,
+  faList,
+  faCalendarAlt,
+  faCar
+} from "@fortawesome/free-solid-svg-icons";
 export {
   faDiscord,
   faTwitch,

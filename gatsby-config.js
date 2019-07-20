@@ -1,4 +1,5 @@
 const themeColor = "#699433";
+const bgColor = "#222222";
 
 module.exports = {
   siteMetadata: {
@@ -18,6 +19,27 @@ module.exports = {
         name: "data"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/pages/`,
+        name: "pages"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/img/`,
+        name: "img"
+      }
+    },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     path: `${__dirname}/content/games/`,
+    //     name: "games"
+    //   }
+    // },
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -48,13 +70,51 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {}
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-smartypants",
+            options: {}
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1500,
+              withWebp: true,
+              backgroundColor: bgColor,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Titillium Web`,
+            variants: [`300`, `500`, `700`]
+          },
+          {
+            family: `Roboto`,
+            variants: [`300`, `300i`, `400`, `400i`, `700`, `700i`]
+          }
+        ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-trailing-slashes`,
-    // `gatsby-plugin-preact`,
+    `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-catch-links`
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-react-svg`,
+    `gatsby-transformer-yaml`
   ]
 };
