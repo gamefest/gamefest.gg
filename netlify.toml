@@ -5,3 +5,10 @@
 [context."2018"]
   command = "echo 'static build'"
   publish = "/"
+
+# Redirect default Netlify subdomain to primary domain
+[[redirects]]
+  from = "https://gamefest.netlify.com/*"
+  to = "https://gamefest.gg/:splat"
+  status = 301
+  force = true
