@@ -1,13 +1,26 @@
 @import "../../scss/colors";
 @import "../../scss/media";
+@import "../../scss/theme";
+
+$transition-duration: 0.4s;
 
 .navbar-primary {
     transition-timing-function: ease;
-    transition-duration: 0.4s;
-    transition-property: background-color, padding;
+    transition-duration: $transition-duration;
+    transition-property: background-color, height;
     padding: {
         top: 0.65rem !important;
         bottom: 0.65rem !important;
+    }
+    height: 64px;
+    box-shadow: $drop-shadow;
+    align-items: flex-start !important;
+
+    & > .container {
+        transition-timing-function: ease;
+        transition-duration: $transition-duration;
+        transition-property: transform;
+        transform: translateY(2px);
     }
 
     .navbar-brand {
@@ -63,7 +76,7 @@
         flex-grow: 1;
         align-items: center;
         transition-timing-function: ease;
-        transition-duration: 0.4s;
+        transition-duration: $transition-duration;
         transition-property: background-color;
     }
 
@@ -130,19 +143,21 @@
 
         .nav-item {
             a {
-                padding: 0.5rem;
+                padding: 0.55rem 0.5rem 0.3rem 0.55rem;
+                vertical-align: -6px;
             }
         }
     }
 
     $this: &;
     &#{$this}__top {
-        background-color: transparent !important;
+        background-color: rgba(black, 0.4) !important;
 
         @include respond-above(md) {
-            padding: {
-                top: 1rem !important;
-                bottom: 1rem !important;
+            height: 80px;
+
+            & > .container {
+                transform: translateY(10px);
             }
         }
 

@@ -2,15 +2,13 @@ import React from "react";
 
 import Layout from "components/Layout";
 import SEO from "components/SEO";
-import { Container } from "react-bootstrap";
+import PageLayout from "components/PageLayout";
 
 function NotFoundPage() {
   return (
     <Layout>
       <SEO title="Not Found" />
-      <Container>
-        <h1>Page Not Found 😕</h1>
-      </Container>
+      <PageLayout header="Page Not Found 😕" />
     </Layout>
   );
 }

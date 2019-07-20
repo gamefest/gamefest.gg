@@ -2,15 +2,13 @@ import React from "react";
 
 import Layout from "components/Layout";
 import SEO from "components/SEO";
-import { Container } from "react-bootstrap";
+import PageLayout from "components/PageLayout";
 
 function SchedulePage() {
   return (
     <Layout>
       <SEO title="Schedule" />
-      <Container>
-        <h1>Schedule</h1>
-      </Container>
+      <PageLayout header="Schedule" icon="calendar-alt" />
     </Layout>
   );
 }

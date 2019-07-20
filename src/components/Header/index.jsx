@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+
 import { useStaticQuery, graphql } from "gatsby";
 import { useScrollThreshold } from "utility";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import Link from "components/Link";
+import { Navbar, Container } from "react-bootstrap";
+import LinkBar from "components/LinkBar";
+
 import LogoSvg from "assets/logoText_dark.svg";
 import "./style.scss";
 
 function Header({ transparentTop }) {
   const { leftLinks, rightLinks } = useStaticQuery(graphql`
     query NavLinks {
-      file(name: { eq: "nav" }) {
+      file(name: { eq: "header" }) {
         childDataYaml {
           leftLinks {
             ...Links
@@ -29,7 +31,7 @@ function Header({ transparentTop }) {
   return (
     <Navbar
       bg="primary"
-      sticky="top"
+      fixed="top"
       expand="lg"
       variant="dark"
       className={classNames("navbar-primary", {
@@ -61,17 +63,3 @@ Header.propTypes = {
 Header.defaultProps = {
   transparentTop: false
 };
-
-// ? ================
-// ? Helper component
-// ? ================
-
-function LinkBar({ links, ...rest }) {
-  return (
-    <Nav {...rest}>
-      {links.map(link => (
-        <Nav.Item key={link.href} children={<Link {...link} />} />
-      ))}
-    </Nav>
-  );
-}

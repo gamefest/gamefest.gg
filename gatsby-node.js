@@ -12,6 +12,14 @@ exports.sourceNodes = ({ actions, reporter }) => {
       leftLinks: [Link]
       rightLinks: [Link]
     }
+
+    type Mdx implements Node {
+      frontmatter: MdxFrontmatter
+    }
+
+    type MdxFrontmatter {
+      links: [Link]
+    }
   `;
   createTypes(linkSchema);
   createTypes(typeDefs);

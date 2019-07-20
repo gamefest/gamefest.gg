@@ -1,0 +1,41 @@
+@import "./colors";
+
+.underline-link {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 4px;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer !important;
+    color: inherit;
+    border-bottom: none !important;
+
+    &::after {
+        content: "";
+        width: 340%;
+        height: 2px;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(
+            to right,
+            rgba($-primary, 0.35) 50%,
+            $-secondary 50.5%,
+            $-secondary 60%,
+            rgba(color-adjust($-primary, -10%), 1) 60.5%,
+            rgba(color-adjust($-primary, -10%), 1) 70%,
+            rgba(color-adjust($-primary, -10%), 0.8) 70.5%,
+            rgba(color-adjust($-primary, 10%), 0.8) 100%
+        );
+        transition: transform 0.45s ease-in-out;
+    }
+
+    &:hover {
+        &::after {
+            transform: translateX(60%);
+        }
+    }
+}

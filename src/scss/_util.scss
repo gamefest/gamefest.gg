@@ -1,0 +1,9 @@
+@mixin anim($name, $duration: 2s, $delay: 0s) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}

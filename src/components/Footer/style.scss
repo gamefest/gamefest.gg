@@ -1,0 +1,39 @@
+@import "../../scss/colors";
+
+.footer {
+    text-align: center;
+    padding: {
+        top: 3rem;
+        bottom: 3rem;
+    }
+
+    a {
+        color: $-light;
+        font-weight: 300;
+
+        &:hover {
+            color: rgba($-light, 0.8);
+        }
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    .nav {
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+
+        .nav-item {
+            a {
+                padding: 0.5rem;
+
+                &:hover {
+                    color: blend(white, $-primary, 0.5);
+                    transform: translateY(2px);
+                }
+            }
+        }
+    }
+}

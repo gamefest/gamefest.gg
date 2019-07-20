@@ -1,14 +1,12 @@
 import Icon from "components/Icon";
-import RowContainer from "components/RowContainer";
-import BgContainer from "components/BgContainer";
+import Container from "components/Container";
 import Link from "components/Link";
-import { Container } from "react-bootstrap";
+import Parallax from "components/Parallax";
 
 const components = {
   Icon,
-  RowContainer,
-  BgContainer,
   Container,
+  Parallax,
   a: Link
 };
 

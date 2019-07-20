@@ -5,10 +5,10 @@ import scope from "./mdx_scope";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 
-function Mdx({ content }) {
+function Mdx({ content, ...props }) {
   return (
     <MDXProvider components={{ ...scope }}>
-      <MDXRenderer children={content} />
+      <MDXRenderer children={content} {...props} />
     </MDXProvider>
   );
 }

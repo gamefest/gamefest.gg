@@ -1,0 +1,191 @@
+@import "../../scss/media";
+@import "../../scss/fonts";
+@import "../../scss/colors";
+@import "../../scss/extend";
+@import "../../scss/util";
+
+$hero-hex-size: 144px;
+
+.index-title {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    @include respond-below(md) {
+        text-align: center;
+    }
+
+    & > .container {
+        @include anim(fadeInLeft, 0.5s);
+    }
+
+    &--logo {
+        // Left align with text
+        margin-left: -32px;
+        margin-right: 0;
+
+        @include respond-below(md) {
+            margin-left: 0.25rem;
+            margin-right: 0.25rem;
+        }
+
+        margin-bottom: 2rem;
+
+        max-width: 720px;
+    }
+
+    &--lead {
+        margin-bottom: 1.75rem;
+
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 0.35rem;
+
+            @include respond-below(md) {
+                margin-bottom: 0.2rem;
+                font-size: 1.6rem;
+            }
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #bbb;
+            margin-bottom: 0rem;
+
+            @include respond-below(md) {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .games-bar {
+        @include respond-above(md) {
+            margin-right: 6rem;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        // assets/chevron_overlay.svg
+        background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg enable-background='new 0 0 1920 1080' version='1.1' viewBox='0 0 1920 1080' xml:space='preserve' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle type='text/css'%3E .op15%7Bopacity:0.15;%7D .fill-very-dark%7Bfill:%23080808;%7D%0A%3C/style%3E%3Cg class='fill-very-dark op15'%3E%3Cpolygon points='101.5 1080 414.8 525 118.5 0 0 0 0 94.4 243 525 0 955.5 0 1080'/%3E%3Cpolygon points='1766.4 525 1453.1 1080 1920 1080 1920 0 1470.1 0'/%3E%3Cpolygon points='626.4 0 283.2 0 579.5 525 266.2 1080 609.4 1080 922.7 525'/%3E%3Cpolygon points='1309.9 0 795.3 0 1091.5 525 778.3 1080 1292.9 1080 1606.2 525'/%3E%3C/g%3E%3C/svg%3E%0A")
+            no-repeat center center;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+        z-index: -1;
+    }
+}
+
+.index-title-overlay {
+    display: flex;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0.5;
+
+    &--arrow {
+        width: 50px;
+        margin-bottom: 40px;
+        opacity: 0;
+        @include anim(fadeInUp, 0.5s, 1s);
+        animation-fill-mode: forwards;
+    }
+}
+
+.index-hero {
+    padding: 5rem 0.5rem;
+    margin: 0 auto;
+    max-width: 920px;
+    display: flex;
+    flex-direction: row;
+
+    @include respond-below(sm) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    @include respond-above(sm) {
+        padding: 7rem 0;
+    }
+
+    &--logo {
+        flex: 0 1 auto;
+        width: $hero-hex-size;
+        height: auto;
+
+        @include respond-above(sm) {
+            padding-top: 0.25rem;
+            margin: auto 0;
+        }
+
+        @include respond-below(sm) {
+            margin: 0 auto;
+        }
+    }
+
+    &--text {
+        font-size: 1.825rem;
+        font-weight: 500;
+        line-height: 1.2;
+        font-family: $headings-font-family;
+        color: white;
+        flex: 1 1 0px;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        @include respond-above(sm) {
+            margin-left: 2.5rem;
+        }
+
+        @include respond-below(sm) {
+            margin-top: 1.75rem;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.index-col {
+    padding: {
+        top: 2rem;
+        bottom: 1.25rem;
+    }
+
+    h3 {
+        margin-top: 1.25rem;
+    }
+
+    p {
+        font-weight: 300;
+        color: rgba($-light, 0.8);
+    }
+
+    a {
+        @extend .underline-link;
+    }
+}
+
+.index-sponsors {
+    font-size: 22px;
+    font-weight: 300;
+    text-align: center;
+
+    @include respond-below(sm) {
+        font-size: 18px;
+    }
+}
