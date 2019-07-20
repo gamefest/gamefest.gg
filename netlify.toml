@@ -3,5 +3,5 @@
   publish = "public/"
 
 [context.2018]
-  command = ""
+  command = "echo 'static build'"
   publish = "/"
