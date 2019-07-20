@@ -1,4 +1,4 @@
-var twitch_info_path = "https://gamefest.gg/data/twitch.json";
+var twitch_info_path = "/data/twitch.json";
 var twitch_endpoint = "https://api.twitch.tv/helix/streams";
 var paneInited = false;
 var embed = null;
