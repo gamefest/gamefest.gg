@@ -7,8 +7,9 @@
   publish = "/"
 
 # Redirect default Netlify subdomain to primary domain
-[[redirects]]
-  from = "https://gamefest.netlify.com/*"
-  to = "https://gamefest.gg/:splat"
-  status = 301
-  force = true
+# ! Disabled during namecheap kerfuffle
+# [[redirects]]
+#   from = "https://gamefest.netlify.com/*"
+#   to = "https://gamefest.gg/:splat"
+#   status = 301
+#   force = true
