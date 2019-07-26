@@ -1,9 +1,9 @@
 {
   "name": "Gamefest",
   "short_name": "Gamefest",
-  "description":"Gamefest is one of the largest collegiate BYOC LANs in the southeast, hosted each year at Georgia Tech",
-  "homepage_url":"https://gamefest.gg",
-  "start_url":"/",
+  "description": "Gamefest is one of the largest collegiate BYOC LANs in the southeast, hosted each year at Georgia Tech",
+  "homepage_url": "https://gamefest.gg",
+  "start_url": "/",
   "icons": [
     {
       "src": "/img/android-chrome-192x192.png",
