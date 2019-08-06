@@ -4,14 +4,14 @@
 
 > Public information website for Gamefest, 🏗 made with Gatsby.js + React for static rendering and structured content management.
 
-## Quick Links
+## 🔗 Quick Links
 
 - [Home](https://gamefest.gg)
 - [Registration](https://gamefest.gg/register)
 - [Status](https://status.gamefest.gg)
 - [2018 Website](https://2018.gamefest.gg)
 
-## Setup
+## 🚀 Getting Started
 
 To set up the gamefest.gg website locally, you'll need to have [Node.js](https://nodejs.org/en/download/) installed. Once installed, run the following commands to download dependencies:
 
@@ -34,5 +34,6 @@ Gamefest.gg uses [eslint](https://eslint.org/) and [prettier](https://prettier.i
 yarn run lint
 ```
 
-## License
+## 📜 License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgamefest%2Fgamefest.gg.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgamefest%2Fgamefest.gg?ref=badge_large)
