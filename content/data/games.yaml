@@ -1,0 +1,69 @@
+games:
+    # CSGO
+  - name: "Counter-Strike: Global Offensive"
+    icon: "../img/games/csgo/icon.svg"
+    banner: "../img/games/csgo/banner.png"
+    logo: "../img/games/csgo/logo.svg"
+    slug: csgo
+    showRules: false
+    showPrizing: false
+    showAdministrator: false
+
+    # League
+  - name: League of Legends
+    icon: "../img/games/league/icon.svg"
+    banner: "../img/games/league/banner.png"
+    logo: "../img/games/league/logo.svg"
+    slug: league
+    showRules: false
+    showPrizing: false
+    showAdministrator: false
+
+    # Hearthstone
+  - name: Hearthstone
+    icon: "../img/games/hearthstone/icon.svg"
+    banner: "../img/games/hearthstone/banner.png"
+    logo: "../img/games/hearthstone/logo.svg"
+    slug: hearthstone
+    showRules: false
+    showPrizing: false
+    showAdministrator: false
+
+    # Overwatch
+  - name: Overwatch
+    icon: "../img/games/overwatch/icon.svg"
+    banner: "../img/games/overwatch/banner.png"
+    logo: "../img/games/overwatch/logo.svg"
+    slug: overwatch
+    showRules: false
+    showPrizing: false
+    showAdministrator: false
+
+    # Rocket League
+  - name: Rocket League
+    icon: "../img/games/rocket-league/icon.svg"
+    banner: "../img/games/rocket-league/banner.png"
+    logo: "../img/games/rocket-leagues/logo.svg"
+    slug: rocket-league
+    showRules: false
+    showPrizing: false
+    showAdministrator: false
+
+    # Dota 2
+  - name: Dota 2
+    icon: "../img/games/dota/icon.svg"
+    banner: "../img/games/dota/banner.png"
+    logo: "../img/games/dota/logo.svg"
+    showRules: false
+    showPrizing: false
+    showAdministrator: false
+
+    # Fighting Games
+  - name: Fighting Games
+    icon: "../img/games/fighting-games/icon.svg"
+    banner: "../img/games/fighting-games/banner.png"
+    logo: "../img/games/fighting-games/logo.svg"
+    slug: fighting-games
+    showRules: false
+    showPrizing: false
+    showAdministrator: false

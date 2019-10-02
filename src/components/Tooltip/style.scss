@@ -1,0 +1,12 @@
+.tooltip {
+    z-index: 1090;
+
+    .tooltip-inner {
+        padding: 0.1rem 0.35rem;
+        max-width: 240px;
+    }
+}
+
+.hide-tooltip {
+    opacity: 0;
+}
