@@ -1,2 +1,8 @@
-$drop-shadow: 0 4px 8px 0 rgba(black, 0.12);
-$drop-shadow-strong: 0 8px 20px 0 rgba(black, 0.34);
+$shadow-strength: 0.12;
+$shadow-strength-strong: 0.28;
+
+$drop-shadow: 0 4px 8px 0 rgba(black, $shadow-strength);
+$drop-shadow-strong: 0 8px 20px 0 rgba(black, $shadow-strength-strong);
+$inner-vertical-shadow: inset 1px -10px 16px -12px
+        rgba(black, $shadow-strength-strong),
+    inset 1px 10px 16px -12px rgba(black, $shadow-strength-strong);

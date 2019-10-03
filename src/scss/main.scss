@@ -2,6 +2,7 @@
 @import "./fonts";
 @import "./animations";
 @import "./media";
+@import "./theme";
 @import "node_modules/@fortawesome/fontawesome-svg-core/styles";
 
 h1,
@@ -107,6 +108,7 @@ button,
 
 .bg-darker {
     background-color: color-adjust($-dark, -20%);
+    box-shadow: $inner-vertical-shadow;
 }
 
 .bg-lighter {

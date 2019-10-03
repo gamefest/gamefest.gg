@@ -16,6 +16,14 @@ $icon-small-size: 36px;
     align-items: center;
     flex-wrap: wrap;
 
+    &.vertical {
+        flex-direction: column !important;
+
+        .games-bar-item img {
+            margin: 1rem 0.75rem;
+        }
+    }
+
     .placeholder {
         padding: 0.75rem;
     }
@@ -50,6 +58,11 @@ $icon-small-size: 36px;
         a {
             position: relative;
             display: block;
+            border: none !important;
+        }
+
+        button {
+            @extend %button-blank;
         }
 
         img {

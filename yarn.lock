@@ -5575,13 +5575,6 @@ gatsby-plugin-page-creator@^2.1.2:
     lodash "^4.17.10"
     micromatch "^3.1.10"
 
-gatsby-plugin-preact@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-3.1.2.tgz#33046a440db28c47f38089df12a31b282bae092a"
-  integrity sha512-pBhoFi/ZkaVpVsS4UsYMAKIbCttEmVD1UUbjPuyu78wP0leLQEf/NTQph9S58OwYAEfCmrP3iCcY4YT0WrIUlg==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-
 gatsby-plugin-prefetch-google-fonts@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-prefetch-google-fonts/-/gatsby-plugin-prefetch-google-fonts-1.4.2.tgz#a9a4291bec9e0ddf34a0112ec969afc5b2d60902"
@@ -10231,11 +10224,6 @@ potrace@^2.1.1:
   dependencies:
     jimp "^0.6.4"
 
-preact@^10.0.0-beta.2:
-  version "10.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.0.0-beta.2.tgz#659b6520eb41d5a3d178a61b3311e6ae79d8cf56"
-  integrity sha512-sKu2tdECRcmG8B2Q0GIAhTR95PhaWy15RkYFgpzfkEQLo7qqnE5lYQO2ccHNTfwuzj0LVPRdG71s5QjhnRyVbQ==
-
 prebuild-install@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.0.tgz#58b4d8344e03590990931ee088dd5401b03004c8"
@@ -11741,6 +11729,11 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+smooth-scroll@^16.1.0:
+  version "16.1.0"
+  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-16.1.0.tgz#c811c63db67215d30847745ba0732feb3291947f"
+  integrity sha512-V5b8ekIekZ3xJ6f0sPsLgEbN5YT8gX0Q6yNjZXTKgqjH9dBGadZ0P50fhP0rLRBGifc44qfI3rnWNM+lebhJag==
 
 snake-case@^2.1.0:
   version "2.1.0"
