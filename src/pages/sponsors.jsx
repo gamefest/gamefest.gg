@@ -14,3 +14,5 @@ function SponsorsPage() {
 }
 
 export default SponsorsPage;
+
+SponsorsPage.displayName = "SponsorsPage";

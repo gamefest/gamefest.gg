@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { isClient } from "./document";
 
 export function useScrollThreshold(threshold, range = 40) {
   const [above, setAbove] = useState(true);
@@ -13,4 +14,20 @@ export function useScrollThreshold(threshold, range = 40) {
     return () => document.removeEventListener("scroll", listener);
   });
   return above;
+}
+
+export function useMedia(query) {
+  const [matches, setMatches] = useState(() =>
+    isClient ? window.matchMedia(query).matches : null
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) setMatches(media.matches);
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
 }

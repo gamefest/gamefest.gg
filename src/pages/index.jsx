@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
+import { useMedia } from "utility";
 
 import Layout from "components/Layout";
 import Icon from "components/Icon";
@@ -68,12 +69,15 @@ function IndexPage() {
 
 export default IndexPage;
 
+IndexPage.displayName = "IndexPage";
+
 // ? ==============
 // ? Sub-components
 // ? ==============
 
 // Near full-page title content
 IndexPage.Title = function({ date, location, image, showGames }) {
+  const isShort = useMedia("(max-height: 620px)");
   const titleInner = (
     <>
       <Container row className="index-title">
@@ -95,7 +99,7 @@ IndexPage.Title = function({ date, location, image, showGames }) {
     <Parallax
       inner={titleInner}
       children={image}
-      height="85vh"
+      height={isShort ? "600px" : "85vh"}
       overlay="rgba(0,0,0,0.8)"
     />
   );
@@ -115,6 +119,8 @@ IndexPage.Title.defaultProps = {
   showGames: true
 };
 
+IndexPage.Title.displayName = "IndexPage.Title";
+
 // Hero content with large hex icon
 IndexPage.Hero = function({ children }) {
   return (
@@ -133,6 +139,8 @@ IndexPage.Hero.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ])
 };
+
+IndexPage.Hero.displayName = "IndexPage.Hero";
 
 // "Feature" column with icon
 IndexPage.Col = function({ icon, children }) {
@@ -155,6 +163,8 @@ IndexPage.Col.propTypes = {
 IndexPage.Col.defaultProps = {
   icon: "trophy"
 };
+
+IndexPage.Col.displayName = "IndexPage.Col";
 
 // Sponsors content element at the bottom of the Index Page
 // TODO implement sponsor view
@@ -190,3 +200,5 @@ IndexPage.Sponsors.propTypes = {
 IndexPage.Sponsors.defaultProps = {
   showSponsors: true
 };
+
+IndexPage.Sponsors.displayName = "IndexPage.Sponsors";

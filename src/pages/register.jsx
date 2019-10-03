@@ -14,3 +14,5 @@ function RegisterPage() {
 }
 
 export default RegisterPage;
+
+RegisterPage.displayName = "RegisterPage";

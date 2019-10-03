@@ -11,6 +11,8 @@ exports.sourceNodes = ({ actions, reporter }) => {
     type DataYaml implements Node {
       leftLinks: [Link]
       rightLinks: [Link]
+      gamesRoot: String
+      gamesOrder: [String]
     }
 
     type Mdx implements Node {
@@ -19,6 +21,12 @@ exports.sourceNodes = ({ actions, reporter }) => {
 
     type MdxFrontmatter {
       links: [Link]
+      # Game MDX file attributes
+      name: String
+      icon: File @fileByRelativePath
+      banner: File @fileByRelativePath
+      logo: File @fileByRelativePath
+      slug: String
     }
   `;
   createTypes(linkSchema);

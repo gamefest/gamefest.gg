@@ -30,7 +30,7 @@ function Footer() {
   const links = mdx.frontmatter.links;
 
   return (
-    <Container className="bg-dark footer">
+    <Container className="bg-darker footer">
       <LinkBar links={links} />
       <Mdx content={body} />
     </Container>
@@ -42,3 +42,5 @@ export default Footer;
 Footer.propTypes = {};
 
 Footer.defaultProps = {};
+
+Footer.displayName = "Footer";

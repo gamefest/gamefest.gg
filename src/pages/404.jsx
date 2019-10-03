@@ -14,3 +14,5 @@ function NotFoundPage() {
 }
 
 export default NotFoundPage;
+
+NotFoundPage.displayName = "NotFoundPage";

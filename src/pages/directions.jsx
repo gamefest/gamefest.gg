@@ -39,3 +39,5 @@ function DirectionsPage() {
 }
 
 export default DirectionsPage;
+
+DirectionsPage.displayName = "DirectionsPage";

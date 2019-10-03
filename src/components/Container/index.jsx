@@ -28,3 +28,5 @@ Container.propTypes = {
 Container.defaultProps = {
   row: false
 };
+
+Container.displayName = "Container";

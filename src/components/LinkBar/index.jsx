@@ -23,3 +23,5 @@ LinkBar.propTypes = {
 LinkBar.defaultProps = {
   links: []
 };
+
+LinkBar.displayName = "LinkBar";

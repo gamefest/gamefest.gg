@@ -33,13 +33,13 @@ module.exports = {
         name: "img"
       }
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/content/games/`,
-    //     name: "games"
-    //   }
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/games/`,
+        name: "games"
+      }
+    },
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -111,7 +111,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-trailing-slashes`,
-    `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-svg`,

@@ -1,0 +1,5 @@
+.full-width {
+    margin: 1em -100%;
+    /* old browsers fallback */
+    margin: 1em calc(50% - 50vw);
+}
