@@ -10,27 +10,28 @@ import Tooltip from "components/Tooltip";
 import "./style.scss";
 
 function GamesBar({ className, show, ...rest }) {
-  const mdx = useStaticQuery(graphql`
-    query GamesBarContent {
-      file(
-        sourceInstanceName: { eq: "data" }
-        extension: { eq: "mdx" }
-        name: { eq: "footer" }
-      ) {
-        childMdx {
-          body
-          frontmatter {
-            links {
-              ...Links
-            }
-          }
+  const games = useStaticQuery(graphql`
+    query GamesListQuery {
+      dataYaml {
+        games {
+          banner
+          icon
+          logo
+          name
+          showAdministrator
+          showPrizing
+          showRules
+          slug
         }
       }
     }
-  `).file.childMdx;
+  `).dataYaml.games;
   return (
     <div className={classNames("games-bar glass", className)} {...rest}>
-      {show ? null : <h5>Games to be announced</h5>}
+      {show
+        ? games.map(g => <GamesBarItem key={g.slug} {...g} />)
+        : <h5>Games to be announced</h5>
+      }
     </div>
   );
 }
@@ -52,7 +53,7 @@ GamesBar.displayName = "GamesBar";
 function GamesBarItem({ icon, label, href }) {
   const innerLink = (
     <Link className="games-bar-item" href={href}>
-      <img src={icon}/>
+      <img src={icon} />
     </Link>);
   return isEmptyOrNil(label) ? innerLink : (
     <Tooltip bottom text={label} children={innerLink} />

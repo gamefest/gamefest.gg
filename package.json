@@ -65,7 +65,6 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "lint": "eslint ./src/**/*.js ./src/**/*.jsx",
-    "start": "npm run develop",
     "serve": "gatsby serve"
   },
   "repository": {
