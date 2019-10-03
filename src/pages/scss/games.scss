@@ -1,0 +1,18 @@
+@import "../../scss/colors";
+
+.games-lead {
+    color: rgba($-light, 0.6);
+    font-size: 1.25em;
+    font-weight: 300;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.top-banner {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    margin-top: -48px;
+    margin-bottom: 1rem;
+}

@@ -1,6 +1,7 @@
 @import "./colors";
 @import "./fonts";
 @import "./animations";
+@import "./media";
 @import "node_modules/@fortawesome/fontawesome-svg-core/styles";
 
 h1,
@@ -62,6 +63,7 @@ html,
 body {
     background-color: $-dark;
     color: $-light;
+    overflow-x: hidden;
 }
 
 button,
@@ -103,6 +105,10 @@ button,
     color: $-dark;
 }
 
+.bg-darker {
+    background-color: color-adjust($-dark, -20%);
+}
+
 .bg-lighter {
     background-color: color-adjust($-dark, 7.5%);
 }
@@ -113,12 +119,23 @@ section a {
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 2px solid rgba($-primary, 0.4);
     font-weight: 400;
-    color: color-adjust($-primary, -20%);
+    color: color-adjust($-primary, -5%);
 
     &:hover {
         border-bottom-color: $-primary;
+        color: color-adjust($-primary, 5%);
     }
 }
+
+article .bg-light a, .bg-light article a,
+section .bg-light a, .bg-light section a {
+    color: color-adjust($-primary, -20%);
+
+    &:hover {
+        color: color-adjust($-primary, -30%);
+    }
+}
+
 
 #gatsby-focus-wrapper,
 html,
@@ -133,6 +150,13 @@ body {
 
     & > main {
         flex-grow: 1;
+    }
+}
+
+.container {
+    @include respond-below(sm) {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 }
 
