@@ -16,7 +16,9 @@ export function useScrollThreshold(threshold, range = 40) {
 }
 
 export function useMedia(query) {
-  const [matches, setMatches] = useState(window.matchMedia(query).matches);
+  const [matches, setMatches] = useState(
+    () => window.matchMedia(query).matches
+  );
 
   useEffect(() => {
     const media = window.matchMedia(query);
