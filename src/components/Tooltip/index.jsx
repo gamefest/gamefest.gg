@@ -25,6 +25,7 @@ function Tooltip({
       trigger={toggle ? "click" : undefined}
       placement={top ? "top" : bottom ? "bottom" : left ? "left" : "right"}
       children={children}
+      container={() => document.getElementById("tooltip-portal")}
       popperConfig={{
         modifiers: {
           preventOverflow: {

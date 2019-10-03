@@ -32,7 +32,6 @@ export default function HTML(props) {
             </div>
           </Navbar>
         </noscript>
-        <div id="toolbar-wrapper" />
         <div
           key={`body`}
           id="___gatsby"

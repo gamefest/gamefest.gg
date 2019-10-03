@@ -10,6 +10,7 @@ import "scss/main.scss";
 function Layout({ children, headerProps, footerProps, navOffset }) {
   return (
     <>
+      <div id="tooltip-portal" />
       <Header {...headerProps} />
       <main
         style={{ marginTop: addMissingUnit(navOffset) }}
