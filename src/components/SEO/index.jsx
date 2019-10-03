@@ -70,8 +70,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: "og:image",
-          // TODO add this
-          content: "/img/thumbnail.png"
+          content: "/img/card.png"
         },
         {
           property: `og:description`,
