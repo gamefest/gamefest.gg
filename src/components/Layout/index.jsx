@@ -27,7 +27,7 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   headerProps: PropTypes.object,
   footerProps: PropTypes.object,
-  navOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  navOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 Layout.defaultProps = {

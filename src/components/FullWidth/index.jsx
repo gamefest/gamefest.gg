@@ -33,3 +33,5 @@ FullWidth.defaultProps = {
   className: "",
   container: false
 };
+
+FullWidth.displayName = "FullWidth";

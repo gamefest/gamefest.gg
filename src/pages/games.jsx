@@ -41,28 +41,3 @@ function GamesPage() {
 export default GamesPage;
 
 GamesPage.displayName = "GamesPage";
-
-// ? ==============
-// ? Sub-components
-// ? ==============
-
-// Lead info
-GamesPage.Lead = function({ className, children }) {
-  return (
-    <div className={classNames("games-lead", className)} children={children} />
-  );
-};
-
-GamesPage.Lead.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ])
-};
-
-GamesPage.Lead.defaultProps = {
-  className: ""
-};
-
-GamesPage.Lead.displayName = "GamesPage.Lead";

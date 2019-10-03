@@ -4,6 +4,7 @@ import Link from "components/Link";
 import Parallax from "components/Parallax";
 import Space from "components/Space";
 import FullWidth from "components/FullWidth";
+import Lead from "components/Lead";
 
 const components = {
   Icon,
@@ -11,7 +12,8 @@ const components = {
   Parallax,
   a: Link,
   Space,
-  FullWidth
+  FullWidth,
+  Lead
 };
 
 export default components;
