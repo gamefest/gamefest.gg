@@ -34,3 +34,5 @@ Layout.defaultProps = {
   footerProps: {},
   navOffset: 60
 };
+
+Layout.displayName = "Layout";

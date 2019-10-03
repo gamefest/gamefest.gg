@@ -78,6 +78,8 @@ Link.propTypes = {
   ])
 };
 
+Link.displayName = "Link";
+
 // Predefined onClick action map
 export const actions = {
   back: () => {
@@ -120,3 +122,10 @@ function LinkContent({ text, icon }) {
     </>
   );
 }
+
+LinkContent.propTypes = {
+  text: PropTypes.string,
+  icon: PropTypes.string
+}
+
+LinkContent.displayName = "LinkContent";

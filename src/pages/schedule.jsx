@@ -14,3 +14,5 @@ function SchedulePage() {
 }
 
 export default SchedulePage;
+
+SchedulePage.displayName = "SchedulePage";

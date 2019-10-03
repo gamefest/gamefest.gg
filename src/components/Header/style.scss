@@ -163,7 +163,8 @@ $transition-duration: 0.4s;
 
         @include respond-below(md) {
             .collapse-inner {
-                background-color: rgba($-light, 0.1);
+                background-color: rgba(black, 0.5);
+                backdrop-filter: blur(8px);
             }
         }
     }

@@ -44,7 +44,7 @@ $hero-hex-size: 144px;
     }
 
     &--lead {
-        margin-bottom: 1.75rem;
+        margin-bottom: 2.25rem;
 
         h2 {
             font-size: 2.4rem;
@@ -110,6 +110,11 @@ $hero-hex-size: 144px;
         opacity: 0;
         @include anim(fadeInUp, 0.5s, 1s);
         animation-fill-mode: forwards;
+
+        @include respond-below(sm) {
+            width: 30px;
+            margin-bottom: 20px;
+        }
     }
 }
 

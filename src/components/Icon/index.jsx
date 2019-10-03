@@ -35,3 +35,5 @@ Icon.propTypes = {
   style: PropTypes.object,
   noAutoWidth: PropTypes.bool
 };
+
+Icon.displayName = "Icon";

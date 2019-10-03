@@ -63,3 +63,5 @@ Header.propTypes = {
 Header.defaultProps = {
   transparentTop: false
 };
+
+Header.displayName = "Header";

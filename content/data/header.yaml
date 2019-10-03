@@ -1,6 +1,6 @@
 leftLinks:
-# - text: Games
-#   href: '/games'
+- text: Games
+  href: '/games'
 # - text: Schedule
 #   href: '/schedule'
 # - text: Sponsors

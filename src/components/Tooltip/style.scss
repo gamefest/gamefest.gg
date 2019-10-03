@@ -1,9 +1,29 @@
+@import "../../scss/colors";
+
+$color: rgba(black, 0.5);
 .tooltip {
+    &[x-placement^="top"] .arrow::before {
+        border-top-color: $color !important;
+    }
+
+    &[x-placement^="bottom"] .arrow::before {
+        border-bottom-color: $color !important;
+    }
+
+    &[x-placement^="left"] .arrow::before {
+        border-left-color: $color !important;
+    }
+
+    &[x-placement^="right"] .arrow::before {
+        border-right-color: $color !important;
+    }
+
     z-index: 1090;
 
     .tooltip-inner {
         padding: 0.1rem 0.35rem;
         max-width: 240px;
+        background-color: $color;
     }
 }
 

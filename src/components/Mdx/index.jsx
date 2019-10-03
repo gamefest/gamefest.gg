@@ -18,3 +18,5 @@ export default Mdx;
 Mdx.propTypes = {
   content: PropTypes.string
 };
+
+Mdx.displayName = "Mdx";

@@ -1,10 +1,68 @@
 @import "../../scss/colors";
+@import "../../scss/util";
+@import "../../scss/media";
 
+$icon-size: 44px;
+$icon-small-size: 36px;
 .games-bar {
-    padding: 1rem;
+    position: relative;
+    padding: {
+        left: 0.25rem;
+        right: 0.25rem;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .placeholder {
+        padding: 0.75rem;
+    }
 
     h5 {
         margin-bottom: 0;
         text-shadow: 3px 3px rgba($-dark, 0.8);
+    }
+
+    @include respond-below(sm) {
+        justify-content: space-around;
+    }
+
+    .games-bar-item {
+        position: relative;
+        border-radius: 0.5rem;
+        @include transitions("background-color, box-shadow");
+        outline: none !important;
+
+        &:hover, &:focus {
+            background-color: rgba($-light, 0.07);
+        }
+
+        &:focus {
+            @include highlight-shadow($-light, 0.1);
+        }
+
+        &:active {
+            background-color: rgba($-light, 0.125);
+        }
+
+        a {
+            position: relative;
+            display: block;
+        }
+
+        img {
+            width: $icon-size;
+            height: $icon-size;
+            margin: 0.85rem 0.95rem;
+
+            @include respond-below(sm) {
+                width: $icon-small-size;
+                height: $icon-small-size;
+                margin-right: 0.15rem;
+                margin-left: 0.15rem;
+            }
+        }
     }
 }

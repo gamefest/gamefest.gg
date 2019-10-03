@@ -14,3 +14,5 @@ function WatchPage() {
 }
 
 export default WatchPage;
+
+WatchPage.displayName = "WatchPage";

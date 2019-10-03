@@ -42,3 +42,5 @@ export default Footer;
 Footer.propTypes = {};
 
 Footer.defaultProps = {};
+
+Footer.displayName = "Footer";

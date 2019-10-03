@@ -32,3 +32,5 @@ PageLayout.defaultProps = {
   header: "",
   icon: null
 };
+
+PageLayout.displayName = "PageLayout";

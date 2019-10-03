@@ -33,13 +33,13 @@ module.exports = {
         name: "img"
       }
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/content/games/`,
-    //     name: "games"
-    //   }
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/games/`,
+        name: "games"
+      }
+    },
     {
       resolve: "gatsby-transformer-remark",
       options: {

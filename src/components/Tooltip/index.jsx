@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { addMissingUnit } from "utility";
 
 import { OverlayTrigger, Tooltip as BootstrapTooltip } from "react-bootstrap";
 
@@ -14,6 +15,7 @@ function Tooltip({
   top,
   bottom,
   hide,
+  padding,
   toggle,
   delay,
   ...rest
@@ -39,7 +41,7 @@ function Tooltip({
           bsPrefix={hide ? "hide-tooltip" : undefined}
           {...rest}
         >
-          <div>{text}</div>
+          <div style={{ padding: addMissingUnit(padding) }}>{text}</div>
         </BootstrapTooltip>
       }
     />
@@ -60,6 +62,7 @@ Tooltip.propTypes = {
   left: PropTypes.bool,
   top: PropTypes.bool,
   bottom: PropTypes.bool,
+  padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   hide: PropTypes.bool,
   toggle: PropTypes.bool,
   delay: PropTypes.number
@@ -73,6 +76,7 @@ Tooltip.defaultProps = {
   top: false,
   bottom: false,
   hide: false,
+  padding: "0.35rem",
   toggle: false
 };
 

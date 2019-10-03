@@ -42,3 +42,5 @@ Parallax.defaultProps = {
   speed: 0.3,
   overlay: null
 };
+
+Parallax.displayName = "Parallax";
