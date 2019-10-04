@@ -1,0 +1,47 @@
+@import "../../scss/theme";
+@import "../../scss/colors";
+
+$background: color-adjust($-light, 80%);
+.sponsors-page {
+    background-color: $background;
+}
+
+.sponsors-title {
+    position: relative;
+    .container {
+        padding-top: 4.35rem;
+    }
+}
+
+.sponsors-title-wrapper {
+    box-shadow: $drop-shadow;
+}
+
+.sponsors-tier-2 {
+    background-color: color-adjust($-light, -5%);
+    color: rgba($-dark, 0.95);
+    padding-top: 1.5rem;
+}
+
+.sponsors-tier-1 {
+    background-color: $-light;
+    color: rgba($-dark, 0.75);
+    padding-top: 1.5rem;
+
+    .sponsor-tiles {
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.sponsors-tier-0 {
+    background-color: $background;
+    padding-top: 1.5rem;
+
+    .sponsor-tiles {
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

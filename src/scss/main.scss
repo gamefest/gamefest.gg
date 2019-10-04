@@ -127,6 +127,15 @@ section a:not(.btn) {
         border-bottom-color: $-primary;
         color: color-adjust($-primary, 5%);
     }
+
+    &.strong {
+        font-weight: 500;
+        color: color-adjust($-primary, 20%);
+
+        &:hover {
+            color: color-adjust($-primary, 30%);
+        }
+    }
 }
 
 article .bg-light a:not(.btn), .bg-light article a:not(.btn),
@@ -179,4 +188,10 @@ body {
         backdrop-filter: blur(8px);
         --webkit-backdrop-filter: blur(8px);
     }
+}
+
+// Raise z-level
+.raise {
+    z-index: 1;
+    position: relative;
 }

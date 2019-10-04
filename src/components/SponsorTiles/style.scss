@@ -1,4 +1,5 @@
 @import "../../scss/media";
+@import "../../scss/colors";
 
 .sponsor-tiles {
     $this: &;
@@ -41,11 +42,16 @@
         }
     }
 
-    &--tile {
-        a {
-            border-bottom: none !important;
-            display: block;
+    &:not(.compact) {
+        #{$this}--tile {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
         }
+
+
 
         #{$this}--tile-anchor {
         }
@@ -53,7 +59,26 @@
         #{$this}--tile-logo {
         }
 
+        #{$this}--tile-link {
+            flex-basis: 20%;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
         #{$this}--tile-content {
+            p:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            flex-shrink: 1;
+            flex-grow: 1;
+        }
+    }
+
+    &--tile {
+        a {
+            border-bottom: none !important;
+            display: block;
         }
     }
 }

@@ -4,10 +4,10 @@ import classNames from "classnames";
 
 import "./style.scss";
 
-function Lead({ className, children, ...rest }) {
+function Lead({ className, strong, children, ...rest }) {
   return (
     <div
-      className={classNames(className, "text-lead")}
+      className={classNames(className, "text-lead", { "lead-strong": strong })}
       children={children}
       {...rest}
     />
@@ -21,11 +21,13 @@ Lead.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)
-  ])
+  ]),
+  strong: PropTypes.bool
 };
 
 Lead.defaultProps = {
-  className: ""
-}
+  className: "",
+  strong: false
+};
 
 Lead.displayName = "Lead";

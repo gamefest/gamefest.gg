@@ -4,18 +4,18 @@ import { isDefined, addMissingUnit } from "utility";
 
 import "./style.scss";
 
-function Parallax({ children, inner, overlay, height, speed }) {
+function Parallax({ children, image, overlay, height, speed }) {
   return (
     <div
       style={{ height: addMissingUnit(height) }}
       className="jarallax"
       data-speed={speed}
     >
-      <div className="jarallax-img">{children} </div>
+      <div className="jarallax-img">{image} </div>
       {isDefined(overlay) ? (
         <div className="mask" style={{ backgroundColor: overlay }} />
       ) : null}
-      {inner}
+      {children}
     </div>
   );
 }
@@ -23,11 +23,11 @@ function Parallax({ children, inner, overlay, height, speed }) {
 export default Parallax;
 
 Parallax.propTypes = {
-  children: PropTypes.oneOfType([
+  image: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)
   ]).isRequired,
-  inner: PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)
   ]),
@@ -37,7 +37,7 @@ Parallax.propTypes = {
 };
 
 Parallax.defaultProps = {
-  inner: null,
+  children: null,
   height: 200,
   speed: 0.3,
   overlay: null

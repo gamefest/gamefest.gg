@@ -62,11 +62,6 @@ $transition-duration: 0.4s;
                 color: $-light;
             }
         }
-
-        @include respond-below(md) {
-            margin-top: 0.4rem;
-            margin-bottom: 0.4rem;
-        }
     }
 
     .collapse-inner {
@@ -119,9 +114,11 @@ $transition-duration: 0.4s;
         @include respond-below(md) {
             margin-bottom: 0.75rem;
             margin-top: 0.5rem;
+            width: 100%;
         }
         @include respond-above(md) {
             margin-left: 1.25rem;
+            margin-right: auto;
         }
 
         a {
@@ -130,6 +127,15 @@ $transition-duration: 0.4s;
             }
             &:not(.active-link) {
                 color: rgba($-light, 0.9);
+            }
+        }
+
+        .nav-item {
+            @include respond-below(md) {
+                a {
+                    display: block;
+                    padding: 0.5rem 0.85rem 0.45rem;
+                }
             }
         }
     }

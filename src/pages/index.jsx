@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import { useMedia } from "utility";
 
+import Img from "gatsby-image";
+import { Col, Alert } from "react-bootstrap";
 import Layout from "components/Layout";
 import Icon from "components/Icon";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
-import ParallaxProvider from "components/ParallaxProvider";
 import Parallax from "components/Parallax";
 import GamesBar from "components/GamesBar";
 import Link from "components/Link";
-import { Col, Alert } from "react-bootstrap";
 import Container from "components/Container";
 import SponsorTiles from "components/SponsorTiles";
-import Img from "gatsby-image";
+import ParallaxProvider from "components/ParallaxProvider";
 
 import LogoSvg from "../../content/img/logo.svg";
 import ArrowSvg from "assets/arrow_down.svg";
@@ -99,8 +99,8 @@ IndexPage.Title = function({ date, location, image, showGames }) {
   );
   return (
     <Parallax
-      inner={titleInner}
-      children={image}
+      children={titleInner}
+      image={image}
       height={isShort ? "600px" : "85vh"}
       overlay="rgba(0,0,0,0.8)"
     />

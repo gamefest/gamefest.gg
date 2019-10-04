@@ -104,7 +104,7 @@ SponsorTiles.Tile = function({
   return (
     <div className={classNames("sponsor-tiles--tile", className)}>
       <a className="sponsor-tiles--tile-anchor" name={slug} />
-      <Link href={link}>
+      <Link href={link} className="sponsor-tiles--tile-link">
         {tooltip ? (
           <Tooltip bottom text={name} children={logoImage} />
         ) : (
