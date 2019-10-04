@@ -10,8 +10,10 @@ import Mdx from "components/Mdx";
 import ParallaxProvider from "components/ParallaxProvider";
 import Parallax from "components/Parallax";
 import GamesBar from "components/GamesBar";
+import Link from "components/Link";
 import { Col, Alert } from "react-bootstrap";
 import Container from "components/Container";
+import SponsorTiles from "components/SponsorTiles";
 import Img from "gatsby-image";
 
 import LogoSvg from "../../content/img/logo.svg";
@@ -167,12 +169,15 @@ IndexPage.Col.defaultProps = {
 IndexPage.Col.displayName = "IndexPage.Col";
 
 // Sponsors content element at the bottom of the Index Page
-// TODO implement sponsor view
 IndexPage.Sponsors = function({ children, showSponsors }) {
   return (
     <div className="index-sponsors">
       {children}
-      {showSponsors ? null : (
+      {showSponsors ? (
+        <div className="sponsor-list">
+          <SponsorTiles compact />
+        </div>
+      ) : (
         <Alert variant="info" className="mt-5 py-5">
           <div
             className="mb-3"
@@ -185,6 +190,9 @@ IndexPage.Sponsors = function({ children, showSponsors }) {
           </h5>
         </Alert>
       )}
+      <Link className="btn btn-primary sponsor-info" href="/sponsors">
+        View Sponsors
+      </Link>
     </div>
   );
 };

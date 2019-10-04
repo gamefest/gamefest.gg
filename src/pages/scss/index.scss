@@ -193,11 +193,26 @@ $hero-hex-size: 144px;
 }
 
 .index-sponsors {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
     text-align: center;
+    margin-top: 8px;
 
     @include respond-below(sm) {
         font-size: 18px;
+    }
+
+    .sponsor-info {
+        margin-top: 20px;
+
+        @include respond-above(sm) {
+            display: none;
+        }
+    }
+
+    .sponsor-list {
+        @include respond-below(sm) {
+            display: none;
+        }
     }
 }

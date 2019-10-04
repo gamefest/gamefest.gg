@@ -1,0 +1,59 @@
+@import "../../scss/media";
+
+.sponsor-tiles {
+    $this: &;
+
+    display: flex;
+    flex-direction: column;
+
+    &.compact {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    &.compact {
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        #{$this}--tile {
+            width: 50%;
+            padding: 16px 4px;
+            position: relative;
+
+            @include respond-above(lg) {
+                width: calc(100% / 4);
+                max-width: calc(100% / 4);
+                flex-grow: 1;
+                padding: 20px 5px;
+            }
+        }
+
+        #{$this}--tile-logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 220px;
+            max-height: 64px;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &--tile {
+        a {
+            border-bottom: none !important;
+            display: block;
+        }
+
+        #{$this}--tile-anchor {
+        }
+
+        #{$this}--tile-logo {
+        }
+
+        #{$this}--tile-content {
+        }
+    }
+}
