@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, createContext } from "react";
 import PropTypes from "prop-types";
 import { addMissingUnit } from "utility";
 
@@ -20,12 +20,13 @@ function Tooltip({
   delay,
   ...rest
 }) {
+  const portalRef = useContext(Tooltip.PortalRefContext);
   return (
     <OverlayTrigger
       trigger={toggle ? "click" : undefined}
       placement={top ? "top" : bottom ? "bottom" : left ? "left" : "right"}
       children={children}
-      container={() => document.getElementById("tooltip-portal")}
+      container={() => portalRef.current}
       popperConfig={{
         modifiers: {
           preventOverflow: {
@@ -82,3 +83,9 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.displayName = "Tooltip";
+
+// ? ==========
+// ? Context
+// ? ==========
+
+Tooltip.PortalRefContext = createContext({ current: null });
