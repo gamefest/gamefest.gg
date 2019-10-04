@@ -14,7 +14,6 @@ leftLinks:
 rightLinks:
 - icon: smashgg
   href: 'https://smash.gg/tournament/gamefest-2019'
-  disabled: true
   ariaLabel: SmashGG page
 - icon: facebook-f
   href: 'https://www.facebook.com/gtgamefest/'
@@ -24,7 +23,6 @@ rightLinks:
   ariaLabel: Twitter page
 - icon: discord
   href: 'https://discord.gg/6uv76qC'
-  disabled: true
   ariaLabel: Discord server
 # - icon: twitch
 #   href: '/watch'
