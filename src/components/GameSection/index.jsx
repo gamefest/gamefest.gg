@@ -8,13 +8,13 @@ import "./style.scss";
 function GameSection({ slug, name, logo, banner, children }) {
   return (
     <article className="game-section">
-      <a className="game-section-anchor" id={slug} />
+      <a className="game-section-anchor" name={slug} />
       <div className="game-section-title">
         <Img
           className="game-section-banner"
           fluid={banner.childImageSharp.fluid}
         />
-        <GameSection.Title name={name} slug={slug} logo={logo} />
+        <GameSection.Title name={name} logo={logo} />
       </div>
       <section className="game-section-content" children={children} />
     </article>
@@ -38,7 +38,7 @@ GameSection.propTypes = {
 
 GameSection.displayName = "GameSection";
 
-GameSection.Title = function({ name, slug, logo }) {
+GameSection.Title = function({ name, logo }) {
   return logo ? (
     <>
       <img className="game-section-logo" src={logo.publicURL} alt={name} />
@@ -50,7 +50,6 @@ GameSection.Title = function({ name, slug, logo }) {
 
 GameSection.Title.propTypes = {
   name: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
   logo: PropTypes.shape({ publicURL: PropTypes.string })
 };
 

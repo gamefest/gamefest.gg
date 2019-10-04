@@ -1,19 +1,27 @@
 import Icon from "components/Icon";
-import Container from "components/Container";
 import Link from "components/Link";
-import Parallax from "components/Parallax";
-import Space from "components/Space";
-import FullWidth from "components/FullWidth";
 import Lead from "components/Lead";
+import Space from "components/Space";
+import Parallax from "components/Parallax";
+import FullWidth from "components/FullWidth";
+import Container from "components/Container";
+import createHeading from "components/Heading";
 
 const components = {
   Icon,
   Container,
   Parallax,
-  a: Link,
   Space,
   FullWidth,
-  Lead
+  Lead,
+  // Overriding default Markdown components:
+  a: Link,
+  h1: createHeading({ component: "h1" }),
+  h2: createHeading({ component: "h2" }),
+  h3: createHeading({ component: "h3" }),
+  h4: createHeading({ component: "h4" }),
+  h5: createHeading({ component: "h5" }),
+  h6: createHeading({ component: "h6" })
 };
 
 export default components;

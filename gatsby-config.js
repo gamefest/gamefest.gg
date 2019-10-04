@@ -41,25 +41,6 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 800,
-              showCaptions: ["title"]
-            }
-          },
-          {
-            resolve: "gatsby-remark-responsive-iframe",
-            options: {}
-          },
-          "gatsby-remark-smartypants"
-        ]
-      }
-    },
-    {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: themeColor,

@@ -118,7 +118,7 @@ function LinkContent({ text, icon }) {
   return (
     <>
       {isEmptyOrNil(text) ? null : <span>{text}</span>}
-      {isEmptyOrNil(icon) ? null : <Icon name={icon} />}
+      {isEmptyOrNil(icon) ? null : <Icon name={icon} fixedWidth />}
     </>
   );
 }
