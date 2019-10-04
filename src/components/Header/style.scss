@@ -165,6 +165,8 @@ $transition-duration: 0.4s;
             .collapse-inner {
                 background-color: rgba(black, 0.5);
                 backdrop-filter: blur(8px);
+
+                box-shadow: none !important;
             }
         }
     }
