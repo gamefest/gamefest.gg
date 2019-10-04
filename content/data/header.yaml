@@ -22,8 +22,8 @@ rightLinks:
   href: 'https://twitter.com/gatechesports'
   ariaLabel: Twitter page
 - icon: discord
-  href: 'https://discord.gg/6uv76qC'
+  href: 'https://discord.gg/f65UDtd'
   ariaLabel: Discord server
-# - icon: twitch
-#   href: '/watch'
-#   ariaLabel: Watch
+- icon: twitch
+  href: '/watch'
+  ariaLabel: Watch
