@@ -86,7 +86,7 @@ function GamesBarItem({ vertical, icon, label, href }) {
     >
       <div className="games-bar-item">
         <Link href={href}>
-          <img src={icon} />
+          <img src={icon} alt={`${label} icon`} />
         </Link>
       </div>
     </Tooltip>

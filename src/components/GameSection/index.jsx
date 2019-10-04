@@ -41,7 +41,7 @@ GameSection.displayName = "GameSection";
 GameSection.Title = function({ name, slug, logo }) {
   return logo ? (
     <>
-      <img className="game-section-logo" src={logo.publicURL} />
+      <img className="game-section-logo" src={logo.publicURL} alt={name} />
     </>
   ) : (
     <h2 className="game-section-placeholder">{name}</h2>
