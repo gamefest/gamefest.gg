@@ -100,7 +100,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-svg`,
