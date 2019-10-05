@@ -15,7 +15,7 @@ $anchor-offset: -88px;
 
     $this: &;
 
-    &-title {
+    &--title {
         height: 200px;
         position: relative;
         display: flex;
@@ -24,7 +24,7 @@ $anchor-offset: -88px;
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
 
-        #{$this}-banner {
+        #{$this}--banner {
             position: absolute !important;
             object-fit: cover;
             top: 0;
@@ -44,7 +44,7 @@ $anchor-offset: -88px;
             }
         }
 
-        #{$this}-logo {
+        #{$this}--logo {
             max-height: 92px;
             width: 400px;
             height: auto;
@@ -61,14 +61,14 @@ $anchor-offset: -88px;
             }
         }
 
-        #{$this}-logo,
-        #{$this}-placeholder {
+        #{$this}--logo,
+        #{$this}--placeholder {
             z-index: 2;
             position: relative;
         }
     }
 
-    &-content {
+    &--content {
         padding: $content-padding;
 
         p:last-child {
@@ -76,7 +76,7 @@ $anchor-offset: -88px;
         }
     }
 
-    &-anchor {
+    &--anchor {
         position: absolute;
         left: 0;
         top: $anchor-offset;

@@ -45,7 +45,7 @@ function Header({ transparentTop }) {
         <Navbar.Toggle aria-controls="primary-nav" />
         <Navbar.Collapse id="primary-nav">
           <div className="collapse-inner">
-            <LinkBar className="mr-auto main-nav" links={leftLinks} />
+            <LinkBar className="main-nav" links={leftLinks} />
             <LinkBar className="flex-row icon-nav" links={rightLinks} />
           </div>
         </Navbar.Collapse>

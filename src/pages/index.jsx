@@ -1,18 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
 import { useMedia } from "utility";
 
+import Img from "gatsby-image";
+import { Col, Alert } from "react-bootstrap";
 import Layout from "components/Layout";
 import Icon from "components/Icon";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
-import ParallaxProvider from "components/ParallaxProvider";
 import Parallax from "components/Parallax";
 import GamesBar from "components/GamesBar";
-import { Col, Alert } from "react-bootstrap";
+import Link from "components/Link";
 import Container from "components/Container";
-import Img from "gatsby-image";
+import SponsorTiles from "components/SponsorTiles";
+import ParallaxProvider from "components/ParallaxProvider";
 
 import LogoSvg from "../../content/img/logo.svg";
 import ArrowSvg from "assets/arrow_down.svg";
@@ -53,7 +56,12 @@ function IndexPage() {
   const imageNodes = Object.assign(
     {},
     ...images.map(i => ({
-      [i.key]: <Img fluid={i.src.childImageSharp.fluid} />
+      [i.key]: (
+        <Img
+          fluid={i.src.childImageSharp.fluid}
+          className={classNames({ "no-select": !i.selectable })}
+        />
+      )
     }))
   );
 
@@ -97,8 +105,8 @@ IndexPage.Title = function({ date, location, image, showGames }) {
   );
   return (
     <Parallax
-      inner={titleInner}
-      children={image}
+      children={titleInner}
+      image={image}
       height={isShort ? "600px" : "85vh"}
       overlay="rgba(0,0,0,0.8)"
     />
@@ -167,12 +175,15 @@ IndexPage.Col.defaultProps = {
 IndexPage.Col.displayName = "IndexPage.Col";
 
 // Sponsors content element at the bottom of the Index Page
-// TODO implement sponsor view
 IndexPage.Sponsors = function({ children, showSponsors }) {
   return (
     <div className="index-sponsors">
       {children}
-      {showSponsors ? null : (
+      {showSponsors ? (
+        <div className="sponsor-list">
+          <SponsorTiles compact />
+        </div>
+      ) : (
         <Alert variant="info" className="mt-5 py-5">
           <div
             className="mb-3"
@@ -185,6 +196,9 @@ IndexPage.Sponsors = function({ children, showSponsors }) {
           </h5>
         </Alert>
       )}
+      <Link className="btn btn-primary sponsor-info" href="/sponsors">
+        View Sponsors
+      </Link>
     </div>
   );
 };

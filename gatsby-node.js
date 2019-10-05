@@ -21,12 +21,26 @@ exports.sourceNodes = ({ actions, reporter }) => {
 
     type MdxFrontmatter {
       links: [Link]
-      # Game MDX file attributes
+      images: [MdxImage]
+
+      # Shared MDX file attributes
       name: String
+      logo: File @fileByRelativePath
+
+      # Game MDX file attributes
       icon: File @fileByRelativePath
       banner: File @fileByRelativePath
-      logo: File @fileByRelativePath
       slug: String
+
+      # Sponsor MDX file attributes
+      link: String
+      hide: Boolean
+    }
+
+    type MdxImage {
+      key: String!
+      src: File! @fileByRelativePath
+      selectable: Boolean
     }
   `;
   createTypes(linkSchema);

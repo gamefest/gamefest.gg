@@ -8,15 +8,15 @@ import "./style.scss";
 function GameSection({ slug, name, logo, banner, children }) {
   return (
     <article className="game-section">
-      <a className="game-section-anchor" name={slug} />
-      <div className="game-section-title">
+      <a className="game-section--anchor" name={slug} />
+      <div className="game-section--title">
         <Img
-          className="game-section-banner"
+          className="game-section--banner"
           fluid={banner.childImageSharp.fluid}
         />
         <GameSection.Title name={name} logo={logo} />
       </div>
-      <section className="game-section-content" children={children} />
+      <section className="game-section--content" children={children} />
     </article>
   );
 }
@@ -41,10 +41,10 @@ GameSection.displayName = "GameSection";
 GameSection.Title = function({ name, logo }) {
   return logo ? (
     <>
-      <img className="game-section-logo" src={logo.publicURL} alt={name} />
+      <img className="game-section--logo" src={logo.publicURL} alt={name} />
     </>
   ) : (
-    <h2 className="game-section-placeholder">{name}</h2>
+    <h2 className="game-section--placeholder">{name}</h2>
   );
 };
 

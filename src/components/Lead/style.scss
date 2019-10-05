@@ -8,4 +8,8 @@
     p:last-child {
         margin-bottom: 0;
     }
+
+    &.lead-strong {
+        color: $-light;
+    }
 }

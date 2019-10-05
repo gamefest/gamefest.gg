@@ -50,8 +50,12 @@ $offset-size: 84px;
     }
 }
 
-@include respond-below(sm) {
-    .games-nav-outer {
+.games-nav-outer {
+    @include respond-below(sm) {
+        display: none;
+    }
+
+    @media (max-height: 599.95px) {
         display: none;
     }
 }

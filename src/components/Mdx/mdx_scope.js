@@ -14,6 +14,8 @@ const components = {
   Space,
   FullWidth,
   Lead,
+  Link,
+
   // Overriding default Markdown components:
   a: Link,
   h1: createHeading({ component: "h1" }),

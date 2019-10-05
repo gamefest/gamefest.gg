@@ -115,8 +115,8 @@ button,
     background-color: color-adjust($-dark, 7.5%);
 }
 
-article a,
-section a {
+article a:not(.btn),
+section a:not(.btn) {
     text-decoration: none;
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 2px solid rgba($-primary, 0.4);
@@ -129,8 +129,8 @@ section a {
     }
 }
 
-article .bg-light a, .bg-light article a,
-section .bg-light a, .bg-light section a {
+article .bg-light a:not(.btn), .bg-light article a:not(.btn),
+section .bg-light a:not(.btn), .bg-light section a:not(.btn) {
     color: color-adjust($-primary, -20%);
 
     &:hover {
@@ -179,4 +179,14 @@ body {
         backdrop-filter: blur(8px);
         --webkit-backdrop-filter: blur(8px);
     }
+}
+
+// Raise z-level
+.raise {
+    z-index: 1;
+    position: relative;
+}
+
+.no-select {
+    user-select: none;
 }

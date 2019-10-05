@@ -1,0 +1,59 @@
+@import "../../scss/media";
+@import "../../scss/colors";
+@import "../../scss/util";
+
+.sponsor-tiles {
+    $this: &;
+
+    display: flex;
+    flex-direction: column;
+
+    #{$this}--tile-link {
+        padding: 12px;
+        border-radius: 8px;
+        @include transitions("background-color");
+
+        &:hover {
+            background-color: rgba(black, 0.05);
+        }
+    }
+
+    &.compact {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    &.compact {
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        #{$this}--tile {
+            width: 100%;
+            padding: 16px 4px;
+            position: relative;
+
+            @include respond-above(sm) {
+                width: 50%;
+            }
+
+            @include respond-above(lg) {
+                width: calc(100% / 4);
+                max-width: calc(100% / 4);
+                flex-grow: 1;
+                padding: 20px 5px;
+            }
+        }
+
+        #{$this}--tile-logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 210px;
+            max-height: 64px;
+            width: auto;
+            height: auto;
+        }
+    }
+}
