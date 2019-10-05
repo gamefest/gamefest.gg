@@ -81,7 +81,7 @@ function SponsorsPage() {
   );
 
   return (
-    <Layout className="sponsors-page">
+    <Layout className="sponsors-page" footerProps={{ lighter: true }}>
       <ParallaxProvider>
         <SEO title="Sponsors" />
         <Mdx content={body} images={imageNodes} />

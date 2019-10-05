@@ -1,0 +1,90 @@
+@import "../../scss/colors";
+@import "../../scss/theme";
+@import "../../scss/media";
+
+%parent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+%child {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+}
+
+.register-page {
+    @extend %parent;
+    background-color: $smash-gg-bg;
+
+    .register-page--content {
+        @extend %parent;
+        @extend %child;
+        position: relative;
+    }
+
+    iframe {
+        @extend %child;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        transition-property: opacity;
+        transition-timing-function: linear;
+        transition-duration: 0.5s;
+        transition-delay: 0.25s;
+        opacity: 0;
+        pointer-events: none;
+
+        .spinner-wrapper {
+            margin: 3rem auto 0;
+            height: 40px;
+            width: 40px;
+        }
+
+        &.loading {
+            opacity: 1;
+        }
+    }
+
+    &--top-banner {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        color: color-adjust($-dark, 15%);
+        box-shadow: $drop-shadow-slight;
+        position: relative;
+        z-index: 1;
+        border-bottom: 1px solid rgba($-dark, 0.15);
+
+        @include respond-above(lg) {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .text-lead {
+            color: rgba($-dark, 0.8);
+
+            @include respond-below(md) {
+                font-size: 1.2rem;
+            }
+
+            @include respond-below(sm) {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

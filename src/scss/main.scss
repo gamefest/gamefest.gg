@@ -129,15 +129,16 @@ section a:not(.btn) {
     }
 }
 
-article .bg-light a:not(.btn), .bg-light article a:not(.btn),
-section .bg-light a:not(.btn), .bg-light section a:not(.btn) {
+article .bg-light a:not(.btn),
+.bg-light article a:not(.btn),
+section .bg-light a:not(.btn),
+.bg-light section a:not(.btn) {
     color: color-adjust($-primary, -20%);
 
     &:hover {
         color: color-adjust($-primary, -30%);
     }
 }
-
 
 #gatsby-focus-wrapper,
 html,
@@ -153,6 +154,10 @@ body {
     & > main {
         flex-grow: 1;
     }
+}
+
+main {
+    position: relative;
 }
 
 .container {

@@ -7,10 +7,9 @@ leftLinks:
   href: '/sponsors'
 - text: Directions/Parking
   href: '/directions'
-# - text: Register
-#   href: '/register'
-#   class: 'nav-link-outline ml-2'
-#   disabled: true
+- text: Register
+  href: '/register'
+  class: 'nav-link-outline ml-3'
 rightLinks:
 - icon: smashgg
   href: 'https://smash.gg/tournament/gamefest-2019'
