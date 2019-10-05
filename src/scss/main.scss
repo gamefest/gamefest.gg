@@ -3,6 +3,7 @@
 @import "./animations";
 @import "./media";
 @import "./theme";
+@import "./extend";
 @import "node_modules/@fortawesome/fontawesome-svg-core/styles";
 
 h1,
@@ -216,4 +217,12 @@ section p:last-of-type {
 
 .reverse-margin {
     margin-top: -48px;
+}
+
+.underline-links a {
+    @extend .underline-link;
+}
+
+.text-white p {
+    color: white !important;
 }
