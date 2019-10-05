@@ -37,6 +37,22 @@ $background: color-adjust($-light, 80%);
 
 .sponsors-title-wrapper {
     box-shadow: $drop-shadow;
+
+    .jarallax {
+        height: 330px !important;
+        @media(min-width: 360px) {
+            height: 300px !important;
+        }
+        @media(min-width: 400px) {
+            height: 270px !important;
+        }
+        @media(min-width: 540px) {
+            height: 250px !important;
+        }
+        @include respond-above(md) {
+            height: 230px !important;
+        }
+    }
 }
 
 $base: ".sponsor-tiles";
