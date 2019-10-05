@@ -48,6 +48,7 @@
         transition-duration: 0.5s;
         transition-delay: 0.25s;
         opacity: 0;
+        pointer-events: none;
 
         .spinner-wrapper {
             margin: 3rem auto 0;
