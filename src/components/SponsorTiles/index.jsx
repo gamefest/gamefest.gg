@@ -29,6 +29,7 @@ function SponsorTiles({
                 name
                 link
                 level
+                hide
                 logo {
                   publicURL
                 }
@@ -41,10 +42,12 @@ function SponsorTiles({
   `);
   const sponsors = useMemo(
     () =>
-      data.allFile.edges.map(e => {
-        const mdx = e.node.childMdx;
-        return { ...mdx.frontmatter, body: mdx.body };
-      }),
+      data.allFile.edges
+        .map(e => {
+          const mdx = e.node.childMdx;
+          return { ...mdx.frontmatter, body: mdx.body };
+        })
+        .filter(s => !s.hide),
     [data]
   );
   const filtered = isNil(level)

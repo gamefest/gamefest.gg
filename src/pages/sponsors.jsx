@@ -49,6 +49,7 @@ function SponsorsPage() {
             childMdx {
               frontmatter {
                 level
+                hide
               }
             }
           }
@@ -70,7 +71,9 @@ function SponsorsPage() {
     }))
   );
   const sponsors = useMemo(() =>
-    sponsorNodes.edges.map(e => e.node.childMdx.frontmatter)
+    sponsorNodes.edges
+      .map(e => e.node.childMdx.frontmatter)
+      .filter(s => !s.hide)
   );
   const tiers = useMemo(
     () => Array.from(new Set(sponsors.map(({ level }) => level))),
