@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
-import { useMedia } from "utility";
+import { useMedia, useMdxImages } from "utility";
 
-import Img from "gatsby-image";
 import { Col, Alert } from "react-bootstrap";
 import Layout from "components/Layout";
 import Icon from "components/Icon";
@@ -33,43 +31,20 @@ function IndexPage() {
         childMdx {
           body
           frontmatter {
-            images {
-              key
-              src {
-                childImageSharp {
-                  fluid(
-                    maxWidth: 2560
-                    srcSetBreakpoints: [400, 800, 1200, 1920]
-                  ) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
+            ...MdxImages
           }
         }
       }
     }
   `).file.childMdx;
   const body = mdx.body;
-  const images = mdx.frontmatter.images;
-  const imageNodes = Object.assign(
-    {},
-    ...images.map(i => ({
-      [i.key]: (
-        <Img
-          fluid={i.src.childImageSharp.fluid}
-          className={classNames({ "no-select": !i.selectable })}
-        />
-      )
-    }))
-  );
+  const images = useMdxImages(mdx);
 
   return (
     <Layout headerProps={{ transparentTop: true }} navOffset={0}>
       <SEO />
       <ParallaxProvider>
-        <Mdx content={body} images={imageNodes} />
+        <Mdx content={body} images={images} />
       </ParallaxProvider>
     </Layout>
   );

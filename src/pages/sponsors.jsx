@@ -1,9 +1,8 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
+import { useMdxImages } from "utility";
 
-import Img from "gatsby-image";
 import Mdx from "components/Mdx";
 import SEO from "components/SEO";
 import Layout from "components/Layout";
@@ -24,20 +23,7 @@ function SponsorsPage() {
         childMdx {
           body
           frontmatter {
-            images {
-              key
-              selectable
-              src {
-                childImageSharp {
-                  fluid(
-                    maxWidth: 2560
-                    srcSetBreakpoints: [400, 800, 1200, 1920]
-                  ) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
+            ...MdxImages
           }
         }
       }
@@ -58,18 +44,7 @@ function SponsorsPage() {
     }
   `);
   const body = content.childMdx.body;
-  const images = content.childMdx.frontmatter.images;
-  const imageNodes = Object.assign(
-    {},
-    ...images.map(i => ({
-      [i.key]: (
-        <Img
-          fluid={i.src.childImageSharp.fluid}
-          className={classNames({ "no-select": !i.selectable })}
-        />
-      )
-    }))
-  );
+  const images = useMdxImages(content.childMdx);
   const sponsors = useMemo(() =>
     sponsorNodes.edges
       .map(e => e.node.childMdx.frontmatter)
@@ -84,7 +59,7 @@ function SponsorsPage() {
     <Layout className="sponsors-page" footerProps={{ lighter: true }}>
       <ParallaxProvider>
         <SEO title="Sponsors" />
-        <Mdx content={body} images={imageNodes} />
+        <Mdx content={body} images={images} />
         <SponsorsPage.Tiers tiers={tiers} />
       </ParallaxProvider>
     </Layout>

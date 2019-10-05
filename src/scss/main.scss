@@ -195,3 +195,25 @@ main {
 .no-select {
     user-select: none;
 }
+
+article p {
+    color: rgba($-light, 0.75);
+}
+
+section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.top-banner {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+
+    .anchor-wrapper:last-child h1 {
+        margin-bottom: 0;
+    }
+}
+
+.reverse-margin {
+    margin-top: -48px;
+}

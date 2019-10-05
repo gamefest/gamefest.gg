@@ -22,7 +22,7 @@ function Parallax({ children, image, overlay, height, speed }) {
       className="jarallax"
       data-speed={speed}
     >
-      <div className="jarallax-img">{image} </div>
+      <div className="jarallax-img">{image}</div>
       {isDefined(overlay) ? (
         <div className="mask" style={{ backgroundColor: overlay }} />
       ) : null}
