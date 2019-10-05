@@ -9,7 +9,7 @@ leftLinks:
   href: '/directions'
 - text: Register
   href: '/register'
-  class: 'nav-link-outline ml-3'
+  class: 'nav-link-outline ml-lg-3 d-inline-block d-lg-inline'
 rightLinks:
 - icon: smashgg
   href: 'https://smash.gg/tournament/gamefest-2019'
