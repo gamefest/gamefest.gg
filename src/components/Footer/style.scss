@@ -36,4 +36,8 @@
             }
         }
     }
+
+    &.lighter {
+        background-color: color-adjust($-dark, 10%);
+    }
 }

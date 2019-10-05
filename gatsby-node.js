@@ -35,6 +35,9 @@ exports.sourceNodes = ({ actions, reporter }) => {
       # Sponsor MDX file attributes
       link: String
       hide: Boolean
+
+      # Register MDX file attributes
+      embed: String
     }
 
     type MdxImage {
