@@ -1,11 +1,22 @@
 @import "../../scss/media";
 @import "../../scss/colors";
+@import "../../scss/util";
 
 .sponsor-tiles {
     $this: &;
 
     display: flex;
     flex-direction: column;
+
+    #{$this}--tile-link {
+        padding: 12px;
+        border-radius: 8px;
+        @include transitions("background-color");
+
+        &:hover {
+            background-color: rgba(black, 0.05);
+        }
+    }
 
     &.compact {
         flex-wrap: wrap;

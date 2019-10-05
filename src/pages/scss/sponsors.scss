@@ -66,8 +66,7 @@ $base: ".sponsor-tiles";
 
 $h-spacing: 3rem;
 $v-spacing: 2.5rem;
-$v-skip: 1.8rem;
-$v-padding: 1.15rem;
+$v-padding: 1.2rem;
 .sponsors-tier-2 {
     background-color: color-adjust($-light, -5%);
     color: rgba($-dark, 0.95);
@@ -152,8 +151,8 @@ $v-padding: 1.15rem;
 .sponsors-tier-1 {
     background-color: $-light;
     color: rgba($-dark, 0.75);
-    padding-top: $v-padding + $v-spacing;
-    padding-bottom: $v-padding + $v-spacing;
+    padding-top: ($v-padding + $v-spacing) * 0.75;
+    padding-bottom: ($v-padding + $v-spacing) * 0.75;
     box-shadow: $drop-shadow;
 
     .sponsor-tiles {
@@ -179,7 +178,7 @@ $v-padding: 1.15rem;
     }
 
     #{$base}--tile-content {
-        padding-top: $v-skip;
+        padding-top: $v-padding;
         text-align: center;
     }
 
@@ -195,8 +194,8 @@ $v-padding: 1.15rem;
 
 .sponsors-tier-0 {
     background-color: $background;
-    padding-top: $v-padding + $v-spacing;
-    padding-bottom: $v-padding + $v-spacing;
+    padding-top: ($v-padding + $v-spacing) * 0.75;
+    padding-bottom: ($v-padding + $v-spacing) * 0.75;
 
     .sponsor-tiles {
         flex-direction: row !important;
