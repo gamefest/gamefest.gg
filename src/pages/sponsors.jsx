@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Img from "gatsby-image";
@@ -25,6 +26,7 @@ function SponsorsPage() {
           frontmatter {
             images {
               key
+              selectable
               src {
                 childImageSharp {
                   fluid(
@@ -59,7 +61,12 @@ function SponsorsPage() {
   const imageNodes = Object.assign(
     {},
     ...images.map(i => ({
-      [i.key]: <Img fluid={i.src.childImageSharp.fluid} />
+      [i.key]: (
+        <Img
+          fluid={i.src.childImageSharp.fluid}
+          className={classNames({ "no-select": !i.selectable })}
+        />
+      )
     }))
   );
   const sponsors = useMemo(() =>
@@ -69,7 +76,6 @@ function SponsorsPage() {
     () => Array.from(new Set(sponsors.map(({ level }) => level))),
     [sponsors]
   );
-  console.log(tiers);
 
   return (
     <Layout className="sponsors-page">
@@ -96,7 +102,7 @@ SponsorsPage.Tiers = function({ tiers }) {
     return (
       <section className={`sponsors-tier-${t}`} key={t}>
         <Container>
-          <SponsorTiles level={t} />
+          <SponsorTiles level={t} headers={t === 2} compact={t === 0} />
         </Container>
       </section>
     );

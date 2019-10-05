@@ -20,9 +20,13 @@
         flex-direction: row;
 
         #{$this}--tile {
-            width: 50%;
+            width: 100%;
             padding: 16px 4px;
             position: relative;
+
+            @include respond-above(sm) {
+                width: 50%;
+            }
 
             @include respond-above(lg) {
                 width: calc(100% / 4);
@@ -35,7 +39,7 @@
         #{$this}--tile-logo {
             display: block;
             margin: 0 auto;
-            max-width: 220px;
+            max-width: 210px;
             max-height: 64px;
             width: auto;
             height: auto;

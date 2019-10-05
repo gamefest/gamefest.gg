@@ -21,6 +21,7 @@ exports.sourceNodes = ({ actions, reporter }) => {
 
     type MdxFrontmatter {
       links: [Link]
+      images: [MdxImage]
 
       # Shared MDX file attributes
       name: String
@@ -33,6 +34,12 @@ exports.sourceNodes = ({ actions, reporter }) => {
 
       # Sponsor MDX file attributes
       link: String
+    }
+
+    type MdxImage {
+      key: String!
+      src: File! @fileByRelativePath
+      selectable: Boolean
     }
   `;
   createTypes(linkSchema);

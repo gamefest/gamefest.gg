@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
 import { useMedia } from "utility";
 
@@ -55,7 +56,12 @@ function IndexPage() {
   const imageNodes = Object.assign(
     {},
     ...images.map(i => ({
-      [i.key]: <Img fluid={i.src.childImageSharp.fluid} />
+      [i.key]: (
+        <Img
+          fluid={i.src.childImageSharp.fluid}
+          className={classNames({ "no-select": !i.selectable })}
+        />
+      )
     }))
   );
 

@@ -1,13 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { isDefined, addMissingUnit } from "utility";
+import { isDefined, addMissingUnit, useMediaBreakpoints, isNil } from "utility";
 
 import "./style.scss";
 
+function getBreakpoints(breakpointMap) {
+  return Object.keys(breakpointMap).filter(k => k !== "base");
+}
+
 function Parallax({ children, image, overlay, height, speed }) {
+  const isResponsive = typeof height === "object";
+  const breakpoints = isResponsive ? getBreakpoints(height) : [];
+  const activeBreakpoint = useMediaBreakpoints(breakpoints);
+  const currentHeight = isNil(activeBreakpoint)
+    ? height.base
+    : height[activeBreakpoint];
+
   return (
     <div
-      style={{ height: addMissingUnit(height) }}
+      style={{ height: addMissingUnit(isResponsive ? currentHeight : height) }}
       className="jarallax"
       data-speed={speed}
     >
@@ -31,7 +42,11 @@ Parallax.propTypes = {
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)
   ]),
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object
+  ]),
   speed: PropTypes.number,
   overlay: PropTypes.string
 };

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { isClient } from "./document";
+import { addMissingUnit } from "./string";
 
 export function useScrollThreshold(threshold, range = 40) {
   const [above, setAbove] = useState(true);
@@ -30,4 +31,53 @@ export function useMedia(query) {
   }, [matches, query]);
 
   return matches;
+}
+
+export function useMediaBreakpoints(breakpoints) {
+  const collator = useMemo(
+    () =>
+      new Intl.Collator(undefined, {
+        numeric: true,
+        sensitivity: "base"
+      })
+  );
+  const sortedBreakpoints = useMemo(
+    () => [...breakpoints].sort(collator.compare),
+    [breakpoints, collator]
+  );
+  const queries = sortedBreakpoints.map(
+    b => `(min-width: ${addMissingUnit(b)})`
+  );
+  const getBreakpoint = matches => {
+    // Find first media query that fails
+    const result = matches.findIndex(m => !m);
+    // If none fail, then return last breakpoint; else return the last passing
+    return result === -1 ? sortedBreakpoints.length - 1 : result - 1;
+  };
+  const [state, setState] = useState(
+    isClient
+      ? () => getBreakpoint(queries.map(q => window.matchMedia(q).matches))
+      : -1
+  );
+
+  useEffect(() => {
+    let mounted = true;
+    const mediaQueries = queries.map(q => window.matchMedia(q));
+    const onChange = () => {
+      if (!mounted) {
+        return;
+      }
+      setState(getBreakpoint(mediaQueries.map(m => m.matches)));
+    };
+
+    mediaQueries.forEach(mql => mql.addListener(onChange));
+    setState(getBreakpoint(mediaQueries.map(m => m.matches)));
+
+    return () => {
+      mounted = false;
+      mediaQueries.forEach(mql => mql.removeListener(onChange));
+    };
+  }, [sortedBreakpoints]);
+
+  return state === -1 ? null : sortedBreakpoints[state];
 }

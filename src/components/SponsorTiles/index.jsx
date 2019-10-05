@@ -10,7 +10,14 @@ import Mdx from "components/Mdx";
 
 import "./style.scss";
 
-function SponsorTiles({ level, className, tileClassName, tooltip, compact }) {
+function SponsorTiles({
+  level,
+  className,
+  tileClassName,
+  tooltip,
+  compact,
+  headers
+}) {
   const data = useStaticQuery(graphql`
     query SponsorTilesQuery {
       allFile(filter: { sourceInstanceName: { eq: "sponsors" } }) {
@@ -57,6 +64,7 @@ function SponsorTiles({ level, className, tileClassName, tooltip, compact }) {
             logo={logo.publicURL}
             className={tileClassName}
             tooltip={tooltip}
+            header={headers}
           >
             {!compact && <Mdx content={body} />}
           </SponsorTiles.Tile>
@@ -73,14 +81,16 @@ SponsorTiles.propTypes = {
   className: PropTypes.string,
   tileClassName: PropTypes.string,
   compact: PropTypes.bool,
-  tooltip: PropTypes.bool
+  tooltip: PropTypes.bool,
+  headers: PropTypes.bool
 };
 
 SponsorTiles.defaultProps = {
   level: null,
   className: "",
   tileClassName: "",
-  compact: false
+  compact: false,
+  headers: false
 };
 
 SponsorTiles.displayName = "SponsorTiles";
@@ -96,7 +106,8 @@ SponsorTiles.Tile = function({
   className,
   children,
   tooltip,
-  logo
+  logo,
+  header
 }) {
   const logoImage = (
     <img className="sponsor-tiles--tile-logo" alt={name} src={logo} />
@@ -111,7 +122,10 @@ SponsorTiles.Tile = function({
           logoImage
         )}
       </Link>
-      <div className="sponsor-tiles--tile-content" children={children} />
+      <div className="sponsor-tiles--tile-content">
+        {header && <h3>{name}</h3>}
+        {children}
+      </div>
     </div>
   );
 };
@@ -126,12 +140,14 @@ SponsorTiles.Tile.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ]),
   tooltip: PropTypes.bool,
-  logo: PropTypes.string
+  logo: PropTypes.string,
+  header: PropTypes.bool
 };
 
 SponsorTiles.Tile.defaultProps = {
   className: "",
-  compact: false
+  compact: false,
+  header: false
 };
 
 SponsorTiles.Tile.displayName = "SponsorTiles.Tile";

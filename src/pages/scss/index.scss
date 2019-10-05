@@ -68,7 +68,7 @@ $hero-hex-size: 144px;
     }
 
     .games-bar {
-        @include respond-above(md) {
+        @include respond-above(lg) {
             margin-right: 6rem;
         }
     }

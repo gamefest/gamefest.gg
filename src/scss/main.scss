@@ -127,15 +127,6 @@ section a:not(.btn) {
         border-bottom-color: $-primary;
         color: color-adjust($-primary, 5%);
     }
-
-    &.strong {
-        font-weight: 500;
-        color: color-adjust($-primary, 20%);
-
-        &:hover {
-            color: color-adjust($-primary, 30%);
-        }
-    }
 }
 
 article .bg-light a:not(.btn), .bg-light article a:not(.btn),
@@ -194,4 +185,8 @@ body {
 .raise {
     z-index: 1;
     position: relative;
+}
+
+.no-select {
+    user-select: none;
 }
