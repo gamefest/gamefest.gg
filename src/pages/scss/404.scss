@@ -1,0 +1,9 @@
+@import "../../scss/colors";
+
+.not-found-page {
+    hr {
+        max-width: 100px;
+        margin: 2rem 0;
+        border-top: 2px solid rgba($-light, 0.75);
+    }
+}
