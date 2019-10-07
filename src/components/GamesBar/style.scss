@@ -19,8 +19,11 @@ $icon-small-size: 36px;
     &.vertical {
         flex-direction: column !important;
 
-        .games-bar-item img {
-            margin: 1rem 0.75rem;
+        .games-bar-item {
+            &--logo.gatsby-image-wrapper,
+            a > img {
+                margin: 1rem 0.75rem;
+            }
         }
     }
 
@@ -42,8 +45,10 @@ $icon-small-size: 36px;
         border-radius: 0.5rem;
         @include transitions("background-color, box-shadow");
         outline: none !important;
+        line-height: 0;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: rgba($-light, 0.07);
         }
 
@@ -57,7 +62,7 @@ $icon-small-size: 36px;
 
         a {
             position: relative;
-            display: block;
+            display: inline-block;
             border: none !important;
         }
 
@@ -65,10 +70,12 @@ $icon-small-size: 36px;
             @extend %button-blank;
         }
 
-        img {
+        &--logo.gatsby-image-wrapper,
+        a > img {
             width: $icon-size;
             height: $icon-size;
             margin: 0.85rem 0.95rem;
+            display: block !important;
 
             @include respond-below(sm) {
                 width: $icon-small-size;

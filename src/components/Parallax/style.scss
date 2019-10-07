@@ -12,7 +12,8 @@
         z-index: -1;
     }
 
-    &:not(.no-expand) {
+    &:not(.no-expand) > div > .jarallax-img,
+    &:not(.no-expand) > .jarallax-img {
         .gatsby-image-wrapper {
             height: 100% !important;
         }

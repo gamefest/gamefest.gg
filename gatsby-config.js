@@ -1,4 +1,5 @@
 const themeColor = "#699433";
+const secondaryColor = "#7c467a";
 const bgColor = "#222222";
 
 module.exports = {
@@ -50,7 +51,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        color: themeColor,
+        color: secondaryColor,
         showSpinner: false
       }
     },

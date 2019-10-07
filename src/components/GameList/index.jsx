@@ -23,6 +23,9 @@ function GameList() {
                 slug
                 logo {
                   publicURL
+                  childImageSvg {
+                    svgURL
+                  }
                 }
                 banner {
                   childImageSharp {
@@ -48,7 +51,7 @@ function GameList() {
       <Mdx content={body} />
     </GameSection>
   ));
-};
+}
 
 export default GameList;
 

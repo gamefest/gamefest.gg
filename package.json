@@ -13,6 +13,7 @@
     "@tanem/react-nprogress": "^3.0.5",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "filesize": "^5.0.1",
     "gatsby": "^2.13.9",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-catch-links": "^2.1.0",
@@ -32,12 +33,14 @@
     "gatsby-transformer-sharp": "^2.2.1",
     "gatsby-transformer-yaml": "^2.2.3",
     "jarallax": "^1.10.7",
+    "mini-svg-data-uri": "^1.1.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "smooth-scroll": "^16.1.0"
+    "smooth-scroll": "^16.1.0",
+    "svgo": "^1.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
