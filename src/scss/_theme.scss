@@ -7,3 +7,5 @@ $drop-shadow-slight: 0 4px 8px 0 rgba(black, $shadow-strength * 0.5);
 $inner-vertical-shadow: inset 1px -10px 16px -12px
         rgba(black, $shadow-strength-strong),
     inset 1px 10px 16px -12px rgba(black, $shadow-strength-strong);
+$drop-shadow-inner-bottom: inset 1px -10px 16px -12px
+    rgba(black, $shadow-strength-strong);

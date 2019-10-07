@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "components/Layout";
 import SEO from "components/SEO";
-import PageLayout from "components/PageLayout";
 import GameList from "components/GameList";
 import GamesBar from "components/GamesBar";
 import Mdx from "components/Mdx";
@@ -28,17 +27,15 @@ function GamesPage() {
   return (
     <Layout className="games-page">
       <SEO title="Games" />
-      <PageLayout noHeader>
-        <article className="games-content-wrapper">
-          <div className="games-content">
-            <Mdx content={content} scope={{ GameList }} />
-          </div>
-          <div className="games-nav-spacer" />
-          <aside className="games-nav-outer">
-            <GamesBar vertical />
-          </aside>
-        </article>
-      </PageLayout>
+      <article className="games-content-wrapper">
+        <div className="games-content">
+          <Mdx content={content} scope={{ GameList }} />
+        </div>
+        <div className="games-nav-spacer" />
+        <aside className="games-nav-outer">
+          <GamesBar vertical />
+        </aside>
+      </article>
     </Layout>
   );
 }

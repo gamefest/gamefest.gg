@@ -208,7 +208,12 @@ section p:last-of-type {
 .top-banner {
     padding-top: 4rem;
     padding-bottom: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2.125rem;
+
+    @include respond-above(lg) {
+        padding-top: 4rem;
+        padding-bottom: 2.5rem;
+    }
 
     .anchor-wrapper:last-child h1 {
         margin-bottom: 0;
@@ -225,4 +230,26 @@ section p:last-of-type {
 
 .text-white p {
     color: white !important;
+}
+
+h5 {
+    font-size: 0.95rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.25rem;
+    color: rgba($-light, 0.65);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+blockquote {
+    background-color: rgba($-light, 0.05);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    border-left: .5rem solid rgba($-light, 0.15);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
