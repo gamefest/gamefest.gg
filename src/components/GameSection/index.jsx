@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Img from "gatsby-image";
+import Image from "components/Image";
 
 import "./style.scss";
 
 function GameSection({ slug, name, logo, banner, children }) {
   return (
     <article className="game-section">
-      <a className="game-section--anchor" name={slug} />
+      <a className="game-section--anchor" id={slug} />
       <div className="game-section--title">
         <Img
           className="game-section--banner"
@@ -41,7 +42,14 @@ GameSection.displayName = "GameSection";
 GameSection.Title = function({ name, logo }) {
   return logo ? (
     <>
-      <img className="game-section--logo" src={logo.publicURL} alt={name} />
+      <Image
+        svg={logo.childImageSvg}
+        src={logo.publicURL}
+        image={logo.childImageSharp}
+        alt={name}
+        className="game-section--logo"
+        noWrapper
+      />
     </>
   ) : (
     <h2 className="game-section--placeholder">{name}</h2>
@@ -50,7 +58,7 @@ GameSection.Title = function({ name, logo }) {
 
 GameSection.Title.propTypes = {
   name: PropTypes.string.isRequired,
-  logo: PropTypes.shape({ publicURL: PropTypes.string })
+  logo: PropTypes.object
 };
 
 GameSection.Title.displayName = "GameSection.Title";

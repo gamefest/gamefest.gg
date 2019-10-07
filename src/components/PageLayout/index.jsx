@@ -8,11 +8,12 @@ import { Container } from "react-bootstrap";
 function PageLayout({ children, header, icon, noHeader }) {
   return (
     <Container className="pt-5">
-      {!noHeader &&
-      (<h1>
-        {isNil(icon) ? null : <Icon name={icon} className="mr-4" />}
-        {header}
-      </h1>)}
+      {!noHeader && (
+        <h1>
+          {isNil(icon) ? null : <Icon name={icon} className="mr-4" />}
+          {header}
+        </h1>
+      )}
       {children}
     </Container>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { useMdxImages } from "utility";
 
 import Layout from "components/Layout";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
-import PageLayout from "components/PageLayout";
 
 function DirectionsPage() {
   const mdx = useStaticQuery(graphql`
@@ -17,6 +17,7 @@ function DirectionsPage() {
         childMdx {
           body
           frontmatter {
+            ...MdxImages
             parkingLegend {
               color
               label
@@ -27,13 +28,12 @@ function DirectionsPage() {
     }
   `).file.childMdx;
   const body = mdx.body;
+  const images = useMdxImages(mdx);
 
   return (
     <Layout>
       <SEO title="Directions" />
-      <PageLayout header="Directions" icon="car">
-        <Mdx content={body} />
-      </PageLayout>
+      <Mdx content={body} images={images} />
     </Layout>
   );
 }

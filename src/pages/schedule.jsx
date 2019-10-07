@@ -1,14 +1,31 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "components/Layout";
 import SEO from "components/SEO";
-import PageLayout from "components/PageLayout";
+import Mdx from "components/Mdx";
 
 function SchedulePage() {
+  const data = useStaticQuery(graphql`
+    query SchedulePage {
+      content: file(
+        sourceInstanceName: { eq: "pages" }
+        extension: { eq: "mdx" }
+        name: { eq: "schedule" }
+      ) {
+        childMdx {
+          body
+        }
+      }
+    }
+  `);
+  const content = data.content.childMdx.body;
   return (
-    <Layout>
+    <Layout className="schedule-page">
       <SEO title="Schedule" />
-      <PageLayout header="Schedule" icon="calendar-alt" />
+      <article>
+        <Mdx content={content} />
+      </article>
     </Layout>
   );
 }

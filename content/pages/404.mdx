@@ -1,0 +1,31 @@
+---
+links:
+  - text: Go back
+    icon: chevron-left
+    action: back
+    class: "btn btn-primary pr-3"
+  - text: Return home
+    icon: home
+    href: "/"
+    class: "btn btn-secondary ml-3 pr-3"
+---
+
+<Container className="bg-darker top-banner">
+
+# Page Not Found 😕
+
+<Lead>
+
+Status code 404
+
+</Lead>
+</Container>
+<Container>
+
+---
+
+Sorry, we can't find that page. It might be an old link or maybe it moved.
+
+<LinkBar links={props.links} />
+
+</Container>

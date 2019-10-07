@@ -1,6 +1,8 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { isClient } from "./document";
 import { addMissingUnit } from "./string";
+import classNames from "classnames";
+import Img from "gatsby-image";
 
 export function useScrollThreshold(threshold, range = 40) {
   const [above, setAbove] = useState(true);
@@ -80,4 +82,23 @@ export function useMediaBreakpoints(breakpoints) {
   }, [sortedBreakpoints]);
 
   return state === -1 ? null : sortedBreakpoints[state];
+}
+
+export function useMdxImages(mdx) {
+  const images = mdx.frontmatter.images;
+  return useMemo(
+    () =>
+      Object.assign(
+        {},
+        ...images.map(i => ({
+          [i.key]: (
+            <Img
+              fluid={i.src.childImageSharp.fluid}
+              className={classNames({ "no-select": !i.selectable })}
+            />
+          )
+        }))
+      ),
+    [images]
+  );
 }

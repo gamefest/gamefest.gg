@@ -5,6 +5,7 @@ import { slugify, isNil } from "utility";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Tooltip from "components/Tooltip";
+import Image from "components/Image";
 import Link from "components/Link";
 import Mdx from "components/Mdx";
 
@@ -32,6 +33,9 @@ function SponsorTiles({
                 hide
                 logo {
                   publicURL
+                  childImageSvg {
+                    svgURL
+                  }
                 }
               }
             }
@@ -64,7 +68,15 @@ function SponsorTiles({
             name={name}
             slug={slug}
             link={link}
-            logo={logo.publicURL}
+            logo={
+              <Image
+                className="sponsor-tiles--tile-logo"
+                svg={logo.childImageSvg}
+                src={logo.publicURL}
+                alt={name}
+                noWrapper
+              />
+            }
             className={tileClassName}
             tooltip={tooltip}
             header={headers}
@@ -112,18 +124,11 @@ SponsorTiles.Tile = function({
   logo,
   header
 }) {
-  const logoImage = (
-    <img className="sponsor-tiles--tile-logo" alt={name} src={logo} />
-  );
   return (
     <div className={classNames("sponsor-tiles--tile", className)}>
-      <a className="sponsor-tiles--tile-anchor" name={slug} />
+      <a className="sponsor-tiles--tile-anchor" id={slug} />
       <Link href={link} className="sponsor-tiles--tile-link">
-        {tooltip ? (
-          <Tooltip bottom text={name} children={logoImage} />
-        ) : (
-          logoImage
-        )}
+        {tooltip ? <Tooltip bottom text={name} children={logo} /> : logo}
       </Link>
       <div className="sponsor-tiles--tile-content">
         {header && <h3>{name}</h3>}
@@ -143,8 +148,8 @@ SponsorTiles.Tile.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ]),
   tooltip: PropTypes.bool,
-  logo: PropTypes.string,
-  header: PropTypes.bool
+  header: PropTypes.bool,
+  logo: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 SponsorTiles.Tile.defaultProps = {

@@ -1,61 +1,56 @@
 @import "../../scss/media";
-
-.top-banner {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-    margin-top: -48px;
-    margin-bottom: 1rem;
-}
-
-.games-nav-outer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-
-    .games-bar.vertical {
-        margin-top: auto;
-        margin-bottom: auto;
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-    }
-}
+@import "../../scss/theme";
 
 $offset-size: 84px;
-@include respond-between(sm, xl) {
-    .games-content-wrapper {
-        .full-width {
-            margin-left: calc(50% - 50vw - #{$offset-size / 2});
+
+.games-page {
+    @include respond-between(sm, xl) {
+        .top-banner {
+            margin-left: -$offset-size;
+        }
+
+        .games-content-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: stretch;
+
+            .games-content {
+                flex-grow: 1;
+            }
+
+            .games-nav-spacer {
+                flex-grow: 0;
+                width: $offset-size;
+            }
         }
     }
 
-    .games-content-wrapper {
+    .games-nav-outer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
         display: flex;
-        flex-direction: row-reverse;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
+        z-index: 10;
+        pointer-events: none;
 
-        .games-content {
-            flex-grow: 1;
+        .games-bar.vertical {
+            margin-top: auto;
+            margin-bottom: auto;
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            pointer-events: all;
         }
 
-        .games-nav-spacer {
-            flex-grow: 0;
-            width: $offset-size;
+        @include respond-below(sm) {
+            display: none;
         }
-    }
-}
 
-.games-nav-outer {
-    @include respond-below(sm) {
-        display: none;
-    }
-
-    @media (max-height: 599.95px) {
-        display: none;
+        @media (max-height: 599.95px) {
+            display: none;
+        }
     }
 }

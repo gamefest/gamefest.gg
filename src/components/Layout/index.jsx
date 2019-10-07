@@ -14,7 +14,14 @@ if (isClient) {
   require("smooth-scroll")('a[href*="#"]');
 }
 
-function Layout({ children, className, headerProps, footerProps, navOffset }) {
+function Layout({
+  children,
+  className,
+  headerProps,
+  footerProps,
+  navOffset,
+  noFooter
+}) {
   const portalRef = useRef(null);
   return (
     <Tooltip.PortalRefContext.Provider value={portalRef}>
@@ -25,7 +32,7 @@ function Layout({ children, className, headerProps, footerProps, navOffset }) {
         children={children}
         className={className}
       />
-      <Footer {...footerProps} />
+      {!noFooter && <Footer {...footerProps} />}
     </Tooltip.PortalRefContext.Provider>
   );
 }
@@ -37,14 +44,16 @@ Layout.propTypes = {
   headerProps: PropTypes.object,
   footerProps: PropTypes.object,
   navOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  noFooter: PropTypes.bool
 };
 
 Layout.defaultProps = {
   headerProps: {},
   footerProps: {},
   navOffset: 60,
-  className: ""
+  className: "",
+  noFooter: false
 };
 
 Layout.displayName = "Layout";

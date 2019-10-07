@@ -8,7 +8,7 @@ function createHeading({ component: Component }) {
   const heading = ({ children, id, ...rest }) => {
     return (
       <div className="anchor-wrapper">
-        <a className="anchor" name={slugify(getTextContents(children))}>
+        <a className="anchor" id={slugify(getTextContents(children))}>
           {" "}
         </a>
         <Component {...rest}>{children}</Component>

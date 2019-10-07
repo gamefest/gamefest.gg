@@ -3,6 +3,7 @@
 @import "./animations";
 @import "./media";
 @import "./theme";
+@import "./extend";
 @import "node_modules/@fortawesome/fontawesome-svg-core/styles";
 
 h1,
@@ -129,15 +130,16 @@ section a:not(.btn) {
     }
 }
 
-article .bg-light a:not(.btn), .bg-light article a:not(.btn),
-section .bg-light a:not(.btn), .bg-light section a:not(.btn) {
+article .bg-light a:not(.btn),
+.bg-light article a:not(.btn),
+section .bg-light a:not(.btn),
+.bg-light section a:not(.btn) {
     color: color-adjust($-primary, -20%);
 
     &:hover {
         color: color-adjust($-primary, -30%);
     }
 }
-
 
 #gatsby-focus-wrapper,
 html,
@@ -153,6 +155,10 @@ body {
     & > main {
         flex-grow: 1;
     }
+}
+
+main {
+    position: relative;
 }
 
 .container {
@@ -189,4 +195,61 @@ body {
 
 .no-select {
     user-select: none;
+}
+
+article p {
+    color: rgba($-light, 0.75);
+}
+
+section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.top-banner {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2.125rem;
+
+    @include respond-above(lg) {
+        padding-top: 4rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .anchor-wrapper:last-child h1 {
+        margin-bottom: 0;
+    }
+}
+
+.reverse-margin {
+    margin-top: -48px;
+}
+
+.underline-links a {
+    @extend .underline-link;
+}
+
+.text-white p {
+    color: white !important;
+}
+
+h5 {
+    font-size: 0.95rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.25rem;
+    color: rgba($-light, 0.65);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+blockquote {
+    background-color: rgba($-light, 0.05);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    border-left: .5rem solid rgba($-light, 0.15);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }

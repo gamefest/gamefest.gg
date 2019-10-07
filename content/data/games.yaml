@@ -1,4 +1,4 @@
-gamesRoot: "/games"
+gamesRoot: "/games/"
 gamesOrder:
   - csgo
   - league

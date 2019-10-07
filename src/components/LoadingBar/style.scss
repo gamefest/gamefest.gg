@@ -1,0 +1,22 @@
+@import "../../scss/colors";
+
+.loading-bar {
+    background-color: $-primary;
+    height: 2px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    transition-property: margin-left;
+    transition-timing-function: linear;
+
+    &--inner {
+        box-shadow: 0 0 10px $-primary, 0 0 5px $-primary;
+        display: block;
+        height: 100%;
+        opacity: 1;
+        position: absolute;
+        right: 0;
+        transform: rotate(3deg) translate(0px, -4px);
+        width: 100px;
+    }
+}

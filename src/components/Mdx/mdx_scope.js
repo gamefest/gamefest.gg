@@ -2,6 +2,8 @@ import Icon from "components/Icon";
 import Link from "components/Link";
 import Lead from "components/Lead";
 import Space from "components/Space";
+import Image from "components/Image";
+import LinkBar from "components/LinkBar";
 import Parallax from "components/Parallax";
 import FullWidth from "components/FullWidth";
 import Container from "components/Container";
@@ -15,6 +17,8 @@ const components = {
   FullWidth,
   Lead,
   Link,
+  Image,
+  LinkBar,
 
   // Overriding default Markdown components:
   a: Link,

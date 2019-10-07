@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Tooltip from "components/Tooltip";
 import Link from "components/Link";
+import Image from "components/Image";
 
 import "./style.scss";
 
@@ -27,6 +28,18 @@ function GamesBar({ className, show, vertical, ...rest }) {
                 slug
                 icon {
                   publicURL
+                  childImageSvg {
+                    svgURL
+                  }
+                  childImageSharp {
+                    fixed(
+                      width: 44
+                      height: 44
+                      traceSVG: { color: "#777777" }
+                    ) {
+                      ...GatsbyImageSharpFixed_withWebp_tracedSVG
+                    }
+                  }
                 }
               }
             }
@@ -47,7 +60,16 @@ function GamesBar({ className, show, vertical, ...rest }) {
         games.map(({ slug, icon, name }) => (
           <GamesBarItem
             key={slug}
-            icon={icon.publicURL}
+            icon={
+              <Image
+                svg={icon.childImageSvg}
+                src={icon.publicURL}
+                image={icon.childImageSharp}
+                alt={`${name} logo`}
+                className="games-bar-item--logo"
+                noWrapper
+              />
+            }
             label={name}
             vertical={vertical}
             href={`${gamesRoot}#${slug}`}
@@ -85,16 +107,15 @@ function GamesBarItem({ vertical, icon, label, href }) {
       hide={isEmptyOrNil(label)}
     >
       <div className="games-bar-item">
-        <Link href={href}>
-          <img src={icon} alt={`${label} icon`} />
-        </Link>
+        <Link href={href}>{icon}</Link>
       </div>
     </Tooltip>
   );
 }
 
 GamesBarItem.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
+    .isRequired,
   label: PropTypes.string,
   href: PropTypes.string.isRequired,
   vertical: PropTypes.bool
