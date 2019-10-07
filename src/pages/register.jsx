@@ -42,7 +42,7 @@ function RegisterPage() {
   });
 
   return (
-    <Layout className="register-page" footerProps={{ lighter: true }}>
+    <Layout className="register-page" noFooter>
       <SEO title="Register" />
       <Mdx content={body} />
       <div className="register-page--content">
