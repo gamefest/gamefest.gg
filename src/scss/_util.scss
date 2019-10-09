@@ -7,3 +7,31 @@
         transition: none;
     }
 }
+
+@mixin transitions($properties) {
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-property: unquote($properties);
+}
+
+@function highlight-shadow-value($color, $opacity: 0.2) {
+    @return unquote("0 0 0 0.2rem #{rgba($color, $opacity)}");
+}
+
+@mixin highlight-shadow($color, $opacity: 0.2, $important: false) {
+    @if $important {
+        box-shadow: highlight-shadow-value($color, $opacity) !important;
+    } @else {
+        box-shadow: highlight-shadow-value($color, $opacity);
+    }
+}
+
+%button-blank {
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    &:focus {
+        outline: 0;
+    }
+}

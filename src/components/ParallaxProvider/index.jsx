@@ -58,3 +58,5 @@ ParallaxProvider.propTypes = {
 ParallaxProvider.defaultProps = {
   disableOnMobile: true
 };
+
+ParallaxProvider.displayName = "ParallaxProvider";

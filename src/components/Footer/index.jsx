@@ -1,5 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import Container from "components/Container";
 import Mdx from "components/Mdx";
@@ -7,7 +9,7 @@ import LinkBar from "components/LinkBar";
 
 import "./style.scss";
 
-function Footer() {
+function Footer({ lighter }) {
   const mdx = useStaticQuery(graphql`
     query FooterContent {
       file(
@@ -30,7 +32,7 @@ function Footer() {
   const links = mdx.frontmatter.links;
 
   return (
-    <Container className="bg-dark footer">
+    <Container className={classNames("footer bg-darker", { lighter })}>
       <LinkBar links={links} />
       <Mdx content={body} />
     </Container>
@@ -39,6 +41,12 @@ function Footer() {
 
 export default Footer;
 
-Footer.propTypes = {};
+Footer.propTypes = {
+  lighter: PropTypes.bool
+};
 
-Footer.defaultProps = {};
+Footer.defaultProps = {
+  lighter: false
+};
+
+Footer.displayName = "Footer";

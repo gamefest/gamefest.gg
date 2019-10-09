@@ -1,4 +1,5 @@
 const themeColor = "#699433";
+const secondaryColor = "#7c467a";
 const bgColor = "#222222";
 
 module.exports = {
@@ -33,42 +34,32 @@ module.exports = {
         name: "img"
       }
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/content/games/`,
-    //     name: "games"
-    //   }
-    // },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-source-filesystem",
       options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 800,
-              showCaptions: ["title"]
-            }
-          },
-          {
-            resolve: "gatsby-remark-responsive-iframe",
-            options: {}
-          },
-          "gatsby-remark-smartypants"
-        ]
+        path: `${__dirname}/content/games/`,
+        name: "games"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/sponsors/`,
+        name: "sponsors"
       }
     },
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        color: themeColor,
+        color: secondaryColor,
         showSpinner: false
       }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
-      options: {}
+      options: {
+        trackingId: "UA-141036948-2"
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -110,8 +101,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-remove-trailing-slashes`,
-    `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-svg`,

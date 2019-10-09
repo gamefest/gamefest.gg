@@ -1,0 +1,11 @@
+$anchor-offset: -88px;
+
+.anchor-wrapper {
+    position: relative;
+
+    .anchor {
+        position: absolute;
+        left: 0;
+        top: $anchor-offset;
+    }
+}

@@ -78,6 +78,8 @@ Link.propTypes = {
   ])
 };
 
+Link.displayName = "Link";
+
 // Predefined onClick action map
 export const actions = {
   back: () => {
@@ -115,8 +117,17 @@ export const fragment = graphql`
 function LinkContent({ text, icon }) {
   return (
     <>
+      {isEmptyOrNil(icon) ? null : (
+        <Icon name={icon} fixedWidth className="mr-2" />
+      )}
       {isEmptyOrNil(text) ? null : <span>{text}</span>}
-      {isEmptyOrNil(icon) ? null : <Icon name={icon} />}
     </>
   );
 }
+
+LinkContent.propTypes = {
+  text: PropTypes.string,
+  icon: PropTypes.string
+};
+
+LinkContent.displayName = "LinkContent";

@@ -1,0 +1,9 @@
+gamesRoot: "/games/"
+gamesOrder:
+  - csgo
+  - league
+  - hearthstone
+  - overwatch
+  - rocket-league
+  - dota
+  - fighting-games

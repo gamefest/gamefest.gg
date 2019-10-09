@@ -3,8 +3,8 @@
 .footer {
     text-align: center;
     padding: {
-        top: 3rem;
-        bottom: 3rem;
+        top: 2.7rem;
+        bottom: 2.7rem;
     }
 
     a {
@@ -35,5 +35,9 @@
                 }
             }
         }
+    }
+
+    &.lighter {
+        background-color: color-adjust($-dark, 10%);
     }
 }

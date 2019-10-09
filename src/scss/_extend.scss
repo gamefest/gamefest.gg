@@ -6,10 +6,10 @@
     padding-bottom: 4px;
     overflow: hidden;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 600 !important;
     letter-spacing: 1px;
     cursor: pointer !important;
-    color: inherit;
+    color: inherit !important;
     border-bottom: none !important;
 
     &::after {

@@ -1,0 +1,84 @@
+@import "../../scss/media";
+@import "../../scss/colors";
+@import "../../scss/theme";
+
+$border-radius: 0.5rem;
+$content-padding: 1.5rem;
+$anchor-offset: -88px;
+
+.game-section {
+    box-shadow: $drop-shadow-strong;
+    margin-bottom: 2rem;
+    background-color: color-adjust($-dark, 7%);
+    border-radius: $border-radius;
+    position: relative;
+
+    $this: &;
+
+    &--title {
+        height: 200px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+
+        #{$this}--banner {
+            position: absolute !important;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            &:after {
+                position: absolute !important;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(color-adjust($-dark, -20%), 0.6);
+                z-index: 1;
+                content: " ";
+            }
+        }
+
+        #{$this}--logo {
+            max-height: 92px;
+            width: 400px;
+            height: auto;
+            max-width: 900px;
+            margin: 0 0 20px 24px;
+            vertical-align: bottom;
+            object-fit: contain;
+            object-position: 0 50%;
+
+            @include respond-below(sm) {
+                height: 72px;
+                max-width: 250px;
+                margin: 0 4px 12px 12px;
+            }
+        }
+
+        #{$this}--logo,
+        #{$this}--placeholder {
+            z-index: 2;
+            position: relative;
+        }
+    }
+
+    &--content {
+        padding: $content-padding;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &--anchor {
+        position: absolute;
+        left: 0;
+        top: $anchor-offset;
+    }
+}

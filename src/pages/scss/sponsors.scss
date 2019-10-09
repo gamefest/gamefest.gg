@@ -1,0 +1,205 @@
+@import "../../scss/theme";
+@import "../../scss/colors";
+@import "../../scss/extend";
+@import "../../scss/media";
+
+$background: color-adjust($-light, 80%);
+.sponsors-page {
+    background-color: $background;
+
+    .text-lead {
+        @include respond-below(md) {
+            font-size: 1.25rem;
+        }
+
+        a {
+            font-weight: 500;
+            color: color-adjust($-primary, 20%);
+
+            &:hover {
+                color: color-adjust($-primary, 30%);
+            }
+        }
+    }
+}
+
+.sponsors-title {
+    position: absolute;
+    bottom: 32px;
+    display: block;
+    left: 0;
+    right: 0;
+
+    @include respond-above(lg) {
+        bottom: 36px;
+    }
+}
+
+.sponsors-title-wrapper {
+    box-shadow: $drop-shadow;
+
+    .jarallax {
+        height: 330px !important;
+        @media(min-width: 360px) {
+            height: 300px !important;
+        }
+        @media(min-width: 400px) {
+            height: 270px !important;
+        }
+        @media(min-width: 540px) {
+            height: 250px !important;
+        }
+        @include respond-above(md) {
+            height: 230px !important;
+        }
+    }
+}
+
+$base: ".sponsor-tiles";
+
+#{$base}--tile {
+    a {
+        border-bottom: none !important;
+        display: block;
+    }
+}
+
+$h-spacing: 3rem;
+$v-spacing: 2.5rem;
+$v-padding: 1.2rem;
+.sponsors-tier-2 {
+    background-color: color-adjust($-light, -5%);
+    color: rgba($-dark, 0.95);
+    padding-top: $v-spacing + $v-padding;
+    padding-bottom: $v-padding;
+    box-shadow: $drop-shadow;
+
+    #{$base}--tile {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        font-weight: 400;
+        margin-bottom: $v-spacing;
+        align-items: flex-start;
+
+        #{$base}--tile-content {
+            padding-left: $h-spacing;
+        }
+
+        @include respond-below(md) {
+            flex-direction: column;
+
+            #{$base}--tile-content {
+                padding-left: 0;
+            }
+
+            #{$base}--tile-link {
+                margin-bottom: $v-padding;
+            }
+
+            #{$base}--tile-logo {
+                max-width: 280px;
+                max-height: 140px;
+                height: auto;
+                width: 100%;
+                display: block;
+            }
+        }
+
+        &:not(:first-child) {
+            padding-top: $v-padding;
+            border-top: 1px solid rgba($-dark, 0.2);
+        }
+    }
+
+    @include respond-above(md) {
+        #{$base}--tile-link {
+            flex-basis: 20%;
+        }
+    }
+
+    #{$base}--tile-link {
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+
+    #{$base}--tile-content {
+        flex-shrink: 1;
+        flex-grow: 1;
+
+        @include respond-above(sm) {
+            text-align: justify;
+        }
+
+        h3 {
+            margin-bottom: $v-padding;
+        }
+
+        a {
+            margin-top: 0.5rem;
+            @extend .underline-link;
+        }
+    }
+}
+
+#{$base}--tile-content {
+    p:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+.sponsors-tier-1 {
+    background-color: $-light;
+    color: rgba($-dark, 0.75);
+    padding-top: ($v-padding + $v-spacing) * 0.75;
+    padding-bottom: ($v-padding + $v-spacing) * 0.75;
+    box-shadow: $drop-shadow;
+
+    .sponsor-tiles {
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #{$base}--tile {
+        max-width: 22%;
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+
+        @include respond-below(md) {
+            max-width: 47%;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+        }
+
+        @include respond-below(sm) {
+            max-width: none;
+        }
+    }
+
+    #{$base}--tile-content {
+        padding-top: $v-padding;
+        text-align: center;
+    }
+
+    #{$base}--tile-logo {
+        max-width: 220px;
+        max-height: 140px;
+        height: auto;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.sponsors-tier-0 {
+    background-color: $background;
+    padding-top: ($v-padding + $v-spacing) * 0.75;
+    padding-bottom: ($v-padding + $v-spacing) * 0.75;
+
+    .sponsor-tiles {
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

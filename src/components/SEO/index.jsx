@@ -70,8 +70,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: "og:image",
-          // TODO add this
-          content: "/img/thumbnail.png"
+          content: "/img/card.jpg"
         },
         {
           property: `og:description`,
@@ -139,6 +138,8 @@ function SEO({ description, lang, meta, title }) {
   );
 }
 
+export default SEO;
+
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
@@ -153,4 +154,4 @@ SEO.propTypes = {
   title: PropTypes.string
 };
 
-export default SEO;
+SEO.displayName = "SEO";

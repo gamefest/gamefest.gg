@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
+import { useMedia, useMdxImages } from "utility";
 
+import { Col, Alert } from "react-bootstrap";
 import Layout from "components/Layout";
 import Icon from "components/Icon";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
-import ParallaxProvider from "components/ParallaxProvider";
 import Parallax from "components/Parallax";
 import GamesBar from "components/GamesBar";
-import { Col, Alert } from "react-bootstrap";
+import Link from "components/Link";
 import Container from "components/Container";
-import Img from "gatsby-image";
+import SponsorTiles from "components/SponsorTiles";
+import ParallaxProvider from "components/ParallaxProvider";
 
 import LogoSvg from "../../content/img/logo.svg";
 import ArrowSvg from "assets/arrow_down.svg";
@@ -29,38 +31,20 @@ function IndexPage() {
         childMdx {
           body
           frontmatter {
-            images {
-              key
-              src {
-                childImageSharp {
-                  fluid(
-                    maxWidth: 2560
-                    srcSetBreakpoints: [400, 800, 1200, 1920]
-                  ) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
+            ...MdxImages
           }
         }
       }
     }
   `).file.childMdx;
   const body = mdx.body;
-  const images = mdx.frontmatter.images;
-  const imageNodes = Object.assign(
-    {},
-    ...images.map(i => ({
-      [i.key]: <Img fluid={i.src.childImageSharp.fluid} />
-    }))
-  );
+  const images = useMdxImages(mdx);
 
   return (
     <Layout headerProps={{ transparentTop: true }} navOffset={0}>
       <SEO />
       <ParallaxProvider>
-        <Mdx content={body} images={imageNodes} />
+        <Mdx content={body} images={images} />
       </ParallaxProvider>
     </Layout>
   );
@@ -68,12 +52,15 @@ function IndexPage() {
 
 export default IndexPage;
 
+IndexPage.displayName = "IndexPage";
+
 // ? ==============
 // ? Sub-components
 // ? ==============
 
 // Near full-page title content
 IndexPage.Title = function({ date, location, image, showGames }) {
+  const isShort = useMedia("(max-height: 620px)");
   const titleInner = (
     <>
       <Container row className="index-title">
@@ -93,9 +80,9 @@ IndexPage.Title = function({ date, location, image, showGames }) {
   );
   return (
     <Parallax
-      inner={titleInner}
-      children={image}
-      height="85vh"
+      children={titleInner}
+      image={image}
+      height={isShort ? "600px" : "85vh"}
       overlay="rgba(0,0,0,0.8)"
     />
   );
@@ -115,6 +102,8 @@ IndexPage.Title.defaultProps = {
   showGames: true
 };
 
+IndexPage.Title.displayName = "IndexPage.Title";
+
 // Hero content with large hex icon
 IndexPage.Hero = function({ children }) {
   return (
@@ -133,6 +122,8 @@ IndexPage.Hero.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ])
 };
+
+IndexPage.Hero.displayName = "IndexPage.Hero";
 
 // "Feature" column with icon
 IndexPage.Col = function({ icon, children }) {
@@ -156,13 +147,18 @@ IndexPage.Col.defaultProps = {
   icon: "trophy"
 };
 
+IndexPage.Col.displayName = "IndexPage.Col";
+
 // Sponsors content element at the bottom of the Index Page
-// TODO implement sponsor view
 IndexPage.Sponsors = function({ children, showSponsors }) {
   return (
     <div className="index-sponsors">
       {children}
-      {showSponsors ? null : (
+      {showSponsors ? (
+        <div className="sponsor-list">
+          <SponsorTiles compact />
+        </div>
+      ) : (
         <Alert variant="info" className="mt-5 py-5">
           <div
             className="mb-3"
@@ -175,6 +171,9 @@ IndexPage.Sponsors = function({ children, showSponsors }) {
           </h5>
         </Alert>
       )}
+      <Link className="btn btn-primary sponsor-info" href="/sponsors">
+        View Sponsors
+      </Link>
     </div>
   );
 };
@@ -190,3 +189,5 @@ IndexPage.Sponsors.propTypes = {
 IndexPage.Sponsors.defaultProps = {
   showSponsors: true
 };
+
+IndexPage.Sponsors.displayName = "IndexPage.Sponsors";

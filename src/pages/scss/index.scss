@@ -44,7 +44,7 @@ $hero-hex-size: 144px;
     }
 
     &--lead {
-        margin-bottom: 1.75rem;
+        margin-bottom: 2.25rem;
 
         h2 {
             font-size: 2.4rem;
@@ -68,7 +68,7 @@ $hero-hex-size: 144px;
     }
 
     .games-bar {
-        @include respond-above(md) {
+        @include respond-above(lg) {
             margin-right: 6rem;
         }
     }
@@ -110,6 +110,11 @@ $hero-hex-size: 144px;
         opacity: 0;
         @include anim(fadeInUp, 0.5s, 1s);
         animation-fill-mode: forwards;
+
+        @include respond-below(sm) {
+            width: 30px;
+            margin-bottom: 20px;
+        }
     }
 }
 
@@ -188,11 +193,35 @@ $hero-hex-size: 144px;
 }
 
 .index-sponsors {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
     text-align: center;
+    margin-top: 8px;
 
     @include respond-below(sm) {
         font-size: 18px;
+    }
+
+    &--container {
+        padding-top: 3rem;
+        padding-bottom: 2.8rem;
+    }
+
+    .sponsor-info {
+        margin-top: 20px;
+
+        @include respond-above(sm) {
+            display: none;
+        }
+    }
+
+    .sponsor-list {
+        @include respond-above(sm) {
+            padding-top: 1.2rem;
+        }
+
+        @include respond-below(sm) {
+            display: none;
+        }
     }
 }

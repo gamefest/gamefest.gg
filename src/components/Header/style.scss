@@ -1,6 +1,7 @@
 @import "../../scss/colors";
 @import "../../scss/media";
 @import "../../scss/theme";
+@import "../../scss/util";
 
 $transition-duration: 0.4s;
 
@@ -21,6 +22,12 @@ $transition-duration: 0.4s;
         transition-duration: $transition-duration;
         transition-property: transform;
         transform: translateY(2px);
+
+        @include respond-between(md, lg) {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            max-width: none !important;
+        }
     }
 
     .navbar-brand {
@@ -43,7 +50,8 @@ $transition-duration: 0.4s;
     .nav-item {
         margin-right: 0.15rem;
         a {
-            padding: 0.45rem 0.85rem 0.6rem;
+            @include transitions("background-color, box-shadow");
+            padding: 0.95rem 0.85rem 0.9rem;
             color: $-light;
             border-radius: 4px;
             transition: 0.25s background-color ease;
@@ -52,7 +60,12 @@ $transition-duration: 0.4s;
                 background-color: rgba($-light, 0.1);
             }
             &:active {
-                background-color: rgba($-light, 0.2);
+                background-color: rgba($-dark, 0.1);
+            }
+
+            &.nav-link-outline {
+                padding-top: 0.65rem;
+                padding-bottom: 0.6rem;
             }
 
             &.disabled {
@@ -61,11 +74,6 @@ $transition-duration: 0.4s;
                 opacity: 0.6;
                 color: $-light;
             }
-        }
-
-        @include respond-below(md) {
-            margin-top: 0.4rem;
-            margin-bottom: 0.4rem;
         }
     }
 
@@ -119,17 +127,30 @@ $transition-duration: 0.4s;
         @include respond-below(md) {
             margin-bottom: 0.75rem;
             margin-top: 0.5rem;
+            width: 100%;
         }
         @include respond-above(md) {
             margin-left: 1.25rem;
+            margin-right: auto;
         }
 
         a {
             &.active-link {
+                background-color: rgba($-dark, 0.05);
+                box-shadow: inset 0 0 8px rgba(black, 0.1);
                 font-weight: 500;
             }
             &:not(.active-link) {
                 color: rgba($-light, 0.9);
+            }
+        }
+
+        .nav-item {
+            @include respond-below(md) {
+                a {
+                    display: block;
+                    padding: 0.5rem 0.85rem 0.45rem;
+                }
             }
         }
     }
@@ -143,7 +164,7 @@ $transition-duration: 0.4s;
 
         .nav-item {
             a {
-                padding: 0.55rem 0.5rem 0.3rem 0.55rem;
+                padding: 0.55rem 0.75rem 0.25rem 0.35rem;
                 vertical-align: -6px;
             }
         }
@@ -163,7 +184,10 @@ $transition-duration: 0.4s;
 
         @include respond-below(md) {
             .collapse-inner {
-                background-color: rgba($-light, 0.1);
+                background-color: rgba(black, 0.5);
+                backdrop-filter: blur(8px);
+
+                box-shadow: none !important;
             }
         }
     }

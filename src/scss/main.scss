@@ -1,6 +1,9 @@
 @import "./colors";
 @import "./fonts";
 @import "./animations";
+@import "./media";
+@import "./theme";
+@import "./extend";
 @import "node_modules/@fortawesome/fontawesome-svg-core/styles";
 
 h1,
@@ -62,6 +65,7 @@ html,
 body {
     background-color: $-dark;
     color: $-light;
+    overflow-x: hidden;
 }
 
 button,
@@ -103,20 +107,37 @@ button,
     color: $-dark;
 }
 
+.bg-darker {
+    background-color: color-adjust($-dark, -20%);
+    box-shadow: $inner-vertical-shadow;
+}
+
 .bg-lighter {
     background-color: color-adjust($-dark, 7.5%);
 }
 
-article a,
-section a {
+article a:not(.btn),
+section a:not(.btn) {
     text-decoration: none;
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 2px solid rgba($-primary, 0.4);
     font-weight: 400;
-    color: color-adjust($-primary, -20%);
+    color: color-adjust($-primary, -5%);
 
     &:hover {
         border-bottom-color: $-primary;
+        color: color-adjust($-primary, 5%);
+    }
+}
+
+article .bg-light a:not(.btn),
+.bg-light article a:not(.btn),
+section .bg-light a:not(.btn),
+.bg-light section a:not(.btn) {
+    color: color-adjust($-primary, -20%);
+
+    &:hover {
+        color: color-adjust($-primary, -30%);
     }
 }
 
@@ -136,6 +157,17 @@ body {
     }
 }
 
+main {
+    position: relative;
+}
+
+.container {
+    @include respond-below(sm) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
 @each $key, $color in $theme-colors {
     .fill-#{$key} {
         fill: $color;
@@ -152,5 +184,72 @@ body {
         background-color: rgba(205, 205, 205, 0.15);
         backdrop-filter: blur(8px);
         --webkit-backdrop-filter: blur(8px);
+    }
+}
+
+// Raise z-level
+.raise {
+    z-index: 1;
+    position: relative;
+}
+
+.no-select {
+    user-select: none;
+}
+
+article p {
+    color: rgba($-light, 0.75);
+}
+
+section p:last-of-type {
+    margin-bottom: 0;
+}
+
+.top-banner {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2.125rem;
+
+    @include respond-above(lg) {
+        padding-top: 4rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .anchor-wrapper:last-child h1 {
+        margin-bottom: 0;
+    }
+}
+
+.reverse-margin {
+    margin-top: -48px;
+}
+
+.underline-links a {
+    @extend .underline-link;
+}
+
+.text-white p {
+    color: white !important;
+}
+
+h5 {
+    font-size: 0.95rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.25rem;
+    color: rgba($-light, 0.65);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+blockquote {
+    background-color: rgba($-light, 0.05);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    border-left: .5rem solid rgba($-light, 0.15);
+
+    p:last-child {
+        margin-bottom: 0;
     }
 }

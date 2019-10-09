@@ -6,7 +6,10 @@ export {
   faCalendarDay,
   faList,
   faCalendarAlt,
-  faCar
+  faTicketAlt,
+  faCar,
+  faHome,
+  faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
 export {
   faDiscord,
