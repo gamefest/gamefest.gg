@@ -34,6 +34,9 @@ function GameList() {
                     }
                   }
                 }
+                links {
+                  ...Links
+                }
               }
             }
           }
@@ -46,11 +49,20 @@ function GameList() {
   const games = gamesOrder.map(s =>
     gameNodes.find(n => s === n.frontmatter.slug)
   );
-  return games.map(({ body, frontmatter: { slug, name, logo, banner } }) => (
-    <GameSection key={slug} slug={slug} name={name} logo={logo} banner={banner}>
-      <Mdx content={body} />
-    </GameSection>
-  ));
+  return games.map(
+    ({ body, frontmatter: { slug, name, logo, banner, links } }) => (
+      <GameSection
+        key={slug}
+        slug={slug}
+        name={name}
+        logo={logo}
+        banner={banner}
+        links={links}
+      >
+        <Mdx content={body} />
+      </GameSection>
+    )
+  );
 }
 
 export default GameList;

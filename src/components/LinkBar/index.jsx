@@ -1,14 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import { Nav } from "react-bootstrap";
 import Link from "components/Link";
 
-function LinkBar({ links, ...rest }) {
+import "./style.scss";
+
+function LinkBar({ links, linkClassName, ...rest }) {
+  console.log(links);
   return (
     <Nav {...rest}>
-      {links.map(link => (
-        <Nav.Item key={link.href} children={<Link {...link} />} />
+      {links.map(({ className, ...link }) => (
+        <Nav.Item
+          key={link.href}
+          children={
+            <Link className={classNames(linkClassName, className)} {...link} />
+          }
+        />
       ))}
     </Nav>
   );
@@ -17,11 +26,13 @@ function LinkBar({ links, ...rest }) {
 export default LinkBar;
 
 LinkBar.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.object)
+  links: PropTypes.arrayOf(PropTypes.object),
+  linkClassName: PropTypes.string
 };
 
 LinkBar.defaultProps = {
-  links: []
+  links: [],
+  linkClassName: ""
 };
 
 LinkBar.displayName = "LinkBar";

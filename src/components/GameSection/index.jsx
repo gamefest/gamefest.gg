@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { isDefined } from "utility";
 
 import Img from "gatsby-image";
 import Image from "components/Image";
+import LinkBar from "components/LinkBar";
 
 import "./style.scss";
 
-function GameSection({ slug, name, logo, banner, children }) {
+function GameSection({ slug, name, logo, banner, children, links }) {
   return (
     <article className="game-section">
       <a className="game-section--anchor" id={slug} />
@@ -17,7 +19,12 @@ function GameSection({ slug, name, logo, banner, children }) {
         />
         <GameSection.Title name={name} logo={logo} />
       </div>
-      <section className="game-section--content" children={children} />
+      <section className="game-section--content">
+        {isDefined(links) && links.length > 0 && (
+          <LinkBar links={links} linkClassName="btn" className="button-bar" />
+        )}
+        {children}
+      </section>
     </article>
   );
 }
@@ -34,7 +41,12 @@ GameSection.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ])
+  ]),
+  links: PropTypes.arrayOf(PropTypes.object)
+};
+
+GameSection.defaultProps = {
+  links: []
 };
 
 GameSection.displayName = "GameSection";
