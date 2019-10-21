@@ -200,6 +200,10 @@ article {
     ol,
     ul {
         color: rgba($-light, 0.75);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
