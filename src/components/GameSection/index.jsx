@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { isDefined } from "utility";
+import { isDefined, formatList } from "utility";
 
 import Img from "gatsby-image";
 import Image from "components/Image";
@@ -51,6 +51,11 @@ GameSection.defaultProps = {
 
 GameSection.displayName = "GameSection";
 
+// ? =================
+// ? Sub-components
+// ? =================
+
+// Top title with logo & banner
 GameSection.Title = function({ name, logo }) {
   return logo ? (
     <>
@@ -74,3 +79,35 @@ GameSection.Title.propTypes = {
 };
 
 GameSection.Title.displayName = "GameSection.Title";
+
+// Game admin contact bottom section
+GameSection.Contact = function({ contacts }) {
+  return isDefined(contacts) && contacts.length > 0 ? (
+    <div className="game-section--contact">
+      <h4>Game Administration</h4>
+      <p>
+        For any concerns about the tournament, feel free to contact{" "}
+        {formatList(contacts.map(c => c.name), "or")}:
+      </p>
+      <ul>
+        {contacts.map(c => (
+          <li key={c.name}>
+            <code>{c.discord}</code>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : null;
+};
+
+GameSection.Contact.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({ name: PropTypes.string, discord: PropTypes.string })
+  )
+};
+
+GameSection.Contact.defaultProps = {
+  contacts: []
+};
+
+GameSection.Contact.displayName = "GameSection.Contact";

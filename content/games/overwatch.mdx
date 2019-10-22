@@ -4,6 +4,9 @@ icon: "../img/games/overwatch/icon.svg"
 banner: "../img/games/overwatch/banner.jpg"
 logo: "../img/games/overwatch/logo.svg"
 slug: overwatch
+contacts:
+  - name: Austin "Krux" Dunn
+    discord: Kruxization#0042
 links:
   - text: Rules coming soon
     icon: book
@@ -12,7 +15,7 @@ links:
     disabled: true
   - text: Smash.gg Page
     icon: smashgg
-    href: "https://smash.gg/tournament/gamefest-2019/events/overwatch-6v6-byoc/overview"
+    href: "https://smash.gg/tournament/gamefest-2019/events/overwatch-6v6-byoc"
     class: "btn-secondary"
   - text: Register
     icon: ticket-alt
@@ -33,9 +36,11 @@ Gamefest 2019 will have an Overwatch tournament that will span **both days** and
 
 Each tournament round will use the **standard Overwatch competitive ruleset** with **2/2/2 lock enabled**.
 
+Only heroes and maps currently available in competitive play will be allowed.
+
 ##### Available map pool:
 
-<div style={{maxWidth: "600px"}}>
+<div style={{maxWidth: "600px"}} className="mb-3">
 
 | Type    | Maps                              |
 |---------|-----------------------------------|
@@ -45,3 +50,5 @@ Each tournament round will use the **standard Overwatch competitive ruleset** wi
 | Hybrid  | King’s Row / Hollywood            |
 
 </div>
+
+<Contact contacts={props.contacts} />

@@ -9,7 +9,7 @@ import Icon from "components/Icon";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
 import Parallax from "components/Parallax";
-import GamesBar from "components/GamesBar";
+import GameBar from "components/GameBar";
 import Link from "components/Link";
 import Container from "components/Container";
 import SponsorTiles from "components/SponsorTiles";
@@ -70,7 +70,7 @@ IndexPage.Title = function({ date, location, image, showGames }) {
             <h2>{date}</h2>
             <h3>{location}</h3>
           </div>
-          <GamesBar show={showGames} />
+          <GameBar show={showGames} />
         </Col>
       </Container>
       <div className="index-title-overlay">

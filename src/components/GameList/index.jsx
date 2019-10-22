@@ -37,6 +37,10 @@ function GameList() {
                 links {
                   ...Links
                 }
+                contacts {
+                  name
+                  discord
+                }
               }
             }
           }
@@ -50,7 +54,7 @@ function GameList() {
     gameNodes.find(n => s === n.frontmatter.slug)
   );
   return games.map(
-    ({ body, frontmatter: { slug, name, logo, banner, links } }) => (
+    ({ body, frontmatter: { slug, name, logo, banner, links, contacts } }) => (
       <GameSection
         key={slug}
         slug={slug}
@@ -59,7 +63,11 @@ function GameList() {
         banner={banner}
         links={links}
       >
-        <Mdx content={body} />
+        <Mdx
+          content={body}
+          scope={{ Contact: GameSection.Contact }}
+          contacts={contacts}
+        />
       </GameSection>
     )
   );

@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from "components/Layout";
 import SEO from "components/SEO";
 import GameList from "components/GameList";
-import GamesBar from "components/GamesBar";
+import GameBar from "components/GameBar";
 import Mdx from "components/Mdx";
 
 import "./scss/games.scss";
@@ -33,7 +33,7 @@ function GamesPage() {
         </div>
         <div className="games-nav-spacer" />
         <aside className="games-nav-outer">
-          <GamesBar vertical />
+          <GameBar vertical />
         </aside>
       </article>
     </Layout>

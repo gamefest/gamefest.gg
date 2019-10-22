@@ -8,7 +8,6 @@ import Link from "components/Link";
 import "./style.scss";
 
 function LinkBar({ links, linkClassName, ...rest }) {
-  console.log(links);
   return (
     <Nav {...rest}>
       {links.map(({ className, ...link }) => (
