@@ -9,7 +9,8 @@ export {
   faTicketAlt,
   faCar,
   faHome,
-  faChevronLeft
+  faChevronLeft,
+  faBook
 } from "@fortawesome/free-solid-svg-icons";
 export {
   faDiscord,

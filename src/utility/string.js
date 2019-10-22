@@ -41,3 +41,16 @@ export function slugify(string) {
     .replace(/^-+/, "") // Trim - from start of text
     .replace(/-+$/, ""); // Trim - from end of text
 }
+
+// Pretty-formats a list of objects using a conjunction and oxford-style commas
+export function formatList(array, conjunction = "and") {
+  if (array.length === 1) return array[0].toString();
+  else if (array.length === 2) {
+    return `${array[0].toString()} ${conjunction} ${array[1].toString()}`;
+  } else {
+    allButLast = array.filter((_, i) => i !== array.length - 1).join(", ");
+    return `${allButLast}, ${conjunction} ${array[
+      array.length - 1
+    ].toString()}`;
+  }
+}

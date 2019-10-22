@@ -3,6 +3,7 @@ import Link from "components/Link";
 import Lead from "components/Lead";
 import Space from "components/Space";
 import Image from "components/Image";
+import Table from "components/Table";
 import LinkBar from "components/LinkBar";
 import Parallax from "components/Parallax";
 import FullWidth from "components/FullWidth";
@@ -22,6 +23,7 @@ const components = {
 
   // Overriding default Markdown components:
   a: Link,
+  table: Table,
   h1: createHeading({ component: "h1" }),
   h2: createHeading({ component: "h2" }),
   h3: createHeading({ component: "h3" }),

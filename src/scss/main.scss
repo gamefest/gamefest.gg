@@ -32,12 +32,10 @@ $enable-grid-classes: true !default;
 $enable-print-styles: true !default;
 
 // Grid containers
-$container-max-widths: (
-    sm: 540px,
+$container-max-widths: (sm: 540px,
     md: 640px,
     lg: 960px,
-    xl: 1140px
-) !default;
+    xl: 1140px) !default;
 
 // Body
 $body-bg: $-light !default;
@@ -81,7 +79,7 @@ button,
     border-top: 2px solid $-primary;
 }
 
-:not(pre) > code {
+:not(pre)>code {
     color: darken($-dark, 10%);
     display: inline-block;
     background-color: white;
@@ -94,11 +92,9 @@ button,
     background-size: 80px, cover;
     // assets/hex_tile.svg
     background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_3' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 56 65.2' style='enable-background:new 0 0 56 65.2;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bopacity:0.05;%7D .st1%7Bclip-path:url(%23SVGID_2_);%7D .st2%7Bfill:%23EEEEEE;%7D%0A%3C/style%3E%3Cg class='st0'%3E%3Cg%3E%3Cdefs%3E%3Crect id='SVGID_1_' width='56' height='65.2'/%3E%3C/defs%3E%3CclipPath id='SVGID_2_'%3E%3Cuse xlink:href='%23SVGID_1_' style='overflow:visible;'/%3E%3C/clipPath%3E%3Cg class='st1'%3E%3Cpath class='st2' d='M35.2,20.2H20.8l-7.2,12.4L20.8,45h14.3l7.2-12.4L35.2,20.2 M36.8,17.3l8.8,15.3l-8.8,15.3H19.2l-8.8-15.3 l8.8-15.3H36.8L36.8,17.3z'/%3E%3Cpath class='st2' d='M35.2-12.4H20.8L13.7,0l7.2,12.4h14.3L42.3,0L35.2-12.4 M36.8-15.3L45.6,0l-8.8,15.3H19.2L10.4,0l8.8-15.3 H36.8L36.8-15.3z'/%3E%3Cpath class='st2' d='M35.2,52.8H20.8l-7.2,12.4l7.2,12.4h14.3l7.2-12.4L35.2,52.8 M36.8,49.9l8.8,15.3l-8.8,15.3H19.2l-8.8-15.3 l8.8-15.3L36.8,49.9L36.8,49.9z'/%3E%3Cpath class='st2' d='M63.2,36.5H48.8l-7.2,12.4l7.2,12.4h14.3l7.2-12.4L63.2,36.5 M64.8,33.6l8.8,15.3l-8.8,15.3H47.2l-8.8-15.3 l8.8-15.3H64.8L64.8,33.6z'/%3E%3Cpath class='st2' d='M63.2,3.9H48.8l-7.2,12.4l7.2,12.4h14.3l7.2-12.4L63.2,3.9 M64.8,1l8.8,15.3l-8.8,15.3H47.2l-8.8-15.3 L47.2,1H64.8L64.8,1z'/%3E%3Cpath class='st2' d='M7.2,36.5H-7.2l-7.2,12.4l7.2,12.4H7.2l7.2-12.4L7.2,36.5 M8.8,33.6l8.8,15.3L8.8,64.1H-8.8l-8.8-15.3 l8.8-15.3L8.8,33.6L8.8,33.6z'/%3E%3Cpath class='st2' d='M7.2,3.9H-7.2l-7.2,12.4l7.2,12.4H7.2l7.2-12.4L7.2,3.9 M8.8,1l8.8,15.3L8.8,31.6H-8.8l-8.8-15.3L-8.8,1H8.8 L8.8,1z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A"),
-        linear-gradient(
-            to right,
+        linear-gradient(to right,
             color-adjust($-primary, 8%),
-            color-adjust($-primary, -3%)
-        );
+            color-adjust($-primary, -3%));
     background-repeat: repeat, repeat;
     box-shadow: inset 0 0 20px #00000040;
 }
@@ -148,11 +144,11 @@ body {
     display: flex;
     flex-direction: column;
 
-    & > *:not(main) {
+    &>*:not(main) {
         flex-grow: 0;
     }
 
-    & > main {
+    &>main {
         flex-grow: 1;
     }
 }
@@ -168,7 +164,8 @@ main {
     }
 }
 
-@each $key, $color in $theme-colors {
+@each $key,
+$color in $theme-colors {
     .fill-#{$key} {
         fill: $color;
     }
@@ -179,6 +176,7 @@ main {
     background-color: rgba(205, 205, 205, 0.2);
     border-radius: 10px;
 }
+
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     .glass {
         background-color: rgba(205, 205, 205, 0.15);
@@ -197,12 +195,16 @@ main {
     user-select: none;
 }
 
-article p {
-    color: rgba($-light, 0.75);
-}
+article {
+    p,
+    ol,
+    ul {
+        color: rgba($-light, 0.75);
 
-section p:last-of-type {
-    margin-bottom: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .top-banner {
@@ -236,7 +238,6 @@ h5 {
     font-size: 0.95rem;
     margin-top: 1.75rem;
     margin-bottom: 1.25rem;
-    color: rgba($-light, 0.65);
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;

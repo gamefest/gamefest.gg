@@ -81,4 +81,22 @@ $anchor-offset: -88px;
         left: 0;
         top: $anchor-offset;
     }
+
+    &--contact {
+        margin: $content-padding (-$content-padding) (-$content-padding);
+        padding: $content-padding;
+        background-color: rgba($-light, 0.05);
+        box-shadow: $drop-shadow;
+        border-bottom-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+
+        code {
+            color: color-adjust($-primary, 10%);
+            word-break: break-word;
+            background-color: rgba($-dark, 0.35) !important;
+            padding: 0.15em 0.4em 0.16em;
+            border: none !important;
+            border-radius: 0;
+        }
+    }
 }
