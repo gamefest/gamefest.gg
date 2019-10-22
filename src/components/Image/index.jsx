@@ -31,16 +31,19 @@ function Image({
   image,
   svg,
   alt,
-  noWrapper
+  noWrapper,
+  noSelect
 }) {
-  const props = noWrapper ? { className, alt } : { alt };
+  const props = noWrapper
+    ? { className: classNames(className, { "no-select": noSelect }), alt }
+    : { alt };
   const img = isDefined(children)
     ? children
     : makeImage(svg, src, image, props);
   return noWrapper ? (
     img
   ) : (
-    <div className={classNames("image", className)}>
+    <div className={classNames("image", className, { "no-select": noSelect })}>
       {img}
       {isDefined(overlay) ? (
         <div className="mask" style={{ backgroundColor: overlay }} />
@@ -62,13 +65,15 @@ Image.propTypes = {
   image: PropTypes.object,
   svg: PropTypes.object,
   alt: PropTypes.string,
-  noWrapper: PropTypes.bool
+  noWrapper: PropTypes.bool,
+  noSelect: PropTypes.bool
 };
 
 Image.defaultProps = {
   overlay: null,
   className: "",
-  noWrapper: false
+  noWrapper: false,
+  noSelect: false
 };
 
 Image.displayName = "Image";

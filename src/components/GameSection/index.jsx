@@ -14,7 +14,7 @@ function GameSection({ slug, name, logo, banner, children, links }) {
       <a className="game-section--anchor" id={slug} />
       <div className="game-section--title">
         <Img
-          className="game-section--banner"
+          className="game-section--banner no-select"
           fluid={banner.childImageSharp.fluid}
         />
         <GameSection.Title name={name} logo={logo} />
