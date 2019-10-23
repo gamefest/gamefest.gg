@@ -1,5 +1,7 @@
 @import "../../scss/colors";
 @import "../../scss/media";
+@import "../../scss/extend";
+@import "../../scss/theme";
 
 $content-padding: 1.5rem;
 $border-radius: 0.5rem;
@@ -13,6 +15,7 @@ $border-radius: 0.5rem;
     &--day-periods {
         overflow: hidden;
         border-radius: $border-radius;
+        box-shadow: $drop-shadow;
     }
 
     &--period {
@@ -27,14 +30,10 @@ $border-radius: 0.5rem;
         }
     }
 
-    // @include respond-below(md) {
     &--period-label {
         padding-bottom: 0.1rem;
         margin-bottom: 0.5rem;
-        // border-bottom: 1px solid
-        //     rgba(blend(color-adjust($-primary, -10%), color-adjust($-dark, 5%), 0.2), 0.9);
     }
-    // }
 
     &--period-label-block {
         letter-spacing: 0.5px;
@@ -82,5 +81,9 @@ $border-radius: 0.5rem;
 
     &--event-description {
         margin-top: 0.5rem;
+    }
+
+    &--event-cta {
+        @extend .underline-link;
     }
 }
