@@ -1,0 +1,14 @@
+@import "../../scss/colors";
+
+.alert {
+    &.alert-dark {
+        background-color: color-adjust($-dark, 5%);
+        border: 1px color-adjust($-dark, 10%) solid;
+        color: rgba($-light, 0.9);
+
+        .close {
+            color: white;
+            text-shadow: 0 1px 0 black;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
+import SchedulePane from "components/SchedulePane";
 import Layout from "components/Layout";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
@@ -24,7 +25,7 @@ function SchedulePage() {
     <Layout className="schedule-page">
       <SEO title="Schedule" />
       <article>
-        <Mdx content={content} />
+        <Mdx content={content} scope={{ SchedulePane }} />
       </article>
     </Layout>
   );

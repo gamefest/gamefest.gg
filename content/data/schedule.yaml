@@ -1,0 +1,68 @@
+days:
+  - date: Saturday, November 2
+    periods:
+      - block:
+          start: 11AM
+          end: 1PM
+        events:
+          - name: Registration & Sign-In
+            location: Klaus Classroom Annex Hallway
+            description: "<em>Pre-registered teams are required to sign-in in the Atrium. If you haven't pre-registered, you can register here as well. Registration will close at 1 PM <strong>(No cash).</strong></em>"
+            cta:
+              text: Register here
+              href: "/register/"
+          - name: Warmup & Freeplay
+            description: "<em>Teams can use this time to set up their computers and warm-up before tournaments begin.</em>"
+      - block:
+          start: 1PM
+          end: 8PM
+        comment: "(or later as necessary)"
+        events:
+          - name: Tournaments
+            cta:
+              text: View map
+              href: "/directions/#event-map"
+            descriptionMdx: "./schedule/tournaments-day1.mdx"
+          - name: Fighting Games
+            location: College of Computing Building 106
+          - name: Sponsor Tabling
+            location: Klaus Classroom Annex Hallways
+            description: "<em>Check out the organizations that make Gamefest possible at their informational booths throughout the hallways in front of the competitive game rooms.</em>"
+          - name: Freeplay Area
+            location: Klaus Classroom Annex Hallway Floor 2
+  - date: Sunday, November 3
+    periods:
+      - block:
+          start: 10AM
+          end: 12PM
+        events:
+          - name: Registration & Sign-In
+            location: Klaus Classroom Annex Hallway
+            description: "<em>New teams or teams coming only for tournaments hosted on the second day must sign in. If your team has already checked in on the first day, however, you do not need to sign in again.</em>"
+            cta:
+              text: Register here
+              href: "/register/"
+          - name: Warmup & Freeplay
+            description: "<em>Teams can use this time to set up their computers and warm-up before tournaments begin.</em>"
+      - block:
+          start: 12PM
+          end: 8PM
+        comment: "(or later as necessary)"
+        events:
+          - name: Tournaments
+            cta:
+              text: View map
+              href: "/directions/#event-map"
+            descriptionMdx: "./schedule/tournaments-day2.mdx"
+          - name: Fighting Games
+            location: College of Computing Building 106
+          - name: Sponsor Tabling
+            location: Klaus Classroom Annex Hallways
+            description: "<em>Check out the organizations that make Gamefest possible at their informational booths throughout the hallways in front of the competitive game rooms.</em>"
+          - name: Freeplay Area
+            location: Klaus Classroom Annex Hallway Floor 2
+          - name: Grand Finals
+            location: Streamed on Twitch
+            cta:
+              text: View Streams
+              href: "/watch/"
