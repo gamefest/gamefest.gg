@@ -1,0 +1,89 @@
+@import "../../scss/colors";
+@import "../../scss/media";
+@import "../../scss/extend";
+@import "../../scss/theme";
+
+$content-padding: 1.5rem;
+$border-radius: 0.5rem;
+
+.schedule {
+    &--day {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &--day-periods {
+        overflow: hidden;
+        border-radius: $border-radius;
+        box-shadow: $drop-shadow;
+    }
+
+    &--period {
+        padding: $content-padding;
+
+        &:nth-child(2n) {
+            background-color: rgba($-light, 0.05);
+        }
+
+        &:nth-child(2n + 1) {
+            background-color: rgba($-light, 0.08);
+        }
+    }
+
+    &--period-label {
+        padding-bottom: 0.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &--period-label-block {
+        letter-spacing: 0.5px;
+        color: rgba($-light, 0.8);
+        font-weight: 600;
+    }
+
+    &--period-label-comment {
+        color: rgba($-light, 0.5);
+        margin-left: 0.5rem;
+    }
+
+    &--event {
+        padding-left: 1rem;
+        border-left: 1px solid rgba($-light, 0.3);
+
+        &:not(:last-child) {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &--event-title {
+        margin-bottom: 0.06rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+
+        @include respond-below(sm) {
+            font-size: 1.3rem;
+        }
+    }
+
+    &--event-location {
+        margin-bottom: 0;
+        margin-top: 0;
+        color: rgba($-light, 0.5);
+        font-style: italic;
+        text-transform: none;
+        font-weight: 500;
+        font-size: 1em;
+
+        @include respond-below(sm) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &--event-description {
+        margin-top: 0.5rem;
+    }
+
+    &--event-cta {
+        @extend .underline-link;
+    }
+}

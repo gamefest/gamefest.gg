@@ -72,6 +72,7 @@ exports.sourceNodes = ({ actions, reporter }) => {
       rightLinks: [Link]
       gamesRoot: String
       gamesOrder: [String]
+      days: [ScheduleDay]
     }
 
     type Mdx implements Node {
@@ -103,6 +104,29 @@ exports.sourceNodes = ({ actions, reporter }) => {
       key: String!
       src: File! @fileByRelativePath
       selectable: Boolean
+    }
+
+    type ScheduleDay {
+      date: String!
+      periods: [SchedulePeriod!]
+    }
+
+    type SchedulePeriod {
+      block: ScheduleBlock!
+      events: [ScheduleEvent!]
+    }
+
+    type ScheduleBlock {
+      start: String!
+      end: String!
+    }
+
+    type ScheduleEvent {
+      name: String!
+      location: String
+      description: String
+      descriptionMdx: File @fileByRelativePath
+      cta: Link
     }
   `;
   createTypes(linkSchema);

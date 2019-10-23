@@ -1,6 +1,7 @@
 import Icon from "components/Icon";
 import Link from "components/Link";
 import Lead from "components/Lead";
+import Alert from "components/Alert";
 import Space from "components/Space";
 import Image from "components/Image";
 import Table from "components/Table";
@@ -20,6 +21,7 @@ const components = {
   Link,
   Image,
   LinkBar,
+  Alert,
 
   // Overriding default Markdown components:
   a: Link,
