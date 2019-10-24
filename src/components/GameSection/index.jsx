@@ -57,7 +57,7 @@ GameSection.displayName = "GameSection";
 // ? =================
 
 // Top title with logo & banner
-GameSection.Title = function ({ name, logo }) {
+GameSection.Title = function({ name, logo }) {
   return logo ? (
     <>
       <Image
@@ -70,8 +70,8 @@ GameSection.Title = function ({ name, logo }) {
       />
     </>
   ) : (
-      <h2 className="game-section--placeholder">{name}</h2>
-    );
+    <h2 className="game-section--placeholder">{name}</h2>
+  );
 };
 
 GameSection.Title.propTypes = {
@@ -82,7 +82,7 @@ GameSection.Title.propTypes = {
 GameSection.Title.displayName = "GameSection.Title";
 
 // Game admin contact bottom section
-GameSection.Contact = function ({ contacts }) {
+GameSection.Contact = function({ contacts }) {
   return isDefined(contacts) && contacts.length > 0 ? (
     <div className="game-section--contact">
       <h4>Game Administration</h4>
@@ -114,8 +114,8 @@ GameSection.Contact.defaultProps = {
 GameSection.Contact.displayName = "GameSection.Contact";
 
 // Game prizing bottom section
-const PLACE_REGEX = /[1-9][0-9]*/g
-GameSection.Prizing = function ({ prizing }) {
+const PLACE_REGEX = /[1-9][0-9]*/g;
+GameSection.Prizing = function({ prizing }) {
   return isDefined(prizing) ? (
     <div className="game-section--prizing">
       <div
@@ -133,22 +133,48 @@ GameSection.Prizing = function ({ prizing }) {
               <h4>
                 <span
                   className="game-section--place-header"
-                  dangerouslySetInnerHTML={{ __html: place.replace(PLACE_REGEX, m => formatPlace(parseInt(m), true)) }}
+                  dangerouslySetInnerHTML={{
+                    __html: place.replace(PLACE_REGEX, m =>
+                      formatPlace(parseInt(m), true)
+                    )
+                  }}
                 />
                 {amount && (
                   <span className="game-section--amount-text">({amount})</span>
                 )}
               </h4>
-              {items && <ul className={classNames("game-section--place-items", { "items__no-quantity": items.findIndex(i => isDefined(i.quantity) == -1) } > {
-                items.map(({ text, quantity }) => <li className={classNames("game-section--place-item", { "item__quantity": isDefined(quantity) })}>
-                  <span>{quantity && <span className="game-section--place-quantity">{quantity} ×&nbsp;&nbsp;</span>}
-                    <span className="game-section--place-content" dangerouslySetInnerHTML={{ __html: text }} /></span>
-                </li>)
-              }</ul>}
+              {items && (
+                <ul
+                  className={classNames("game-section--place-items", {
+                    "items__no-quantity":
+                      items.findIndex(i => isDefined(i.quantity)) === -1
+                  })}
+                >
+                  {items.map(({ text, quantity }) => (
+                    <li
+                      className={classNames("game-section--place-item", {
+                        item__quantity: isDefined(quantity)
+                      })}
+                    >
+                      <span>
+                        {quantity && (
+                          <span className="game-section--place-quantity">
+                            {quantity} ×&nbsp;&nbsp;
+                          </span>
+                        )}
+                        <span
+                          className="game-section--place-content"
+                          dangerouslySetInnerHTML={{ __html: text }}
+                        />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
       </div>
-      ))}
-      </div>
-    </div >
+    </div>
   ) : null;
 };
 
@@ -176,7 +202,7 @@ GameSection.Prizing.defaultProps = {
 GameSection.Prizing.displayName = "GameSection.Prizing";
 
 // Bottom section wrapper
-GameSection.BottomSection = function ({ className, ...rest }) {
+GameSection.BottomSection = function({ className, ...rest }) {
   return (
     <section
       className={classNames(className, "game-section--bottom")}

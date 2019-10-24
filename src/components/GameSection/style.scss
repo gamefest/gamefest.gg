@@ -203,6 +203,10 @@ $anchor-offset: -88px;
                 }
             }
         }
+
+        &.items__no-quantity {
+            padding-left: 1.25rem;
+        }
     }
 
     &--item-quantity {
