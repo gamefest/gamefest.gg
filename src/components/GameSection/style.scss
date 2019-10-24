@@ -102,6 +102,10 @@ $anchor-offset: -88px;
     }
 
     &--prizing {
+        &:not(:first-child) {
+            margin-top: 1.2rem;
+        }
+
         &:not(:last-child) {
             margin-bottom: 1.2rem;
         }
