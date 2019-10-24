@@ -187,20 +187,26 @@ $anchor-offset: -88px;
     }
 
     &--place-items {
-        padding-left: 1.45rem;
-        margin-left: 0.6rem;
+        &:not(.items__no-quantity) {
+            padding-left: 1.45rem;
+            margin-left: 0.6rem;
+
+            #{$this}--place-item {
+                & > span {
+                    display: block;
+                    margin-left: -0.12rem;
+                }
+
+                &.item__quantity {
+                    list-style-type: none;
+                    margin-left: -1.85rem;
+                }
+            }
+        }
     }
 
-    &--place-item {
-        & > span {
-            display: block;
-            margin-left: -0.12rem;
-        }
-
-        &.item__quantity {
-            list-style-type: none;
-            margin-left: -1.85rem;
-        }
+    &--item-quantity {
+        color: rgba($-light, 0.6);
     }
 
     &--place-header {

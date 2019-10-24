@@ -139,14 +139,16 @@ GameSection.Prizing = function ({ prizing }) {
                   <span className="game-section--amount-text">({amount})</span>
                 )}
               </h4>
-              {items && <ul className="game-section--place-items">{items.map(({ text, quantity }) => <li className={classNames("game-section--place-item", { "item__quantity": isDefined(quantity) })}>
-                <span>{quantity && <span className="game-section--place-quantity">{quantity} ×&nbsp;&nbsp;</span>}
-                <span className="game-section--place-content" dangerouslySetInnerHTML={{ __html: text }} /></span>
-              </li>)}</ul>}
-            </div>
-          ))}
+              {items && <ul className={classNames("game-section--place-items", { "items__no-quantity": items.findIndex(i => isDefined(i.quantity) == -1) } > {
+                items.map(({ text, quantity }) => <li className={classNames("game-section--place-item", { "item__quantity": isDefined(quantity) })}>
+                  <span>{quantity && <span className="game-section--place-quantity">{quantity} ×&nbsp;&nbsp;</span>}
+                    <span className="game-section--place-content" dangerouslySetInnerHTML={{ __html: text }} /></span>
+                </li>)
+              }</ul>}
       </div>
-    </div>
+      ))}
+      </div>
+    </div >
   ) : null;
 };
 
