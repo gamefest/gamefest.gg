@@ -45,7 +45,10 @@ function GameList() {
                   places {
                     place
                     amount
-                    text
+                    items {
+                      text
+                      quantity
+                    }
                   }
                 }
               }

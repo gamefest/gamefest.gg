@@ -106,9 +106,14 @@ exports.sourceNodes = ({ actions, reporter }) => {
     }
 
     type PrizingPlace {
-      place: Int!
-      amount: String!
-      text: String
+      place: String!
+      amount: String
+      items: [PrizingItem!]
+    }
+
+    type PrizingItem {
+      text: String!
+      quantity: Int
     }
 
     type MdxImage {
