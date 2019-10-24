@@ -74,6 +74,10 @@ $anchor-offset: -88px;
         p:last-child {
             margin-bottom: 0;
         }
+
+        h4 {
+            margin-bottom: 0.9rem;
+        }
     }
 
     &--anchor {
@@ -82,14 +86,114 @@ $anchor-offset: -88px;
         top: $anchor-offset;
     }
 
-    &--contact {
+    section#{$this}--bottom {
         margin: $content-padding (-$content-padding) (-$content-padding);
         padding: $content-padding;
-        background-color: rgba($-light, 0.05);
-        box-shadow: $drop-shadow;
-        border-bottom-right-radius: $border-radius;
-        border-bottom-left-radius: $border-radius;
 
+        &:last-child {
+            border-bottom-right-radius: $border-radius;
+            border-bottom-left-radius: $border-radius;
+        }
+
+        &:nth-of-type(odd) {
+            background-color: rgba($-light, 0.05);
+            box-shadow: $drop-shadow;
+        }
+    }
+
+    &--prizing {
+        &:not(:last-child) {
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &--places {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+
+        #{$this}--place {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 100%;
+
+            border-left: 4px solid white;
+            padding-left: 1rem;
+
+            &.place__1 {
+                border-left-color: $prize-diamond;
+                #{$this}--place-header {
+                    color: $prize-diamond;
+                }
+            }
+
+            &.place__2 {
+                border-left-color: $prize-gold;
+                #{$this}--place-header {
+                    color: $prize-gold;
+                }
+            }
+
+            &.place__3 {
+                border-left-color: $prize-silver;
+                #{$this}--place-header {
+                    color: $prize-silver;
+                }
+            }
+
+            &.place__4 {
+                border-left-color: $prize-bronze;
+                #{$this}--place-header {
+                    color: $prize-bronze;
+                }
+            }
+
+            h4 {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @include respond-above(md) {
+            #{$this}--place {
+                width: 50%;
+                max-width: 50%;
+                flex-basis: 50%;
+            }
+
+            &.places__wide {
+                #{$this}--place {
+                    width: 33.3333%;
+                    max-width: 33.3333%;
+                    flex-basis: 33.3333%;
+                }
+            }
+        }
+
+        @include respond-below(md) {
+            #{$this}--place {
+                &:not(:last-child) {
+                    margin-bottom: 0.8rem;
+                }
+            }
+        }
+    }
+
+    &--place-header {
+        font-weight: 600;
+        font-size: 1.7rem;
+    }
+
+    &--amount-text {
+        font-weight: 400;
+        font-size: 1.3rem;
+        color: rgba($-light, 0.6);
+        padding-left: 0.75rem;
+    }
+
+    &--contact {
         code {
             color: color-adjust($-primary, 10%);
             word-break: break-word;

@@ -41,6 +41,13 @@ function GameList() {
                   name
                   discord
                 }
+                prizing {
+                  places {
+                    place
+                    amount
+                    text
+                  }
+                }
               }
             }
           }
@@ -54,7 +61,10 @@ function GameList() {
     gameNodes.find(n => s === n.frontmatter.slug)
   );
   return games.map(
-    ({ body, frontmatter: { slug, name, logo, banner, links, contacts } }) => (
+    ({
+      body,
+      frontmatter: { slug, name, logo, banner, links, contacts, prizing }
+    }) => (
       <GameSection
         key={slug}
         slug={slug}
@@ -65,8 +75,13 @@ function GameList() {
       >
         <Mdx
           content={body}
-          scope={{ Contact: GameSection.Contact }}
+          scope={{
+            Contact: GameSection.Contact,
+            Prizing: GameSection.Prizing,
+            Section: GameSection.BottomSection
+          }}
           contacts={contacts}
+          prizing={prizing}
         />
       </GameSection>
     )

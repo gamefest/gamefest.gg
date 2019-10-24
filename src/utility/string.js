@@ -54,3 +54,18 @@ export function formatList(array, conjunction = "and") {
     ].toString()}`;
   }
 }
+
+// Pretty-formats a place number
+export function formatPlace(place, useHTML = false) {
+  const lsd = place % 10;
+  const superscript = useHTML ? s => `<sup>${s}</sup>` : s => s;
+  if (lsd === 1) {
+    return place + superscript("st");
+  } else if (lsd === 2) {
+    return place + superscript("nd");
+  } else if (lsd === 3) {
+    return place + superscript("rd");
+  } else {
+    return place + superscript("th");
+  }
+}

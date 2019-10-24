@@ -91,6 +91,7 @@ exports.sourceNodes = ({ actions, reporter }) => {
       icon: File @fileByRelativePath
       banner: File @fileByRelativePath
       slug: String
+      prizing: GamePrizing
 
       # Sponsor MDX file attributes
       link: String
@@ -98,6 +99,16 @@ exports.sourceNodes = ({ actions, reporter }) => {
 
       # Register MDX file attributes
       embed: String
+    }
+
+    type GamePrizing {
+      places: [PrizingPlace!]
+    }
+
+    type PrizingPlace {
+      place: Int!
+      amount: String!
+      text: String
     }
 
     type MdxImage {

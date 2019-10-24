@@ -12,7 +12,7 @@ links:
     icon: ticket-alt
     href: "/register/"
     class: "btn-primary"
-prizes:
+prizing:
   places:
     - place: 1
       amount: 60%
@@ -23,14 +23,13 @@ prizes:
     - place: 3
       amount: 10%
       text: "<em>10%</em> of total prize pool"
-  note: "*If over 40 participants are present, a 4th place will be added and prizing will be redistributed as follows: 50 / 25 / 15 / 10"
 ---
 
 #### Tournament Overview
 
 Gamefest 2019 will have a variety of different fighting game tournaments, with Melee/Ultimate tournaments occurring on **the second day, November 3<sup>rd</sup>** and all other fighting game tournaments occurring on the **first day, November 2<sup>nd</sup>**
 
-*Community setups are greatly appreciated.*
+_Community setups are greatly appreciated._
 
 ##### Games list
 
@@ -42,4 +41,15 @@ Gamefest 2019 will have a variety of different fighting game tournaments, with M
 - UNIST
 - DBFZ
 
-<Contact contacts={props.contacts} />
+<Section>
+
+#### Prizing
+
+Prizing will be determined at the event by number of ticket-price entrants into each game's prize pool. Each entrant's $5 entry fee (not including venue fee) goes towards the prize pool.
+
+<Prizing prizing={props.prizing} />
+
+**If over 40 participants are present, a 4th place will be added and prizingwill be redistributed as follows: 50 / 25 / 15 / 10*
+
+</Section>
+<Section><Contact contacts={props.contacts} /></Section>

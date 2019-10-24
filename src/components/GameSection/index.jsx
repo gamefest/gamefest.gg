@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { isDefined, formatList } from "utility";
+import classNames from "classnames";
+import { isDefined, formatList, formatPlace } from "utility";
 
 import Img from "gatsby-image";
 import Image from "components/Image";
@@ -111,3 +112,79 @@ GameSection.Contact.defaultProps = {
 };
 
 GameSection.Contact.displayName = "GameSection.Contact";
+
+// Game prizing bottom section
+GameSection.Prizing = function({ prizing }) {
+  return isDefined(prizing) ? (
+    <div className="game-section--prizing">
+      <div
+        className={classNames("game-section--places", {
+          places__wide:
+            prizing.places.length >= 3 &&
+            !(
+              prizing.places.length % 2 === 0 && prizing.places.length % 3 !== 0
+            )
+        })}
+      >
+        {prizing.places &&
+          prizing.places.map(({ place, amount, text }) => (
+            <div className={`game-section--place place__${place}`} key={place}>
+              <h4>
+                <span
+                  className="game-section--place-header"
+                  dangerouslySetInnerHTML={{ __html: formatPlace(place, true) }}
+                />
+                {amount && (
+                  <span className="game-section--amount-text">({amount})</span>
+                )}
+              </h4>
+              {text && (
+                <div
+                  className="game-section--place-content"
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
+              )}
+            </div>
+          ))}
+      </div>
+    </div>
+  ) : null;
+};
+
+GameSection.Prizing.propTypes = {
+  prizing: PropTypes.shape({
+    places: PropTypes.arrayOf(
+      PropTypes.shape({
+        place: PropTypes.number.isRequired,
+        amount: PropTypes.string.isRequired,
+        text: PropTypes.string
+      }).isRequired
+    )
+  })
+};
+
+GameSection.Prizing.defaultProps = {
+  prizing: []
+};
+
+GameSection.Prizing.displayName = "GameSection.Prizing";
+
+// Bottom section wrapper
+GameSection.BottomSection = function({ className, ...rest }) {
+  return (
+    <section
+      className={classNames(className, "game-section--bottom")}
+      {...rest}
+    />
+  );
+};
+
+GameSection.BottomSection.propTypes = {
+  className: PropTypes.string
+};
+
+GameSection.BottomSection.defaultProps = {
+  className: ""
+};
+
+GameSection.BottomSection.displayName = "GameSection.BottomSection";
