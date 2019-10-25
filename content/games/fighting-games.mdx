@@ -5,20 +5,54 @@ banner: "../img/games/fighting-games/banner.jpg"
 logo: "../img/games/fighting-games/logo.svg"
 slug: fighting-games
 contacts:
-  - name: Cassandra "doojeeboy" Naomi
+  - name: Cassandra "cat" Naomi
     discord: cat#4477
 links:
   - text: Register
     icon: ticket-alt
     href: "/register/"
     class: "btn-primary"
+prizing:
+  tiers:
+    - label: Fewer than 40 entrants
+      places:
+        - place: 1
+          amount: 60%
+          items:
+            - text: "<em>60%</em> of prize pool"
+        - place: 2
+          amount: 30%
+          items:
+            - text: "<em>30%</em> of prize pool"
+        - place: 3
+          amount: 10%
+          items:
+            - text: "<em>10%</em> of prize pool"
+    - label: 40 or more entrants
+      places:
+        - place: 1
+          amount: 50%
+          items:
+            - text: "<em>50%</em> of prize pool"
+        - place: 2
+          amount: 25%
+          items:
+            - text: "<em>25%</em> of prize pool"
+        - place: 3
+          amount: 15%
+          items:
+            - text: "<em>15%</em> of prize pool"
+        - place: 4
+          amount: 10%
+          items:
+            - text: "<em>10%</em> of prize pool"
 ---
 
 #### Tournament Overview
 
 Gamefest 2019 will have a variety of different fighting game tournaments, with Melee/Ultimate tournaments occurring on **the second day, November 3<sup>rd</sup>** and all other fighting game tournaments occurring on the **first day, November 2<sup>nd</sup>**
 
-*Community setups are greatly appreciated.*
+_Community setups are greatly appreciated._
 
 ##### Games list
 
@@ -30,4 +64,16 @@ Gamefest 2019 will have a variety of different fighting game tournaments, with M
 - UNIST
 - DBFZ
 
-<Contact contacts={props.contacts} />
+<Section>
+
+#### Prizing
+
+Prizing will be determined at the event by number of ticket-price entrants into each game's prize pool. Each entrant's $5 entry fee (not including venue fee) goes towards the prize pool.
+
+<MultiPrizing tiers={props.prizing.tiers} />
+<Space h={20} />
+
+**If over 40 participants are present, a 4th place will be added and prizing will be redistributed as follows: 50 / 25 / 15 / 10*
+
+</Section>
+<Section><Contact contacts={props.contacts} /></Section>

@@ -5,7 +5,7 @@ banner: "../img/games/rocket-league/banner.jpg"
 logo: "../img/games/rocket-league/logo.svg"
 slug: rocket-league
 contacts:
-  - name: Stumptavian Roboclick
+  - name: Carson "Stump"
     discord: NXS | Stumptavian Roboclick 💜#1170
 links:
   - text: Rules coming soon
@@ -21,7 +21,38 @@ links:
     icon: ticket-alt
     href: "/register/"
     class: "btn-primary"
+prizing:
+  tiers:
+    - label: Fewer than 5 teams
+      places:
+        - place: 1
+          amount: 60% + $18
+          items:
+            - text: "<em>60%</em> of prize pool plus $18"
+        - place: 2
+          amount: 30% + $9
+          items:
+            - text: "<em>30%</em> of prize pool plus $9"
+        - place: 3
+          amount: 10% + $3
+          items:
+            - text: "<em>10%</em> of prize pool plus $3"
+    - label: 5 or more teams
+      places:
+        - place: 1
+          amount: 60% + $36
+          items:
+            - text: "<em>60%</em> of prize pool plus $36"
+        - place: 2
+          amount: 30% + $18
+          items:
+            - text: "<em>30%</em> of prize pool plus $18"
+        - place: 3
+          amount: 10% + $6
+          items:
+            - text: "<em>10%</em> of prize pool plus $6"
 ---
+
 #### Tournament Overview
 
 Gamefest 2019 will have a Rocket League tournament that is scheduled to occur **only on the second day, November 3<sup>rd</sup>**. The tournament details are as follows:
@@ -47,4 +78,16 @@ Each tournament round will use the **standard 3v3 game mode**, and the overall t
 - Farmstead
 - Champions Field
 
+<Section>
+
+#### Prizing
+
+Prizing will be determined at the event by number of ticket-price entrants into each game's prize pool.
+
+Each entrant's $5 entry fee (not including venue fee) goes towards the prize pool. In addition, the prize pool has a base amount that can increase depending on the number of entrants:
+
+- Base prize pool: **$30**
+- Increased to **$60** if there are 5+ teams competing
+
+<MultiPrizing tiers={props.prizing.tiers} /></Section>
 <Contact contacts={props.contacts} />

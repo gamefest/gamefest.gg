@@ -7,6 +7,15 @@ import Mdx from "components/Mdx";
 // Main games list section
 function GameList() {
   const data = useStaticQuery(graphql`
+    fragment Places on PrizingPlace {
+      place
+      amount
+      items {
+        text
+        quantity
+      }
+    }
+
     query GamesPageList {
       metadata: file(name: { eq: "games" }, extension: { eq: "yaml" }) {
         childDataYaml {
@@ -41,6 +50,17 @@ function GameList() {
                   name
                   discord
                 }
+                prizing {
+                  places {
+                    ...Places
+                  }
+                  tiers {
+                    label
+                    places {
+                      ...Places
+                    }
+                  }
+                }
               }
             }
           }
@@ -54,7 +74,10 @@ function GameList() {
     gameNodes.find(n => s === n.frontmatter.slug)
   );
   return games.map(
-    ({ body, frontmatter: { slug, name, logo, banner, links, contacts } }) => (
+    ({
+      body,
+      frontmatter: { slug, name, logo, banner, links, contacts, prizing }
+    }) => (
       <GameSection
         key={slug}
         slug={slug}
@@ -65,8 +88,14 @@ function GameList() {
       >
         <Mdx
           content={body}
-          scope={{ Contact: GameSection.Contact }}
+          scope={{
+            Contact: GameSection.Contact,
+            Prizing: GameSection.Prizing,
+            MultiPrizing: GameSection.MultiPrizing,
+            Section: GameSection.BottomSection
+          }}
           contacts={contacts}
+          prizing={prizing}
         />
       </GameSection>
     )
