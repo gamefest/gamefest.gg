@@ -10,7 +10,8 @@ export {
   faCar,
   faHome,
   faChevronLeft,
-  faBook
+  faBook,
+  faExternalLinkAlt
 } from "@fortawesome/free-solid-svg-icons";
 export {
   faDiscord,
