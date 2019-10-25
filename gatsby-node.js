@@ -120,6 +120,7 @@ exports.sourceNodes = ({ actions, reporter }) => {
     type PrizingItem {
       text: String!
       quantity: Int
+      href: String
     }
 
     type MdxImage {

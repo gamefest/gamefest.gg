@@ -13,6 +13,7 @@ function GameList() {
       items {
         text
         quantity
+        href
       }
     }
 

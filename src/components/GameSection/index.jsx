@@ -5,6 +5,7 @@ import { isDefined, formatList, formatPlace, isNil } from "utility";
 
 import Img from "gatsby-image";
 import Image from "components/Image";
+import Link from "components/Link";
 import LinkBar from "components/LinkBar";
 import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 
@@ -148,7 +149,7 @@ GameSection.Prizing = function({ places }) {
                     items.findIndex(i => isDefined(i.quantity)) === -1
                 })}
               >
-                {items.map(({ text, quantity }) => (
+                {items.map(({ text, quantity, href }) => (
                   <li
                     className={classNames("game-section--place-item", {
                       item__quantity: isDefined(quantity)
@@ -161,10 +162,19 @@ GameSection.Prizing = function({ places }) {
                           {quantity} ×&nbsp;&nbsp;
                         </span>
                       )}
-                      <span
-                        className="game-section--place-content"
-                        dangerouslySetInnerHTML={{ __html: text }}
-                      />
+                      {href ? (
+                        <Link href={href}>
+                          <span
+                            className="game-section--place-content"
+                            dangerouslySetInnerHTML={{ __html: text }}
+                          />
+                        </Link>
+                      ) : (
+                        <span
+                          className="game-section--place-content"
+                          dangerouslySetInnerHTML={{ __html: text }}
+                        />
+                      )}
                     </span>
                   </li>
                 ))}
