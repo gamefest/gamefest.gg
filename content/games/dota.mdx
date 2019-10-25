@@ -19,19 +19,35 @@ links:
     href: "/register/"
     class: "btn-primary"
 prizing:
-  places:
-    - place: 1
-      amount: 60%
-      items:
-        - text: "<em>60%</em> of total prize pool"
-    - place: 2
-      amount: 30%
-      items:
-        - text: "<em>30%</em> of total prize pool"
-    - place: 3
-      amount: 10%
-      items:
-        - text: "<em>10%</em> of total prize pool"
+  tiers:
+    - label: Fewer than 5 teams
+      places:
+        - place: 1
+          amount: 60% + $30
+          items:
+            - text: "<em>60%</em> of prize pool plus $30"
+        - place: 2
+          amount: 30% + $15
+          items:
+            - text: "<em>30%</em> of prize pool plus $15"
+        - place: 3
+          amount: 10% + $5
+          items:
+            - text: "<em>10%</em> of prize pool plus $5"
+    - label: 5 or more teams
+      places:
+        - place: 1
+          amount: 60% + $60
+          items:
+            - text: "<em>60%</em> of prize pool plus $60"
+        - place: 2
+          amount: 30% + $30
+          items:
+            - text: "<em>30%</em> of prize pool plus $30"
+        - place: 3
+          amount: 10% + $10
+          items:
+            - text: "<em>10%</em> of prize pool plus $10"
 ---
 
 #### Tournament Overview
@@ -65,4 +81,4 @@ Each entrant's $5 entry fee (not including venue fee) goes towards the prize poo
 - Base prize pool: **$50**
 - Increased to **$100** if there are 5+ teams competing
 
-<Prizing prizing={props.prizing} /></Section>
+<MultiPrizing tiers={props.prizing.tiers} /></Section>

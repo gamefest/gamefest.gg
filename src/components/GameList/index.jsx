@@ -7,6 +7,15 @@ import Mdx from "components/Mdx";
 // Main games list section
 function GameList() {
   const data = useStaticQuery(graphql`
+    fragment Places on PrizingPlace {
+      place
+      amount
+      items {
+        text
+        quantity
+      }
+    }
+
     query GamesPageList {
       metadata: file(name: { eq: "games" }, extension: { eq: "yaml" }) {
         childDataYaml {
@@ -43,11 +52,12 @@ function GameList() {
                 }
                 prizing {
                   places {
-                    place
-                    amount
-                    items {
-                      text
-                      quantity
+                    ...Places
+                  }
+                  tiers {
+                    label
+                    places {
+                      ...Places
                     }
                   }
                 }
@@ -81,6 +91,7 @@ function GameList() {
           scope={{
             Contact: GameSection.Contact,
             Prizing: GameSection.Prizing,
+            MultiPrizing: GameSection.MultiPrizing,
             Section: GameSection.BottomSection
           }}
           contacts={contacts}

@@ -102,6 +102,12 @@ exports.sourceNodes = ({ actions, reporter }) => {
     }
 
     type GamePrizing {
+      tiers: [PrizingTier!]
+      places: [PrizingPlace!]
+    }
+
+    type PrizingTier {
+      label: String!
       places: [PrizingPlace!]
     }
 

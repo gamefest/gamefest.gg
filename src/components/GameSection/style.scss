@@ -214,7 +214,7 @@ $anchor-offset: -88px;
     }
 
     &--place-content {
-        color: rgba($-light);
+        color: $-light;
     }
 
     &--place-header {
@@ -237,6 +237,17 @@ $anchor-offset: -88px;
             padding: 0.15em 0.4em 0.16em;
             border: none !important;
             border-radius: 0;
+        }
+    }
+
+    &--multi-prizing {
+        .btn-group {
+            margin-bottom: 1.4rem;
+            margin-top: 0.4rem;
+        }
+
+        .btn {
+            cursor: pointer;
         }
     }
 }
