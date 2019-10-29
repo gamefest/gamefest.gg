@@ -25,6 +25,7 @@ days:
             descriptionMdx: "./schedule/tournaments-day1.mdx"
           - name: Fighting Games
             location: College of Computing Building 106
+            descriptionMdx: "./schedule/fighting-games-day1.mdx"
           - name: Sponsor Tabling
             location: Klaus Classroom Annex Hallways
             description: "<em>Check out the organizations that make Gamefest possible at their informational booths throughout the hallways in front of the competitive game rooms.</em>"
@@ -56,6 +57,7 @@ days:
             descriptionMdx: "./schedule/tournaments-day2.mdx"
           - name: Fighting Games
             location: College of Computing Building 106
+            descriptionMdx: "./schedule/fighting-games-day2.mdx"
           - name: Sponsor Tabling
             location: Klaus Classroom Annex Hallways
             description: "<em>Check out the organizations that make Gamefest possible at their informational booths throughout the hallways in front of the competitive game rooms.</em>"
