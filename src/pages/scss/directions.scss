@@ -49,6 +49,10 @@
             margin-bottom: 0.1rem;
         }
     }
+
+    @include respond-below(md) {
+        margin-top: 1.5rem;
+    }
 }
 
 .parking {
@@ -72,5 +76,9 @@
             border-top-right-radius: 0 !important;
             border-top-left-radius: 0 !important;
         }
+    }
+
+    @include respond-below(md) {
+        margin-top: 1.5rem;
     }
 }
