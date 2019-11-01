@@ -20,10 +20,6 @@ function DirectionsPage() {
           body
           frontmatter {
             ...MdxImages
-            parkingLegend {
-              color
-              label
-            }
           }
         }
       }

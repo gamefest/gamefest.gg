@@ -262,3 +262,9 @@ hr {
         border-top: 2px solid $-primary;
     }
 }
+
+.raised {
+    box-shadow: $drop-shadow;
+    background-color: rgba($-light, 0.08);
+    border-radius: 0.4rem;
+}

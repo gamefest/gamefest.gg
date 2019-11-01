@@ -9,6 +9,7 @@ import LinkBar from "components/LinkBar";
 import Parallax from "components/Parallax";
 import FullWidth from "components/FullWidth";
 import Container from "components/Container";
+import ParkingMap from "components/ParkingMap";
 import createHeading from "components/Heading";
 import { Row, Col } from "react-bootstrap";
 
@@ -25,6 +26,7 @@ const components = {
   Alert,
   Row,
   Col,
+  ParkingMap,
 
   // Overriding default Markdown components:
   a: Link,

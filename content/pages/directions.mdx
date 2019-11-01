@@ -46,24 +46,66 @@ Georgia Institute of Technology
 [Open in Google Maps](https://goo.gl/maps/quYJu7ZsKt12)
 
 </div>
-<section className="bg-lighter p-4 rounded mt-5 mb-5">
+<section className="raised p-4 mt-5 mb-5">
 
 ### Parking
 
-Parking can be found at one of the nearby visitor parking areas (marked on the map). Costs may be associated with these locations, although we don’t expect parking services to be checking for passes on the weekend.
+Parking can be found at one of the nearby visitor parking areas (marked on the map). These parking spaces may require payment to park, and may be full. **There is a Georgia Tech home football game on Saturday, November 2nd, so parking may be limited, especially in the southern parking location**.
 
-**A full parking map will be released soon.**
+For Georgia Tech students with parking passes, the Klaus building parking deck may be open over the weekend without restriction.
+
+<Row className="parking">
+<Col md={12} lg={9}>
+
+<div children={(() => {
+  const center = { lat: 33.778632, lng: -84.39667 };
+  return <ParkingMap zoom={17} center={center} markers={[
+    {
+      position: { lat: 33.776856, lng: -84.396203 },
+      title: "Klaus Advanced Computing Building",
+      icon: "/img/map/red-pin.png"
+    },
+    {
+      position: { lat: 33.777224, lng: -84.397256 },
+      title: "College of Computing Building",
+      icon: "/img/map/red-pin.png"
+    },
+    {
+      position: { lat: 33.777506, lng: -84.396657 },
+      title: "Klaus Unloading Deck",
+      icon: "/img/map/green-pin.png"
+    },
+    {
+      position: { lat: 33.779934, lng: -84.398711 },
+      title: "North Campus Parking Deck",
+      icon: "/img/map/blue-pin.png"
+    },
+    {
+      position: { lat: 33.778007, lng: -84.398917 },
+      title: "Howey Visitor Parking",
+      icon: "/img/map/blue-pin.png"
+    }
+  ]} />
+})()} />
+
+</Col>
+<Col md={12} lg={3}><ul className="parking--legend raised">
+<li><Icon name="circle" style={{color:"#3fa9c5"}} /> Parking locations</li>
+<li><Icon name="circle" style={{color:"#40bd37"}} /> Unloading locations</li>
+<li><Icon name="circle" style={{color:"#ea4335"}} /> Event venue</li>
+</ul></Col>
+</Row>
 
 </section>
 
 ### Event Map
 
-Each game will have its tournament in one of Georgia Tech's academic classrooms, which feature seating and tables depending on the room. *Click to view/download larger map*
+Each game will have its tournament in one of Georgia Tech's academic classrooms, which feature seating and tables depending on the room. _Click to view/download larger map_
 
 <Row>
 <Col md={12} lg={9}>
 <Link href="/directory.pdf">
-<Image className="directory" svg={props.images.directory.childImageSvg} />
+<Image className="raised directory" svg={props.images.directory.childImageSvg} />
 </Link>
 </Col>
 <Col md={12} lg={3} className="directory-legend">
@@ -77,6 +119,7 @@ Each game will have its tournament in one of Georgia Tech's academic classrooms,
 3. Food Station
 4. Freeplay Area
 5. Unloading Zone
+
 ---
 
 <ul className="directory-legend--icons">

@@ -1,15 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Row, Container as BootstrapContainer } from "react-bootstrap";
+import { compose, withProps } from "recompose";
+import { withScriptjs, withGoogleMap } from "react-google-maps";
 
-function ParkingMap() {
-  return null;
-}
+import { GoogleMap, Marker } from "react-google-maps";
+
+const apiKey = "AIzaSyBSmgt_3T1Lh-0aac5FSZH76TVtLy-5cro";
+const ParkingMap = compose(
+  withProps({
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `600px` }} />,
+    mapElement: <div style={{ height: `100%` }} />
+  }),
+  withScriptjs,
+  withGoogleMap
+)(({ markers, center, zoom }) => (
+  <GoogleMap defaultZoom={zoom} defaultCenter={center}>
+    {markers.map(({ position, title, icon }, i) => (
+      <Marker position={position} key={i} title={title} icon={icon} />
+    ))}
+  </GoogleMap>
+));
 
 export default ParkingMap;
 
-ParkingMap.propTypes = {};
+const posPropType = PropTypes.shape({
+  lat: PropTypes.number,
+  lng: PropTypes.number
+});
+ParkingMap.propTypes = {
+  zoom: PropTypes.number,
+  center: posPropType.isRequired,
+  markers: PropTypes.arrayOf(
+    PropTypes.shape({
+      position: posPropType,
+      title: PropTypes.string,
+      icon: PropTypes.string
+    })
+  )
+};
 
-ParkingMap.defaultProps = {};
+ParkingMap.defaultProps = {
+  zoom: 16,
+  markers: []
+};
 
 ParkingMap.displayName = "ParkingMap";

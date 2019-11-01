@@ -11,7 +11,8 @@ export {
   faHome,
   faChevronLeft,
   faBook,
-  faExternalLinkAlt
+  faExternalLinkAlt,
+  faCircle
 } from "@fortawesome/free-solid-svg-icons";
 export {
   faDiscord,

@@ -4,8 +4,6 @@
 
 .directory {
     padding: 3rem;
-    box-shadow: $drop-shadow;
-    background-color: rgba($-light, 0.08);
 
     @include respond-below(lg) {
         padding: 2rem;
@@ -49,6 +47,30 @@
             }
 
             margin-bottom: 0.1rem;
+        }
+    }
+}
+
+.parking {
+    &--legend {
+        list-style: none;
+        padding: 0.5rem 1rem;
+
+        li {
+            padding: 0.5rem;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba($-light, 0.3);
+            }
+
+            span {
+                margin-right: 0.5rem;
+            }
+        }
+
+        @include respond-below(md) {
+            border-top-right-radius: 0 !important;
+            border-top-left-radius: 0 !important;
         }
     }
 }
