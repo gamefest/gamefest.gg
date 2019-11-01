@@ -112,7 +112,7 @@ exports.sourceNodes = ({ actions, reporter }) => {
     }
 
     type PrizingPlace {
-      place: String!
+      place: String! @dontInfer
       amount: String
       items: [PrizingItem!]
     }

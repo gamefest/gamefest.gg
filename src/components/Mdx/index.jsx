@@ -33,6 +33,10 @@ export const query = graphql`
       key
       selectable
       src {
+        publicURL
+        childImageSvg {
+          svgURL
+        }
         childImageSharp {
           fluid(maxWidth: 2560, srcSetBreakpoints: [400, 800, 1200, 1920]) {
             ...GatsbyImageSharpFluid_withWebp

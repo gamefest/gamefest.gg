@@ -1,0 +1,54 @@
+@import "../../scss/media";
+@import "../../scss/theme";
+@import "../../scss/colors";
+
+.directory {
+    padding: 3rem;
+    box-shadow: $drop-shadow;
+    background-color: rgba($-light, 0.08);
+
+    @include respond-below(lg) {
+        padding: 2rem;
+    }
+
+    @include respond-below(md) {
+        padding: 1.5rem;
+    }
+
+    @include respond-below(sm) {
+        padding: 1rem;
+    }
+}
+
+.directory-legend {
+    h4 {
+        margin-bottom: 0.5rem;
+    }
+
+    .anchor-wrapper + hr {
+        margin-top: 0.25rem;
+    }
+
+    ol {
+        padding-left: 2rem;
+        font-size: 1.2rem;
+    }
+
+    &--icons {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            .image {
+                position: relative;
+                display: inline-block;
+                height: 28px;
+                width: 28px;
+                top: 8px;
+                margin-right: 0.5rem;
+            }
+
+            margin-bottom: 0.1rem;
+        }
+    }
+}

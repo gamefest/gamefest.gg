@@ -10,6 +10,7 @@ import Parallax from "components/Parallax";
 import FullWidth from "components/FullWidth";
 import Container from "components/Container";
 import createHeading from "components/Heading";
+import { Row, Col } from "react-bootstrap";
 
 const components = {
   Icon,
@@ -22,6 +23,8 @@ const components = {
   Image,
   LinkBar,
   Alert,
+  Row,
+  Col,
 
   // Overriding default Markdown components:
   a: Link,

@@ -254,3 +254,11 @@ blockquote {
         margin-bottom: 0;
     }
 }
+
+hr {
+    border-top: 1px solid rgba($-light, 0.5);
+
+    &.primary-hr {
+        border-top: 2px solid $-primary;
+    }
+}

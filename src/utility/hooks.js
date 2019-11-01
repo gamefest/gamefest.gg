@@ -91,11 +91,13 @@ export function useMdxImages(mdx) {
       Object.assign(
         {},
         ...images.map(i => ({
-          [i.key]: (
+          [i.key]: i.src.childImageSharp ? (
             <Img
               fluid={i.src.childImageSharp.fluid}
               className={classNames({ "no-select": !i.selectable })}
             />
+          ) : (
+            i.src
           )
         }))
       ),

@@ -9,9 +9,17 @@ parkingLegend:
 images:
   - key: klaus
     src: "../img/klaus.jpg"
+  - key: directory
+    src: "../img/directory.svg"
+  - key: elevator
+    src: "../img/icons/elevator.svg"
+  - key: restroom
+    src: "../img/icons/restroom.svg"
+  - key: stairs
+    src: "../img/icons/stairs.svg"
 ---
 
-<Container className="bg-darker top-banner" container>
+<Container className="bg-darker top-banner">
 
 # <Icon name="car" className="mr-4" /> Directions
 
@@ -50,7 +58,33 @@ Parking can be found at one of the nearby visitor parking areas (marked on the m
 
 ### Event Map
 
-Each game will have its tournament in one of Georgia Tech's academic classrooms, which feature seating and tables depending on the room. A detailed event map will be available online later this week.
+Each game will have its tournament in one of Georgia Tech's academic classrooms, which feature seating and tables depending on the room. *Click to view/download larger map*
 
+<Row>
+<Col md={12} lg={9}>
+<Link href="/directory.pdf">
+<Image className="directory" svg={props.images.directory.childImageSvg} />
+</Link>
+</Col>
+<Col md={12} lg={3} className="directory-legend">
+
+#### Legend
+
+<hr className="primary-hr" />
+
+1. Registration
+2. Sponsor Tabling
+3. Food Station
+4. Freeplay Area
+5. Unloading Zone
+---
+
+<ul className="directory-legend--icons">
+  <li><Image svg={props.images.elevator.childImageSvg} /> Restrooms</li>
+  <li><Image svg={props.images.stairs.childImageSvg} /> Elevator</li>
+  <li><Image svg={props.images.restroom.childImageSvg} /> Stairs</li>
+</ul>
+</Col>
+</Row>
 <Space h="3rem" />
 </Container>

@@ -6,6 +6,8 @@ import Layout from "components/Layout";
 import SEO from "components/SEO";
 import Mdx from "components/Mdx";
 
+import "./scss/directions.scss";
+
 function DirectionsPage() {
   const mdx = useStaticQuery(graphql`
     query DirectionsContent {
