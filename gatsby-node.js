@@ -73,6 +73,8 @@ exports.sourceNodes = ({ actions, reporter }) => {
       gamesRoot: String
       gamesOrder: [String]
       days: [ScheduleDay]
+      official: [String!]
+      community: [String!]
     }
 
     type Mdx implements Node {

@@ -10,6 +10,7 @@ import Parallax from "components/Parallax";
 import FullWidth from "components/FullWidth";
 import Container from "components/Container";
 import ParkingMap from "components/ParkingMap";
+import TwitchEmbed from "components/TwitchEmbed";
 import createHeading from "components/Heading";
 import { Row, Col } from "react-bootstrap";
 
@@ -27,6 +28,7 @@ const components = {
   Row,
   Col,
   ParkingMap,
+  TwitchEmbed,
 
   // Overriding default Markdown components:
   a: Link,

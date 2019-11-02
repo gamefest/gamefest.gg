@@ -5,7 +5,7 @@ import { withScriptjs, withGoogleMap } from "react-google-maps";
 
 import { GoogleMap, Marker } from "react-google-maps";
 
-const apiKey = "AIzaSyBSmgt_3T1Lh-0aac5FSZH76TVtLy-5cro";
+const apiKey = process.env.GATSBY_GOOGLE_MAP_API_KEY;
 const ParkingMap = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,

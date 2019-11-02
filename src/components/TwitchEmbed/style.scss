@@ -1,0 +1,169 @@
+@import "../../scss/media";
+@import "../../scss/theme";
+@import "../../scss/colors";
+@import "../../scss/util";
+@import "../../scss/animations";
+
+.twitch-embed {
+    $this: &;
+
+    background-color: $twitch-primary !important;
+    padding: 1.5rem;
+
+    &--channels {
+        background-color: color-adjust($twitch-primary, -10%);
+        box-shadow: $inner-shadow;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        position: relative;
+        height: 100%;
+
+        @include respond-above(md) {
+            margin-right: -0.35rem;
+        }
+
+        @include respond-below(md) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &--channel-category {
+        h4 {
+            text-transform: uppercase;
+            color: rgba($-light, 0.8);
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            margin-top: 0.4rem;
+            margin-bottom: 0.3rem;
+            border-top-color: rgba(black, 0.2);
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &--channel-list {
+        list-style: none;
+        padding-left: 0;
+
+        @include respond-below(md) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-top: 0.35rem;
+        }
+    }
+
+    &--channel {
+        @include transitions("background-color, box-shadow");
+
+        padding: 0.5rem 0.5rem;
+        cursor: pointer;
+        border-radius: 0.5rem;
+
+        &:hover {
+            background-color: rgba($-dark, 0.12);
+        }
+
+        &.active {
+            background-color: rgba($-dark, 0.16);
+            box-shadow: $inner-shadow-slight;
+
+            &:hover {
+                background-color: rgba($-dark, 0.22);
+            }
+        }
+
+        &.live {
+            color: $-light;
+        }
+
+        &:not(.live) {
+            color: rgba($-light, 0.6);
+
+            #{$this}--channel-live-indicator {
+                visibility: hidden;
+
+                @include respond-below(md) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    &--channel-live-indicator {
+        color: $twitch-live;
+        margin-right: 0.6rem;
+        margin-left: 0.4rem;
+        font-size: 0.7em;
+        top: -1px;
+        position: relative;
+    }
+
+    &--embed {
+        background-color: black;
+        position: relative;
+        height: 100%;
+        min-height: 540px;
+    }
+
+    &--embed-loading {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--channel-placeholder {
+        $light-color: rgba($-light, 0.15);
+        $light-highlight-color: rgba($-light, 0.3);
+        position: relative;
+
+        height: 16px;
+        margin-top: 1.2rem;
+        margin-bottom: 1.5rem;
+        margin-left: 34px;
+        width: 50%;
+
+        &:nth-child(3n + 1) {
+            width: 30%;
+        }
+
+        &:nth-child(3n + 2) {
+            width: 60%;
+        }
+
+        @include respond-below(md) {
+            width: 50px;
+            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
+            margin-right: 1rem;
+            margin-top: 0;
+
+            &:nth-child(3n + 1) {
+                width: 30px;
+            }
+
+            &:nth-child(3n + 2) {
+                width: 60px;
+            }
+        }
+
+
+        animation: shimmer 3s linear infinite;
+        background-image: linear-gradient(
+            to right,
+            $light-color 4%,
+            $light-highlight-color 25%,
+            $light-color 36%
+        );
+        background-size: 1000px 100%;
+    }
+}
