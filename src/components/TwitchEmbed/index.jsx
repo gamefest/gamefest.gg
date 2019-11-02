@@ -6,8 +6,8 @@ import { log, isDefined } from "utility";
 import axios from "axios";
 
 import Icon from "components/Icon";
+import TwitchEmbedVideo from "components/TwitchEmbedVideo";
 import { Row, Col, Spinner } from "react-bootstrap";
-import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 
 import "./style.scss";
 
@@ -146,7 +146,7 @@ function TwitchEmbed() {
                 <Spinner animation="border" variant="light" />
               </div>
             ) : isDefined(currentChannel) ? (
-              <ReactTwitchEmbedVideo
+              <TwitchEmbedVideo
                 channel={currentChannel}
                 muted={false}
                 theme="dark"
