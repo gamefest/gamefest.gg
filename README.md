@@ -9,6 +9,7 @@
 - [Home](https://gamefest.gg)
 - [Registration](https://gamefest.gg/register)
 - [Status](https://status.gamefest.gg)
+- [2019 Website](https://2019.gamefest.gg)
 - [2018 Website](https://2018.gamefest.gg)
 
 ## 🚀 Getting Started
