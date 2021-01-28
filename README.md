@@ -6,8 +6,8 @@
 
 ## 🔗 Quick Links
 
-- [Home](https://gamefest.gg)
-- [Registration](https://gamefest.gg/register)
+- [Home](https://2019.gamefest.gg)
+- [Registration](https://2019.gamefest.gg/register)
 - [Status](https://status.gamefest.gg)
 - [2018 Website](https://2018.gamefest.gg)
 
