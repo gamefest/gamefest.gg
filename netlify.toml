@@ -4,4 +4,3 @@
 
 [context."2018"]
   command = "echo 'static build'"
-  publish = "/"
