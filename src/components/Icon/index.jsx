@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { config } from '@fortawesome/fontawesome-svg-core'
+import { config } from "@fortawesome/fontawesome-svg-core";
 import { resolveIcon } from "./loader";
 
-config.autoAddCss = false
+config.autoAddCss = false;
 const baseStyle = { display: "inline-block", height: "1em", width: "1em" };
 
 // Embeds a FontAwesome SVG inline icon into the page, optionally allowing for

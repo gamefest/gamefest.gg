@@ -90,7 +90,11 @@ GameSection.Contact = function({ contacts }) {
       <h4>Game Administration</h4>
       <p>
         For any concerns about the tournament, feel free to contact{" "}
-        {formatList(contacts.map(c => c.name), "or")}:
+        {formatList(
+          contacts.map(c => c.name),
+          "or"
+        )}
+        :
       </p>
       <ul>
         {contacts.map(c => (

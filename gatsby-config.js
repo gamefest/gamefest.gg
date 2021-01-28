@@ -81,21 +81,6 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Titillium Web`,
-            variants: [`300`, `500`, `700`]
-          },
-          {
-            family: `Roboto`,
-            variants: [`300`, `300i`, `400`, `400i`, `700`, `700i`]
-          }
-        ]
-      }
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

@@ -6,6 +6,17 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import Tooltip from "components/Tooltip";
 
+// Include fonts
+import "@fontsource/titillium-web/300.css";
+import "@fontsource/titillium-web/400.css";
+import "@fontsource/titillium-web/700.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/300-italic.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/400-italic.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/roboto/700-italic.css";
+
 import "scss/main.scss";
 
 // Load smooth scrolling
