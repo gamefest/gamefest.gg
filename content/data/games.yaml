@@ -1,5 +1,6 @@
 gamesRoot: "/games/"
 gamesOrder:
+  - valorant
   - csgo
   - league
   - hearthstone

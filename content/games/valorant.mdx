@@ -1,0 +1,80 @@
+---
+name: "VALORANT"
+icon: "../img/games/valorant/icon.jpg"
+banner: "../img/games/valorant/banner.jpg"
+logo: "../img/games/valorant/logo.png"
+slug: valorant
+contacts:
+  - name: TBD
+    discord: TBD
+links:
+  - text: Official rules
+    icon: book
+    href: "/rules/valorant.pdf"
+    class: "btn-secondary"
+  - text: Register
+    icon: ticket-alt
+    href: "/register/"
+    class: "btn-primary"
+prizing:
+  tiers:
+    - label: Fewer than 5 teams
+      places:
+        - place: 1
+          amount: 70% + $87.50
+          items:
+            - text: "<em>70%</em> of prize pool plus $87.50"
+            - text: Axis Replay one-day gaming pass
+              quantity: 5
+              href: https://www.axisreplay.com/
+        - place: 2
+          amount: 30% + $37.50
+          items:
+            - text: "<em>30%</em> of prize pool plus $37.50"
+    - label: 5 or more teams
+      places:
+        - place: 1
+          amount: 70% + $175
+          items:
+            - text: "<em>70%</em> of prize pool plus $175"
+            - text: Axis Replay one-day gaming pass
+              quantity: 5
+              href: https://www.axisreplay.com/
+        - place: 2
+          amount: 30% + $75
+          items:
+            - text: "<em>30%</em> of prize pool plus $75"
+---
+
+#### Tournament Overview
+
+Gamefest 2021 will have a VALORANT tournament that will span **both days** and will feature the following:
+
+- 5v5, team-based
+- Bring-your-own-computer
+- Tournament held on both days, with the finals on Day 2, November 3<sup>rd</sup>
+
+##### Competitive Structure
+
+Each tournament round will use the **standard competitive ruleset** with two different round structures:
+
+- The group stage will use a round robin format
+- Top 8 teams play in single elimination, best of 3 playoffs
+
+##### Available map pool:
+
+- TBD
+
+<Section>
+
+#### Prizing
+
+Prizing will be determined at the event by number of ticket-price entrants into each game's prize pool.
+
+Each entrant's $5 entry fee (not including venue fee) goes towards the prize pool. In addition, the prize pool has a base amount that can increase depending on the number of entrants:
+
+- Base prize pool: **$125**
+- Increased to **$250** if there are 5+ teams competing
+
+<MultiPrizing tiers={props.prizing.tiers} /></Section>
+<Section><Contact contacts={props.contacts} /></Section>
