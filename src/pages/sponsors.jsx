@@ -2,9 +2,11 @@ import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import { useMdxImages } from "utility";
+import { Col, Alert } from "react-bootstrap";
 
 import Mdx from "components/Mdx";
 import SEO from "components/SEO";
+import Icon from "components/Icon";
 import Layout from "components/Layout";
 import Container from "components/Container";
 import SponsorTiles from "components/SponsorTiles";
@@ -60,7 +62,7 @@ function SponsorsPage() {
       <ParallaxProvider>
         <SEO title="Sponsors" />
         <Mdx content={body} images={images} />
-        <SponsorsPage.Tiers tiers={tiers} />
+        <SponsorsPage.Tiers tiers={tiers} showSponsors={false} />
       </ParallaxProvider>
     </Layout>
   );
@@ -74,9 +76,9 @@ SponsorsPage.displayName = "SponsorsPage";
 // ? Sub-components
 // ? ===============
 
-SponsorsPage.Tiers = function({ tiers }) {
+SponsorsPage.Tiers = function({ tiers, showSponsors }) {
   const sorted = useMemo(() => [...tiers].sort().reverse(), [tiers]);
-  return sorted.map(t => {
+  return showSponsors ? sorted.map(t => {
     return (
       <section className={`sponsors-tier-${t}`} key={t}>
         <Container>
@@ -84,7 +86,21 @@ SponsorsPage.Tiers = function({ tiers }) {
         </Container>
       </section>
     );
-  });
+  }) : (
+		<Container>
+        <Alert variant="info" className="mt-5 py-5">
+          <div
+            className="mb-3"
+            children={
+              <Icon name="calendar-day" size="2x" style={{ opacity: 0.4 }} />
+            }
+          />
+          <h5 className="mb-0">
+            Sponsors will be announced closer to the event
+          </h5>
+        </Alert>
+		</Container>
+      );
 };
 
 SponsorsPage.Tiers.propTypes = {
