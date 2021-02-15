@@ -4,20 +4,17 @@ icon: "../img/games/dota/icon.svg"
 banner: "../img/games/dota/banner.png"
 logo: "../img/games/dota/logo.svg"
 slug: dota
+contacts:
+  - name: "Mole"
+    discord: mole#6747
+  - name: "cosmiK!"
+    discord: cosmik#3009
 links:
   - text: Rules coming soon
     icon: book
     href: "/rules/dota.pdf"
     class: "btn-secondary"
     disabled: true
-  - text: Smash.gg Page
-    icon: smashgg
-    href: "https://smash.gg/tournament/gamefest-2019/events/dota-2-5v5-byoc"
-    class: "btn-secondary"
-  - text: Register
-    icon: ticket-alt
-    href: "/register/"
-    class: "btn-primary"
 prizing:
   tiers:
     - label: Fewer than 5 teams
@@ -52,11 +49,10 @@ prizing:
 
 #### Tournament Overview
 
-Gamefest 2019 will have a Dota 2 tournament that is scheduled to occur **only on the first day, November 2<sup>nd</sup>**, though overflow onto the second day may occur if more time is needed. The tournament details are as follows:
+Gamefest 2021 will have a Dota 2 tournament that is scheduled to occur **only on the first day, April 10<sup>th</sup>**, though overflow onto the second day may occur if more time is needed. The tournament details are as follows:
 
 - 5v5, team-based
-- Bring-your-own-computer
-- Tournament held on first day, November 2<sup>nd</sup>
+- Tournament held on first day, April 10<sup>th</sup>
 
 ##### Competitive Structure
 
@@ -82,3 +78,4 @@ Each entrant's $5 entry fee (not including venue fee) goes towards the prize poo
 - Increased to **$250** if there are 5+ teams competing
 
 <MultiPrizing tiers={props.prizing.tiers} /></Section>
+<Section><Contact contacts={props.contacts} /></Section>

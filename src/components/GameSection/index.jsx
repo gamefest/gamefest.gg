@@ -93,7 +93,7 @@ GameSection.Contact = function({ contacts }) {
         {formatList(
           contacts.map(c => c.name),
           "or"
-        )}
+        )} on Discord
         :
       </p>
       <ul>
