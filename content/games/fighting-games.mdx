@@ -1,14 +1,12 @@
 ---
-name: Fighting Games
+name: Smash Melee
 icon: "../img/games/fighting-games/icon.svg"
 banner: "../img/games/fighting-games/banner.jpg"
 logo: "../img/games/fighting-games/logo.svg"
 slug: fighting-games
-links:
-  - text: Register
-    icon: ticket-alt
-    href: "/register/"
-    class: "btn-primary"
+contacts:
+  - name: Patrick "ptdubs"
+    discord: ptdubs#9188
 prizing:
   tiers:
     - label: Fewer than 40 entrants
@@ -47,29 +45,16 @@ prizing:
 
 #### Tournament Overview
 
-Gamefest 2021 will have a variety of different fighting game tournaments, with Melee/Ultimate tournaments occurring on **the second day, April 11<sup>th</sup>** and all other fighting game tournaments occurring on the **first day, April 10<sup>th</sup>**
-
-If you bring a setup for any of our fighting games tournaments, **we will waive your ticket price.** We need help making the tournaments possible and community setups help us accomplish that. If you have already paid, let us know when check in or feel free to DM a tournament organizer and we can refund your ticket price.
-
-##### Games list
-
-- Smash Ultimate
-- Smash Melee
-- Tekken
-- BBtag
-- Guilty Gear
-- UNIST
-- DBFZ
+Gamefest 2021 will feature a Super Smash Bros. Melee tournament.
 
 <Section>
 
 #### Prizing
 
-Prizing will be determined at the event by number of ticket-price entrants into each game's prize pool. Each entrant's $5 entry fee (not including venue fee) goes towards the prize pool.
+Prizing will be determined at the event by number of ticket-price entrants into each game's prize pool. 
+
+Each entrant's $5 entry fee (not including venue fee) goes towards the prize pool.
 
 <MultiPrizing tiers={props.prizing.tiers} />
-<Space h={20} />
-
-**If over 40 participants are present, a 4th place will be added and prizing will be redistributed as follows: 50 / 25 / 15 / 10*
-
 </Section>
+<Section><Contact contacts={props.contacts} /></Section>
