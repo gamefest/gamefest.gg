@@ -7,13 +7,13 @@ leftLinks:
   href: '/sponsors/'
 - text: Directions
   href: '/directions/'
-#- text: Register
-#  href: '/register/'
-#  class: 'nav-link-outline ml-lg-3 d-inline-block d-lg-inline'
+- text: Register
+  href: '/register/'
+  class: 'nav-link-outline ml-lg-3 d-inline-block d-lg-inline'
 rightLinks:
-#- icon: smashgg
-#  href: 'https://smash.gg/tournament/gamefest-2019'
-#  ariaLabel: SmashGG page
+- icon: smashgg
+  href: 'https://smash.gg/tournament/gamefest-spring-2021'
+  ariaLabel: SmashGG page
 - icon: facebook-f
   href: 'https://www.facebook.com/gtgamefest/'
   ariaLabel: Facebook page
