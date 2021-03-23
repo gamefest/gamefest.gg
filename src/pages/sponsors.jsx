@@ -62,7 +62,7 @@ function SponsorsPage() {
       <ParallaxProvider>
         <SEO title="Sponsors" />
         <Mdx content={body} images={images} />
-        <SponsorsPage.Tiers tiers={tiers} showSponsors={false} />
+        <SponsorsPage.Tiers tiers={tiers} showSponsors={true} />
       </ParallaxProvider>
     </Layout>
   );
