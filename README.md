@@ -24,7 +24,7 @@ yarn install
 Then, run the following command to start the development server (with hot reloading enabled):
 
 ```console
-yarn start
+yarn develop
 ```
 
 ### Code Style
