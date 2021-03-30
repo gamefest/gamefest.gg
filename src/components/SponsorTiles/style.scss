@@ -19,6 +19,10 @@
             background-color: rgba(black, 0.0125);
         }
     }
+	
+	&--tile-logo {
+		max-width: 190px;
+	}
 
     &.compact {
         flex-wrap: wrap;
